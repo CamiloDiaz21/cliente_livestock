@@ -1,0 +1,42 @@
+<div class="login-container">
+  <mat-card class="login-card">
+    <div class="logo-container">
+      <img src="/logo.jpg" alt="Logo del sistema" class="logo">
+    </div>
+    <br>
+    <br>
+    <br>
+    <h1 class="title">Bienvenido a Livestock</h1>
+    <p class="subtitle">Ingrese sus credenciales para continuar</p>
+
+    <!-- Campo de Usuario -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Correo</mat-label>
+      <input matInput type="email" placeholder="Ingrese su correo" [(ngModel)]="correo" required email>
+    </mat-form-field>
+
+    <!-- Campo de Contraseña -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Contraseña</mat-label>
+      <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="Ingrese su contraseña">
+      <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword">
+        <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+    </mat-form-field>
+      <!-- Opciones de "Recordar contraseña" y "Olvidaste tu contraseña?" -->
+  <div class="options">
+    <mat-checkbox>Recordar contraseña</mat-checkbox>
+    <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+  </div>
+    <!-- Botón de Ingreso -->
+    <div class="actions">
+    <button mat-raised-button color="primary" (click)="login()">Iniciar Sesión</button>
+  </div>
+    <!-- <mat-button class="custom-button">Mi Botón</mat-button> -->
+    <br>
+    <!-- Enlaces para recuperar contraseña y crear cuenta -->
+    <div class="actions">
+      <button mat-raised-button color="primary" (click)="goToRegister()">cuenta nueva</button>
+    </div>
+  </mat-card>
+</div>

@@ -1,0 +1,78 @@
+.login-container{
+  background:  url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z2FuYWRvfGVufDB8fDB8fHww') no-repeat center center ;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Estilos para la targeta de iniciar sesion */
+.login-card{
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  text-align: center;
+  background: rgb(rgb(192, 164, 164), green, blue);
+  border-radius: 10px;
+}
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  top: -50px; /* Hace que el logo sobresalga del card */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(144, 101, 101, 0.4);
+  padding: 10px;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 10px;
+}
+/* estilo de titulo */
+.title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bolder;
+  color: #ca456b
+}
+/* Estilo de titulo */
+.subtitle {
+  font-size: 14px;
+  color: #a72c4f;
+  margin-bottom: 10px;
+}
+/* estilo de formularios y botones */
+.full-width {
+  width: 100%;
+  margin-bottom: 15px;
+}
+.action{
+  display: flex;
+  justify-content: space-between;
+}
+.mat-form-field {
+  width: 100%;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mat-input-element {
+  color: white;
+}
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
