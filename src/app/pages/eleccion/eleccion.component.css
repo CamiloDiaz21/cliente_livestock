@@ -1,0 +1,78 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z2FuYWRvfGVufDB8fDB8fHww') center/cover no-repeat;
+}
+
+.card-container {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+}
+
+.user-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(252, 250, 250, 0.762);
+  padding: 40px;
+  border-radius: 15px;
+  color: #a72c4f;
+  text-align: center;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 25px;
+  border-radius: 50%;
+}
+
+.logo {
+  width: 80px;
+}
+
+.user-types {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.user-type {
+  width: 45%;
+}
+
+.user-type h3 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.user-type ul {
+  list-style: none;
+  padding: 0;
+}
+
+.user-type ul li {
+  margin-bottom: 8px;
+  font-size: 0.9em;
+}
+
+.divider {
+  width: 24px;
+  background: rgb(13, 3, 3);
+  height: 100%;
+}
+
+.user-btn {
+  width: 100%;
+  margin-top: 15px;
+  font-weight: bold;
+}

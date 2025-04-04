@@ -1,0 +1,95 @@
+<div class="register-container">
+  <mat-card class="register-card">
+    <div class="logo-section">
+      <img src="/logo.jpg"class="logo">
+    </div>
+    <!-- Sección del formulario -->
+    <div class="form-section">
+      <h2>CREAR CUENTA</h2>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nombres</mat-label>
+          <input matInput type="text" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Apellidos</mat-label>
+          <input matInput type="text" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Tipo de documento</mat-label>
+          <mat-select required>
+            <mat-option value="CC">Cédula</mat-option>
+            <mat-option value="TI">Tarjeta de Identidad</mat-option>
+            <mat-option value="PAS">Pasaporte</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Número de documento</mat-label>
+          <input matInput type="text" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Correo electrónico</mat-label>
+          <input matInput type="email" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Dirección</mat-label>
+          <input matInput type="text" required />
+        </mat-form-field>
+
+        <div class="row">
+          <mat-form-field appearance="outline" class="small-field">
+            <mat-label>Ciudad</mat-label>
+            <input matInput type="text" required />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="small-field">
+            <mat-label>Departamento</mat-label>
+            <input matInput type="text" required />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="small-field">
+            <mat-label>País</mat-label>
+            <input matInput type="text" required />
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <mat-form-field appearance="outline" class="small-field">
+            <mat-label>Día</mat-label>
+            <input matInput type="number" min="1" max="31" required />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="small-field">
+            <mat-label>Mes</mat-label>
+            <input matInput type="number" min="1" max="12" required />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="small-field">
+            <mat-label>Año</mat-label>
+            <input matInput type="number" min="1900" max="2024" required />
+          </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Confirmar contraseña</mat-label>
+          <input matInput type="password" required />
+        </mat-form-field>
+
+        <mat-checkbox> Términos y condiciones de uso</mat-checkbox>
+
+        <button mat-raised-button color="primary" class="submit-btn" (click)="aceptar()">ACEPTAR</button>
+
+    </div>
+  </mat-card>
+</div>
+

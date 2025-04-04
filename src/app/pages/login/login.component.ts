@@ -36,6 +36,7 @@ export class LoginComponent {
 
     goToRegister(){
       console.log('Boton de registro clickeado');
+      this.router.navigate(['/eleccion']);
     }
     login(){
       alert('iniciando sesion...');
