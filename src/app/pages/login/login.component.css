@@ -1,5 +1,5 @@
 .login-container{
-  background:  url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z2FuYWRvfGVufDB8fDB8fHww') no-repeat center center ;
+  background:  url('/fondo.jpg') no-repeat center center ;
   background-size: cover;
   height: 100vh;
   display: flex;
@@ -79,4 +79,16 @@
   width: 2px;
   background: rgba(0, 0, 0, 0.2);
   height: 100%;
+}
+.submit-btn {
+  width: 100%;
+  margin-top: 15px;
+  font-weight: bold;
+  background-color: white;
+  color: #7B1F30;
+  border: 1px solid #7B1F30;
+}
+.submit-btn:hover {
+  background-color: #7B1F30;
+  color: white;
 }

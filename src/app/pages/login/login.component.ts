@@ -42,7 +42,8 @@ export class LoginComponent {
       alert('iniciando sesion...');
     }
     recoverPassword(){
-      alert('recuperando contraseña...');
+      console.log('Boton de recuperar clickeado');
+      this.router.navigate(['/recover-password']);
     }
     createAccount(){
       alert('creando cuenta...');

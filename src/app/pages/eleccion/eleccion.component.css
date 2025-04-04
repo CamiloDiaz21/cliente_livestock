@@ -76,3 +76,15 @@
   margin-top: 15px;
   font-weight: bold;
 }
+.submit-btn {
+  width: 100%;
+  margin-top: 15px;
+  font-weight: bold;
+  background-color: white;
+  color: #7B1F30;
+  border: 1px solid #7B1F30;
+}
+.submit-btn:hover {
+  background-color: #7B1F30;
+  color: white;
+}

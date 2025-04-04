@@ -26,17 +26,18 @@
       <!-- Opciones de "Recordar contraseña" y "Olvidaste tu contraseña?" -->
   <div class="options">
     <mat-checkbox>Recordar contraseña</mat-checkbox>
-    <a href="#" class="forgot-password" (click)="recoverPassword()">¿Olvidaste tu contraseña?</a>
+    <button mat-button color="accent" (click)="recoverPassword()">¿Olvidaste tu contraseña?</button>
   </div>
+  <br>
     <!-- Botón de Ingreso -->
     <div class="actions">
-    <button mat-raised-button color="primary" (click)="login()">Iniciar Sesión</button>
+    <button mat-raised-button color="primary" class="submit-btn" (click)="login()">Iniciar Sesión</button>
   </div>
+
     <!-- <mat-button class="custom-button">Mi Botón</mat-button> -->
-    <br>
     <!-- Enlaces para recuperar contraseña y crear cuenta -->
     <div class="actions">
-      <button mat-raised-button color="primary" (click)="goToRegister()">cuenta nueva</button>
+      <button mat-raised-button color="primary" class="submit-btn" (click)="goToRegister()">cuenta nueva</button>
     </div>
   </mat-card>
 </div>
