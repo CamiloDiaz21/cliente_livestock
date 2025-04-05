@@ -1,4 +1,4 @@
-.varificar-container {
+.verificar-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,8 +7,7 @@
   background-size: cover;
 }
 .verificar-card {
-  background: rgb(red, green, blue);
-  color: white;
+  color: rgba(255, 255, 255, 0.384);
   padding: 2rem;
   border-radius: 12px;
   text-align: center;
@@ -18,11 +17,14 @@
 .titulo {
   font-size: 24px;
   font-weight: bold;
+  margin-bottom: 20px;
+  color: #a72c4f;
 }
 
 .descripcion {
   font-size: 16px;
   margin-bottom: 20px;
+  color: #a72c4f;
 }
 
 .codigo-input {
@@ -33,7 +35,7 @@
   width: 100%;
   margin: 15px 0;
   font-weight: bold;
-  background-color: #ccc;
+  background-color: #a72c4f;
   color: #000;
   border-radius: 6px;
 }
@@ -44,9 +46,21 @@
   color: #ccc;
   text-decoration: none;
   font-size: 14px;
-  transition: color 0.2s;
 }
 
 .reenviar-codigo:hover {
-  color: #fff;
+  color: #a72c4f;
+}
+
+.submit-btn {
+  width: 100%;
+  margin-top: 15px;
+  font-weight: bold;
+  background-color: rgba(164, 143, 143, 0.518);
+  color: #7b1f307d;
+  border: 1px solid #7b1f307d;
+}
+.submit-btn:hover {
+  background-color: #7b1f307d;
+  color: rgba(255, 255, 255, 0.799);
 }

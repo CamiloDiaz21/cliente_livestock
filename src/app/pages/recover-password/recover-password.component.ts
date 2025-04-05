@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
@@ -15,13 +16,13 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-
-
+    FormsModule,
   ],
   templateUrl: './recover-password.component.html',
   styleUrl: './recover-password.component.css'
 })
 export class RecoverPasswordComponent {
+  correo: string = '';
   constructor(private router: Router) { }
   hidePassword = true;
 
