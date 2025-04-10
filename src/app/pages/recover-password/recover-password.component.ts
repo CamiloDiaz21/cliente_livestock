@@ -29,7 +29,7 @@ export class RecoverPasswordComponent {
   Verificar()
   {
     console.log('Verificando correo...');
-    this.router.navigate(['verificacion-codigo']);
+    this.router.navigate(['new-password']);
   }
 
 

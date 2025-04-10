@@ -1,0 +1,20 @@
+<mat-toolbar color="primary" class="toolbar">
+  <button mat-icon-button (click)="toggleSidenav()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="app-name">LIVESTOCK</span>
+  <span class="spacer"></span>
+  <span class="usuario">{{usuario}}</span>
+</mat-toolbar>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="over" [(opened)]="showSidenav" class="sidenav">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard/inicio" (click)="toggleSidenav()">Usuario</a>
+      <a mat-list-item routerLink="/dashboard/registro" (click)="toggleSidenav()">Registro</a>
+      <a mat-list-item routerLink="/dashboard/login" (click)="toggleSidenav()">Login</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

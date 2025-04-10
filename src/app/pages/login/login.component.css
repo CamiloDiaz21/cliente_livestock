@@ -43,12 +43,12 @@
   margin: 0;
   font-size: 24px;
   font-weight: bolder;
-  color: #ca456b
+  color: #7B1F30
 }
 /* Estilo de titulo */
 .subtitle {
   font-size: 14px;
-  color: #a72c4f;
+  color: #7B1F30;
   margin-bottom: 10px;
 }
 /* estilo de formularios y botones */
@@ -87,6 +87,7 @@
   background-color: white;
   color: #7B1F30;
   border: 1px solid #7B1F30;
+  
 }
 .submit-btn:hover {
   background-color: #7B1F30;

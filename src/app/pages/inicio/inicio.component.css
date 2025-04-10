@@ -1,0 +1,55 @@
+.inicio-selection{
+  background-image: url('/fondo.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: white;
+  text-align: center;
+}
+.inicio-overlay{
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  border-radius: 10px;
+}
+.inicio-selection h1{
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.submit-btn{
+  background-color: red;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-btn:hover{
+  background-color: darkred;
+}
+.welcome-section {
+  background: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.welcome-section h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.welcome-section p {
+  font-size: 1em;
+  color: #444;
+}
+
+.highlight {
+  color: #7B1F30;
+}
