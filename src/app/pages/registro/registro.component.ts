@@ -8,6 +8,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserHeaderComponent } from '../component/user-header/user-header.component';
 
 @Component({
   selector: 'app-registro',
@@ -20,7 +21,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UserHeaderComponent
   ],
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css'] // ← ojo con "styleUrl" → debe ser "styleUrls"

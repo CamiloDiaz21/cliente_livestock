@@ -1,175 +1,36 @@
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 20px 0;
-  width: 100%;
-  height: 75px;
-  color: #fff;
-
-  background-size: cover;
-  background-position: center;
-  background-color: rgba(0, 0, 0, 0.5); /* Superposición de color */
-  transition: all 0.4s ease-in-out;
-  z-index: 1000;
+.main-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 2cm; /* Mueve el logo y texto 2 cm a la izquierda */
-}
-
-
-/* Branding styles */
-.branding { display: flex; align-items: center; height: 90px; transition: all 0.4s ease-in-out; position: relative; left: -5cm; bottom: -0.2cm; /* Move the logo and text 2 cm to the left */ }
-
-.logo-lg {
-  max-width: 80px;
-  height: auto;
-  margin-right: 10px;
-}
-
-.branding-text {
-  font-size: 24px;
+  flex-direction: column;
+  align-items: start;
+  padding: 20px 40px;
+  background: white;
   font-weight: bold;
-  margin: 0;
-  color: #fff;
-}
 
-/* Menu styles */
-.menu {
-  display: flex;
-  justify-content: flex-end;
-  width: auto;
-  text-align: right;
-}
-
-.listMenu {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.listMenu li {
-  display: inline;
-  padding: 0 15px;
-}
-
-.listMenu li a {
-  color: #fff;
-  font-weight: 600;
-  font-size: 15px;
-  text-decoration: none;
-  display: block;
-  transition: color 0.2s ease-in-out;
-}
-
-.listMenu li a:hover {
-  color: #660066;
-}
-
-/* Mobile menu button styles */
-/* Adjust the mobile menu button position */
-.mobileMenuButton {
-  display: inline-block;
-  position: relative;
-  width: 30px;
-  height: 34px;
-  border-radius: 4px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.4s ease;
-}
-
-.mobileMenuButton:hover,
-.mobileMenuButton:active {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.mobileMenuButton span,
-.mobileMenuButton span::before,
-.mobileMenuButton span::after {
-  display: block;
-  position: absolute;
-  width: 22px;
-  height: 4px;
-  background: #262626;
-  border-radius: 5px;
-  content: '';
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-.mobileMenuButton span::before {
-  top: -8px;
-}
-
-.mobileMenuButton span::after {
-  bottom: -8px;
-}
-
-/* Adjust the list menu items position */
-.listMenu li {
-  display: inline;
-  padding: 0 15px;
-  position: relative;
-  top: -1.2cm; /* Move the menu items 2 cm up */
-}
-
-.listMenu li a {
-  color: #fff;
-  font-weight: 600;
-  font-size: 15px;
-  text-decoration: none;
-  display: block;
-  transition: color 0.2s ease-in-out;
-}
-
-.listMenu li a:hover {
-  color: #660066;
-}
-
-
-.overlay {
-  background: rgba(0, 0, 0, 0.7);
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: none;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  z-index: 1150;
-}
-
-/* Media Query Mobile First Approach */
-@media (min-width: 769px) {
-  .overlay {
-      display: none !important;
+  .logo {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 10px;
   }
 
-  .mobileMenu {
-      display: none;
-  }
+  .nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 
-  .wrap-container {
-      width: 80%;
-      margin: 0 auto;
-  }
+    a {
+      text-decoration: none;
+      color: black;
+      padding-bottom: 5px;
+      border-bottom: 3px solid transparent;
 
-  .mobileMenuButton {
-      display: none;
-  }
+      &.active {
+        color: #7B1F30;
+        border-color:#ccc;
+      }
 
-  .listMenu {
-      display: flex;
-  }
-
-  .listMenu li {
-      margin: 0 15px;
+      &:hover {
+        border-color: #1f737b;
+      }
+    }
   }
 }
