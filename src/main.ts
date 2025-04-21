@@ -8,6 +8,8 @@ import { AppComponent } from './app/app.component';
 import { provideHttpClient } from '@angular/common/http';
 import { InicioComponent } from './app/pages/inicio/inicio.component';
 import { UserHeaderComponent } from './app/pages/component/user-header/user-header.component';
+import { PublicacionesComponent } from './app/pages/publicaciones/publicaciones.component';
+
 
 
 
@@ -18,7 +20,8 @@ bootstrapApplication(AppComponent,{
           { path: 'login', component: LoginComponent },
           { path: 'registro', component: RegistroComponent},
           { path: 'inicio', component: InicioComponent},
-          { path: 'user-header', component: UserHeaderComponent}
+          { path: 'user-header', component: UserHeaderComponent},
+          { path: 'publicaciones', component: PublicacionesComponent},
 
       ]),
       provideAnimations(),

@@ -1,0 +1,57 @@
+.post-container {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 15px;
+  padding: 10px;
+  background: #fff;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.avatar {
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.verified {
+  color: dodgerblue;
+}
+
+.post-image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.post-description {
+  background: #eddede;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.post-actions {
+  display: flex;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+.icon-button img {
+  width: 30px;
+  cursor: pointer;
+}
+
+.contact-button button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #deb2b2;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}

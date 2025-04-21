@@ -6,6 +6,7 @@ import { RecoverPasswordComponent } from './pages/recover-password/recover-passw
 import { VerificacionCodigoComponent } from './pages/verificacion-codigo/verificacion-codigo.component';
 import { NewPasswordComponent } from './pages/new-password/new-password.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
+import { PublicacionesComponent } from './pages/publicaciones/publicaciones.component';
 
 
 export const routes: Routes = [
@@ -15,5 +16,6 @@ export const routes: Routes = [
     { path:'verificacion-codigo', component: VerificacionCodigoComponent },
     { path: 'new-password', component: NewPasswordComponent},
     { path: 'inicio', component: InicioComponent},
+    { path: 'publicaciones', component: PublicacionesComponent},
     { path: '**', redirectTo: 'login' },
   ];
