@@ -2,6 +2,7 @@
   border: 1px solid #ccc;
   border-radius: 10px;
   margin: 15px;
+  align-items: center;
   padding: 10px;
   background: #fff;
 }
@@ -14,34 +15,45 @@
 
 .avatar {
   width: 40px;
-  border-radius: 50%;
+  align-items: center;
+  border-radius: 80%;
   margin-right: 10px;
 }
 
 .verified {
+  font-size: 1.5em;
+  align-items: center;
   color: dodgerblue;
 }
 
-.post-image img {
-  width: 100%;
-  border-radius: 10px;
+.post-imagen{
+  width: 100%;           /* Ocupa todo el ancho del contenedor */
+  max-width: 100%;       /* No se pasa del tamaño máximo del contenedor */
+  height: auto;          /* Mantiene la proporción original */
+  border-radius: 8px;    /* Bordes redondeados opcionales */
+  object-fit: cover;
+  padding: auto;
 }
 
 .post-description {
   background: #eddede;
   padding: 10px;
   border-radius: 8px;
-  margin: 10px 0;
+  width: 78%;
+  margin: 10px;
 }
 
 .post-actions {
   display: flex;
+  align-items: center;
   gap: 15px;
   padding: 10px 0;
 }
 
-.icon-button img {
+.icon-button{
   width: 30px;
+  padding: 10px;
+  align-items: center;
   cursor: pointer;
 }
 

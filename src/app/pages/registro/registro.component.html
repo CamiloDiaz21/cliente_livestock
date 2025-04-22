@@ -17,10 +17,18 @@
         </mat-form-field>
 
         <mat-form-field appearance="outline">
+          <mat-label>Tipo de Usuario</mat-label>
+          <mat-select required>
+            <mat-option value="UV">Usuario Vendedor</mat-option>
+            <mat-option value="UC">Usuario Comun</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
           <mat-label>Tipo de documento</mat-label>
           <mat-select required>
             <mat-option value="CC">Cédula</mat-option>
-            <mat-option value="TI">Tarjeta de Identidad</mat-option>
+            <mat-option value="CE">Cedula de Extranjeria</mat-option>
             <mat-option value="PAS">Pasaporte</mat-option>
           </mat-select>
         </mat-form-field>

@@ -1,10 +1,13 @@
 .main-header {
+  background: white;
+  background-size: cover;
+  background-position: center;
   display: flex;
   flex-direction: column;
   align-items: start;
   padding: 20px 40px;
-  background: white;
   font-weight: bold;
+
 
   .logo {
     font-size: 28px;
@@ -25,11 +28,12 @@
 
       &.active {
         color: #7B1F30;
-        border-color:#ccc;
+        border-color:#cccccc;
       }
 
       &:hover {
-        border-color: #1f737b;
+        color: #7B1F30;
+        border-color: #7B1F30;
       }
     }
   }
