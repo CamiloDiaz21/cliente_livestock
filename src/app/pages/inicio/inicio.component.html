@@ -11,6 +11,32 @@
     En LIVESTOKWEB, nos dedicamos a revolucionar el mundo de la ganadería en Casanare, con un enfoque único en la venta llanera.
     Comprometidos con la calidad y la innovación, ofrecemos una experiencia inigualable a nuestros clientes.
   </p>
+
+  <button mat-raised-button class="button" (click)="Publicaciones()">Publicaciones</button>
+
+  <div class="post-container">
+    <div class="post-header">
+      <img src="/imagen.jpg" alt="Avatar" class="avatar">
+      <div class="user-info">
+        <strong>Luis Villa</strong><span class="verified">*</span><br>
+        <small># Publicado desde 20/03/2022</small>
+      </div>
+    </div>
+
+    <img src="/venta.jpg" alt="Publicación" class="post-imagen">
+
+    <div class="post-description">
+      <h4>INFORMACIÓN</h4>
+      <p>Se vende lote de ganado raza brahman rojo puro.</p>
+    </div>
+
+    <div class="contact-button">
+        <button mat-raised-button class="button">
+          Contactar vendedor
+        </button>
+
+    </div>
+
 </div>
 <app-user-footer></app-user-footer>
 

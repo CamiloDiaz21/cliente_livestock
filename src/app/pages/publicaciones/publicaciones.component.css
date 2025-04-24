@@ -1,69 +1,116 @@
 .post-container {
+  max-width: 800px;
+  margin: 20px auto;
   border: 1px solid #ccc;
   border-radius: 10px;
-  margin: 15px;
-  align-items: center;
-  padding: 10px;
+  padding: 15px;
   background: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+
 }
 
 .post-header {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .avatar {
   width: 40px;
-  align-items: center;
-  border-radius: 80%;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
   margin-right: 10px;
 }
 
 .verified {
-  font-size: 1.5em;
-  align-items: center;
   color: dodgerblue;
+  font-size: 1.2em;
+  margin-left: 5px;
 }
 
-.post-imagen{
-  width: 100%;           /* Ocupa todo el ancho del contenedor */
-  max-width: 100%;       /* No se pasa del tamaño máximo del contenedor */
-  height: auto;          /* Mantiene la proporción original */
-  border-radius: 8px;    /* Bordes redondeados opcionales */
+.post-imagen {
+  width: 100%;
+  max-height: 450px;
   object-fit: cover;
-  padding: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 .post-description {
   background: #eddede;
   padding: 10px;
   border-radius: 8px;
-  width: 78%;
-  margin: 10px;
+  font-size: 14px;
 }
 
-.post-actions {
+
+.submit-btn {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top: 15px;
+  align-items: center;
+  font-weight: bold;
+  background-color: white;
+  color: #7B1F30;
+  border: 1px solid #7B1F30;
+  }
+
+
+.submit-btn:hover {
+  background-color: #7B1F30;
+  color: white;
+}
+
+.carousel-wrapper{
+
+  text-align: center;
+  padding: 20px;
+  max-width: 2000px;
+  margin: auto;
+}
+
+.description{
+  margin-bottom: 20px;
+  font-style: italic;
+  color: #e61c1c;
+}
+
+.carousel-container{
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 10px 0;
-}
-
-.icon-button{
-  width: 30px;
-  padding: 10px;
-  align-items: center;
-  cursor: pointer;
-}
-
-.contact-button button {
-  display: flex;
-  align-items: center;
+  justify-content: center;
   gap: 10px;
-  background: #deb2b2;
-  border: none;
-  padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
+}
+
+.carousel-track-container{
+  width: 600px;
+  overflow: hidden;
+}
+.carousel-track{
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-card{
+
+  min-width: 300px;
+  margin: 0 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.detalle-info{
+  margin-top: 30px;
+  padding: 20px;
+  border-top: 2px solid #000000;
+  background-color: #cabdbd;
+  text-align: center;
+  animation: fadeIn 0.3 ease-in-out;
+}
+
+@keyframes fadeIn{
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
