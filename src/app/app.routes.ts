@@ -7,6 +7,7 @@ import { VerificacionCodigoComponent } from './pages/verificacion-codigo/verific
 import { NewPasswordComponent } from './pages/new-password/new-password.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { PublicacionesComponent } from './pages/publicaciones/publicaciones.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 
 
 export const routes: Routes = [
@@ -16,6 +17,7 @@ export const routes: Routes = [
     { path:'verificacion-codigo', component: VerificacionCodigoComponent },
     { path: 'new-password', component: NewPasswordComponent},
     { path: 'inicio', component: InicioComponent},
+    { path: 'perfil', component: PerfilComponent},
     { path: 'publicaciones', component: PublicacionesComponent},
     { path: '**', redirectTo: 'login' },
   ];

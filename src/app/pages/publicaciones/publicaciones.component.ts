@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { UserHeaderComponent } from '../component/user-header/user-header.component';
@@ -18,6 +19,9 @@ import { MatCardModule } from '@angular/material/card';
   styleUrl: './publicaciones.component.css'
 })
 export class PublicacionesComponent {
+
+  constructor(private router: Router) {}
+
   // @ViewChild('scrollContainer',{static: true}) scrollContainer!:ElementRef;
   currentIndex= 0;
 
@@ -28,15 +32,15 @@ export class PublicacionesComponent {
 
   cards =[
     {
-      title: 'card 1',
+      title: '',
       image: 'venta.jpg',
     },
     {
-      title: 'card 2',
+      title: '',
       image: 'venta.jpg',
     },
     {
-      title: 'card 3',
+      title: '',
       image: 'venta.jpg',
     },
 
@@ -57,5 +61,9 @@ export class PublicacionesComponent {
 
   getTransform(){
     return `translateX(-${this.currentIndex*100}%)`
+  }
+
+  Perfil(){
+    this.router.navigate(['/perfil'])
   }
 }

@@ -6,9 +6,13 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { RegistroComponent } from './app/pages/registro/registro.component';
 import { AppComponent } from './app/app.component';
 import { provideHttpClient } from '@angular/common/http';
+import { RecoverPasswordComponent } from './app/pages/recover-password/recover-password.component';
+import { VerificacionCodigoComponent } from './app/pages/verificacion-codigo/verificacion-codigo.component';
+import { NewPasswordComponent } from './app/pages/new-password/new-password.component';
 import { InicioComponent } from './app/pages/inicio/inicio.component';
 import { UserHeaderComponent } from './app/pages/component/user-header/user-header.component';
 import { PublicacionesComponent } from './app/pages/publicaciones/publicaciones.component';
+import { PerfilComponent } from './app/pages/perfil/perfil.component';
 
 
 
@@ -20,8 +24,12 @@ bootstrapApplication(AppComponent,{
           { path: 'login', component: LoginComponent },
           { path: 'registro', component: RegistroComponent},
           { path: 'inicio', component: InicioComponent},
+          { path: 'recover-password', component: RecoverPasswordComponent},
+          { path:'verificacion-codigo', component: VerificacionCodigoComponent },
+          { path: 'new-password', component: NewPasswordComponent},
           { path: 'user-header', component: UserHeaderComponent},
           { path: 'publicaciones', component: PublicacionesComponent},
+          { path: 'perfil', component: PerfilComponent},
 
       ]),
       provideAnimations(),

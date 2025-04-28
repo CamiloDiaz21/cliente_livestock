@@ -86,7 +86,7 @@
 }
 
 .carousel-track-container{
-  width: 600px;
+  width: 500px;
   overflow: hidden;
 }
 .carousel-track{
@@ -96,7 +96,7 @@
 
 .carousel-card{
 
-  min-width: 300px;
+  min-width: 500px;
   margin: 0 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
