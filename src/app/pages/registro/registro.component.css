@@ -5,28 +5,32 @@
   align-items: center;
   height: 200vh;
   background: url('/fondo.jpg') center/cover no-repeat;
+  padding: 20px;
 }
 
 /* Tarjeta del Formulario */
 .register-card {
   display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 700px;
-  background: rgba(252, 250, 250, 0.762);
+  background: rgba(252, 250, 250, 0.85);
   border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   overflow: hidden;
 }
 
 /* Sección del Formulario */
 .form-section {
-  width: 90%;
+  width: 100%;
   padding: 30px;
 }
 
 .form-section h2 {
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1.8em;
   font-weight: bold;
+  margin-bottom: 20px;
   color: #7B1F30;
 }
 
@@ -38,21 +42,29 @@ mat-form-field {
 
 .row {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
 .small-field {
-  width: 33%;
+  flex: 1 1 30%;
+  min-width: 100px;
+}
+
+/* Checkbox de Términos */
+mat-checkbox {
+  margin-top: 10px;
 }
 
 /* Botón de Aceptar */
 .submit-btn {
   width: 100%;
-  margin-top: 15px;
+  margin-top: 20px;
   font-weight: bold;
   background-color: white;
   color: #7B1F30;
-  border: 1px solid #7B1F30;
+  border: 2px solid #7B1F30;
+  transition: 0.3s ease;
 }
 
 .submit-btn:hover {
@@ -60,7 +72,7 @@ mat-form-field {
   color: white;
 }
 
-/* Sección del Logo */
+/* Sección del Logo (si se activa) */
 .logo-section {
   width: 35%;
   background: rgba(123, 31, 48, 0.8);
