@@ -65,11 +65,19 @@ export class RegistroComponent {
   // }
   aceptar() {
     if (this.registroForm.valid) {
-      console.log('Datos del formulario:', this.registroForm.value);
-      this.apiService.post<any>('registro', this.registroForm).subscribe({
-        next: (response) => console.log('Respuesta:', response),
-        error: (error) => console.error('Error:', error)
+      console.log('Registro exitoso', this.registroForm.value);
+      console.log(JSON.stringify(this.registroForm.value)); // imprime el JSON como string
+      this.apiService.postData('registro', this.registroForm.value).subscribe({
+        next: (response) => {
+          console.log('Respuesta del servidor:', response);
+          {}
+        },
+        error: (error) => {
+          console.error('Error al enviar POST:', error);
+        }
       });
+
+
     } else {
       console.log('Formulario inválido');
     }
