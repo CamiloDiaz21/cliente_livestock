@@ -1,28 +1,32 @@
-import { Component, Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
-  private baseUrl = 'localhost:8082/v1/'; // Cambia por tu API base
+  private baseUrl = 'http://localhost:8085/v1'; // Cambia esta URL base según tu backend
 
   constructor(private http: HttpClient) {}
 
-  get<T>(endpoint: string): Observable<T> {
-    return this.http.get<T>(`${this.baseUrl}/${endpoint}`);
+  // Método GET
+  getData(endpoint: string, params: any = {}): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${endpoint}`, { params });
   }
 
-  post<T>(endpoint: string, body: any): Observable<T> {
-    return this.http.post<T>(`${this.baseUrl}/${endpoint}`, body);
+  // Método POST
+  postData(endpoint: string, data: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/${endpoint}`, data);
   }
 
-  put<T>(endpoint: string, body: any): Observable<T> {
-    return this.http.put<T>(`${this.baseUrl}/${endpoint}`, body);
+  // Método PUT
+  putData(endpoint: string, data: any): Observable<any> {
+    return this.http.put(`${this.baseUrl}/${endpoint}`, data);
   }
 
-  delete<T>(endpoint: string): Observable<T> {
-    return this.http.delete<T>(`${this.baseUrl}/${endpoint}`);
+  // Método DELETE
+  deleteData(endpoint: string, id: number | string): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${endpoint}/${id}`);
   }
 }
