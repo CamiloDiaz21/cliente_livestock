@@ -33,7 +33,7 @@ export class RegistroComponent {
 
   registroForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private apiService: ApiService, router: Router) {
+  constructor(private fb: FormBuilder, private apiService: ApiService,  router: Router) {
 
     this.registroForm = this.fb.group({
       nombre: ['', Validators.required],
@@ -52,24 +52,15 @@ export class RegistroComponent {
     });
   }
 
-  // onSubmit() {
-  //   if (this.registroForm.valid) {
-  //     this.http.post('http://localhost:8081/registro', this.registroForm.value)
-  //       .subscribe({
-  //         next: (res) => console.log('✅ Registro exitoso', res, ),
-  //         error: (err) => console.error('❌ Error en el registro', err)
-  //       });
-  //   } else {
-  //     console.warn('⚠️ El formulario no es válido');
-  //   }
-  // }
   aceptar() {
     if (this.registroForm.valid) {
       console.log('Registro exitoso', this.registroForm.value);
+      console.log('JSON formateado:\n', JSON.stringify(this.registroForm.value, null, 2));
       this.apiService.postData('registro', this.registroForm.value).subscribe({
         next: (response) => {
           console.log('Respuesta del servidor:', response);
-          {}
+          alert('Usuario Creado')
+          this.router.navigate(['/login']);
         },
         error: (error) => {
           console.error('Error al enviar POST:', error);
