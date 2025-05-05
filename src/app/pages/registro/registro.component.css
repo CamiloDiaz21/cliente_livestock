@@ -3,9 +3,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 200vh;
+  min-height: 100vh;
+  padding: 40px 20px;
   background: url('/fondo.jpg') center/cover no-repeat;
-  padding: 20px;
+  box-sizing: border-box;
 }
 
 /* Tarjeta del Formulario */
@@ -14,46 +15,40 @@
   flex-direction: column;
   width: 100%;
   max-width: 700px;
-  background: rgba(252, 250, 250, 0.85);
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Sección del Formulario */
 .form-section {
   width: 100%;
-  padding: 30px;
 }
 
 .form-section h2 {
   text-align: center;
   font-size: 1.8em;
   font-weight: bold;
-  margin-bottom: 20px;
   color: #7B1F30;
+  margin-bottom: 20px;
 }
 
 /* Estilo de los Inputs */
 mat-form-field {
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 15px;
 }
 
 .small-field {
-  flex: 1 1 30%;
-  min-width: 100px;
-}
-
-/* Checkbox de Términos */
-mat-checkbox {
-  margin-top: 10px;
+  flex: 1;
+  min-width: calc(33.333% - 10px);
 }
 
 /* Botón de Aceptar */
@@ -64,6 +59,7 @@ mat-checkbox {
   background-color: white;
   color: #7B1F30;
   border: 2px solid #7B1F30;
+  border-radius: 25px;
   transition: 0.3s ease;
 }
 
@@ -72,18 +68,7 @@ mat-checkbox {
   color: white;
 }
 
-/* Sección del Logo (si se activa) */
-.logo-section {
-  width: 35%;
-  background: rgba(123, 31, 48, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.logo {
-  width: 120px;
-  background: white;
-  padding: 10px;
-  border-radius: 50%;
+/* Checkbox */
+mat-checkbox {
+  margin-top: 10px;
 }

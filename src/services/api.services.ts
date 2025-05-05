@@ -6,19 +6,23 @@ import { Observable } from "rxjs";
     providedIn: 'root'
 })
 export class ApiService {
-    constructor(private http: HttpClient){}
+  private baseUrl = 'localhost:8082/v1/'; // Cambia por tu API base
 
-    //Metodo get
-    get <T>(url:string): Observable<T>{
-    return this.http.get<T>(url);
-    }
-    Post<T> (url:string, data: any): Observable<T>{
-        return this.http.post<T>(url, data);
-    }
-    put<T>(url:string, data: any): Observable<T>{
-        return this.http.put<T>(url, data);
-    }
-    delete<T>(url:string): Observable<T>{
-        return this.http.delete<T>(url);
-    }
+  constructor(private http: HttpClient) {}
+
+  get<T>(endpoint: string): Observable<T> {
+    return this.http.get<T>(`${this.baseUrl}/${endpoint}`);
+  }
+
+  post<T>(endpoint: string, body: any): Observable<T> {
+    return this.http.post<T>(`${this.baseUrl}/${endpoint}`, body);
+  }
+
+  put<T>(endpoint: string, body: any): Observable<T> {
+    return this.http.put<T>(`${this.baseUrl}/${endpoint}`, body);
+  }
+
+  delete<T>(endpoint: string): Observable<T> {
+    return this.http.delete<T>(`${this.baseUrl}/${endpoint}`);
+  }
 }

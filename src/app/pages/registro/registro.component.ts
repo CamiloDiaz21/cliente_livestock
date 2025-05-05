@@ -10,6 +10,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import {ApiService} from '../../../../src/services/api.services'
+
 
 @Component({
   selector: 'app-registro',
@@ -31,39 +33,47 @@ export class RegistroComponent {
 
   registroForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient, router: Router) {
+  constructor(private fb: FormBuilder, private apiService: ApiService, router: Router) {
 
     this.registroForm = this.fb.group({
-      nombres: ['', Validators.required],
-      apellidos: ['', Validators.required],
+      nombre: ['', Validators.required],
+      apellido: ['', Validators.required],
       tipoUsuario: ['', Validators.required],
       tipoDocumento: ['', Validators.required],
       numeroDocumento: ['', Validators.required],
-      correo: ['', [Validators.required, Validators.email]],
-      ciudad: ['', Validators.required],
-      departamento: ['', Validators.required],
-      pais: ['', Validators.required],
+      correo_electronico: ['', [Validators.required, Validators.email]],
       dia: ['', Validators.required],
       mes: ['', Validators.required],
       anio: ['', Validators.required],
+      celular:['', Validators.required],
       contrasena: ['', Validators.required],
       confirmarContrasena: ['', Validators.required],
       terminos: [false, Validators.requiredTrue]
     });
   }
 
-  onSubmit() {
+  // onSubmit() {
+  //   if (this.registroForm.valid) {
+  //     this.http.post('http://localhost:8081/registro', this.registroForm.value)
+  //       .subscribe({
+  //         next: (res) => console.log('✅ Registro exitoso', res, ),
+  //         error: (err) => console.error('❌ Error en el registro', err)
+  //       });
+  //   } else {
+  //     console.warn('⚠️ El formulario no es válido');
+  //   }
+  // }
+  aceptar() {
     if (this.registroForm.valid) {
-      this.http.post('http://localhost:8081/', this.registroForm.value)
-        .subscribe({
-          next: (res) => console.log('✅ Registro exitoso', res),
-          error: (err) => console.error('❌ Error en el registro', err)
-        });
+      console.log('Datos del formulario:', this.registroForm.value);
+      this.apiService.post<any>('registro', datos).subscribe({
+        next: (response) => console.log('Respuesta:', response),
+        error: (error) => console.error('Error:', error)
+      });
     } else {
-      console.warn('⚠️ El formulario no es válido');
+      console.log('Formulario inválido');
     }
   }
-  aceptar() {}
 
 
 
