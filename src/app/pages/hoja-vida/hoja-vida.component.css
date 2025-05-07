@@ -1,0 +1,66 @@
+
+.perfil-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background: url('/assets/fondo.jpg') center/cover no-repeat;
+  flex-wrap: wrap;
+}
+
+.perfil-lateral {
+  width: 280px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.back-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.perfil-img {
+  position: center;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  margin: 10px 0;
+}
+
+.verified {
+  color: #42a5f5;
+  font-size: 18px;
+  vertical-align: middle;
+}
+
+.email {
+  font-size: 0.9em;
+  color: gray;
+}
+
+.tipo-usuario {
+  background-color: #e0c0c0;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.perfil-info {
+  flex: 1;
+  padding: 20px;
+  background-color: #f7f7f7;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+.informacion-contacto {
+  margin-top: 20px;
+}

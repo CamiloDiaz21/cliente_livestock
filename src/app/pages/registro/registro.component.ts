@@ -33,7 +33,7 @@ export class RegistroComponent {
 
   registroForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private apiService: ApiService,  router: Router) {
+  constructor(private fb: FormBuilder, private apiService: ApiService, private router: Router) {
 
     this.registroForm = this.fb.group({
       nombre: ['', Validators.required],
@@ -61,13 +61,14 @@ export class RegistroComponent {
           console.log('Respuesta del servidor:', response);
           alert('Usuario Creado')
           this.router.navigate(['/login']);
+
         },
         error: (error) => {
           console.error('Error al enviar POST:', error);
+
         }
       });
-
-
+      
     } else {
       console.log('Formulario inválido');
     }

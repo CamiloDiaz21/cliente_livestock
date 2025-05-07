@@ -13,7 +13,7 @@ import { InicioComponent } from './app/pages/inicio/inicio.component';
 import { UserHeaderComponent } from './app/pages/component/user-header/user-header.component';
 import { PublicacionesComponent } from './app/pages/publicaciones/publicaciones.component';
 import { PerfilComponent } from './app/pages/perfil/perfil.component';
-
+import { HojaVidaComponent } from './app/pages/hoja-vida/hoja-vida.component';
 
 
 
@@ -29,6 +29,7 @@ bootstrapApplication(AppComponent,{
           { path: 'new-password', component: NewPasswordComponent},
           { path: 'user-header', component: UserHeaderComponent},
           { path: 'publicaciones', component: PublicacionesComponent},
+          { path: 'hoja-vida', component: HojaVidaComponent},
           { path: 'perfil', component: PerfilComponent},
 
       ]),

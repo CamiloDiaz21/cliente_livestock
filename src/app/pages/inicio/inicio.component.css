@@ -59,21 +59,7 @@
   background: #fff;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 
-  button {
 
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    font-weight: bold;
-    background-color: white;
-    color: #7B1F30;
-    border: 1px solid #7B1F30;
-    }
-    button:hover{
-      background-color: #7B1F30;
-      color: white;
-
-    }
 }
 
 .post-header {
@@ -112,13 +98,22 @@
 }
 
 
-.post-actions {
+.submit-btn {
   display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top: 15px;
   align-items: center;
-  gap: 15px;
-  padding: 10px 0;
+  font-weight: bold;
+  background-color: white;
+  color: #7B1F30;
+  border: 1px solid #7B1F30;
+  }
 
 
+.submit-btn:hover {
+  background-color: #7B1F30;
+  color: white;
 }
 
 .carousel-wrapper{

@@ -37,4 +37,8 @@
       }
     }
   }
+  .active-link {
+    background-color: white;
+    color: #7B1F30;
+  }
 }
