@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { UserHeaderComponent } from '../component/user-header/user-header.component';
 import { UserFooterComponent } from '../component/user-footer/user-footer.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @Component({
@@ -14,7 +15,8 @@ import { UserFooterComponent } from '../component/user-footer/user-footer.compon
     UserFooterComponent,
     MatButtonModule,
     MatCardModule,
-    CommonModule
+    CommonModule,
+    MatIconModule,
 
 
   ],
@@ -67,6 +69,9 @@ export class InicioComponent {
 
   Publicaciones(){
     this.router.navigate(['/publicaciones']);
+  }
+  Perfil(){
+    this.router.navigate(['/perfil'])
   }
 
 }

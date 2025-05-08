@@ -1,76 +1,54 @@
-<div class="profile-container">
 
-  <!-- Panel izquierdo: Información básica -->
-  <div class="profile-sidebar">
+<div class="perfil-container">
+  <mat-card class="perfil-lateral">
+    <button mat-icon-button class="back-btn"><mat-icon>arrow_back</mat-icon></button>
+    <img mat-card-avatar src={{imagen}} class="perfil-img" />
+    <h2> {{nombre}} <mat-icon class="verified">verified</mat-icon></h2>
+    <p class="email">{{email}}</p>
+    <button mat-raised-button color="primary" (click)="Editar()">Editar</button>
 
+    <mat-card class="tipo-usuario" color="warn">
+      <p><strong>{{Datos_vendedor.tipo_usuario}}</strong></p>
+    </mat-card>
+  </mat-card>
 
-    <div class="profile-info">
-      <h2> Luis Villa <span class="verified-icon">✔️</span> </h2>
-      <p class="email">{{email}}</p>
+  <mat-card class="perfil-info">
+    <mat-tab-group>
+      <mat-tab label="Información del perfil">
+        <div class="info-grid">
+          <div class="historia-laboral">
+            <h3>HISTORIA LABORAL</h3>
+            <ul>
+              <li>{{Datos_trabajo.laboral}}</li>
+              <li>{{Datos_trabajo.profesional}}</li>
+              <li>{{Datos_trabajo.aptitudes}}</li>
+            </ul>
+          </div>
+          <div class="perfil-profesional">
+            <h3>PERFIL PROFESIONAL</h3>
+            <p>Promotor de ventas de ganado...</p>
 
-      <div class="avatar-container">
-        <img src="/imagen.jpg" alt="Foto de perfil" class="avatar">
-      </div>
+            <h3>APTITUDES</h3>
+            <ul>
+              <li>Responsabilidad y puntualidad</li>
+              <li>Atención al cliente</li>
+              <li>Pasión por las ventas</li>
+            </ul>
+          </div>
+          <div class="informacion-contacto">
+            <h3>INFORMACIÓN DE CONTACTO</h3>
+            <p>📍 Yopal, Casanare</p>
+            <p>📞 3162436822 - 3112329580</p>
+            <p>📧<span>{{email}}</span></p>
 
-      <button mat-raised-button class="submit-btn">Editar</button>
-
-      <div class="seller-info">
-        <h3>Usuario vendedor</h3>
-        <p>Venta de ganado</p>
-        <p>Venta de haciendas</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Panel derecho: Formulario de edición -->
-  <div class="profile-details">
-    <h2>Información del perfil</h2>
-
-    <div class="tabs">
-      <span class="active-tab">Información del perfil</span>
-      <span >Hoja de vida</span>
-    </div>
-
-    <form class="profile-form">
-      <div class="form-group">
-        <label>Nombres</label>
-        <input type="text" value="Luis Fernando">
-      </div>
-
-      <div class="form-group">
-        <label>Apellidos</label>
-        <input type="text" value="Villa Martinez">
-      </div>
-
-      <div class="form-group">
-        <label>Dirección</label>
-        <input type="text" value="Yopal, Casanare">
-      </div>
-
-      <div class="form-group">
-        <label>Teléfono</label>
-        <input type="text" value="3162436822">
-      </div>
-
-      <div class="form-group">
-        <label>Correo electrónico</label>
-        <input type="email" value="Luisvillawest10@gmail.com">
-      </div>
-
-      <div class="form-group">
-        <label>Documento de identidad</label>
-        <input type="text" value="1097184745">
-      </div>
-
-      <div class="form-group social">
-        <button class="social-btn facebook">
-          <i class="fab fa-facebook"></i> Añadir
-        </button>
-        <button class="social-btn instagram">
-          <i class="fab fa-instagram"></i> Añadir
-        </button>
-      </div>
-    </form>
-  </div>
-
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Hoja de vida">
+        <p>Contenido de la hoja de vida...</p>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
 </div>
+
+
