@@ -3,7 +3,7 @@
   display: flex;
   gap: 20px;
   padding: 20px;
-  background: url('/assets/fondo.jpg') center/cover no-repeat;
+  background: url('/fondo.jpg') center/cover no-repeat;
   flex-wrap: wrap;
 }
 
@@ -12,6 +12,8 @@
   padding: 20px;
   text-align: center;
   position: relative;
+  flex-direction: column;
+  align-items: center;
 }
 
 .back-btn {
@@ -21,11 +23,11 @@
 }
 
 .perfil-img {
-    margin: 20px 0;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
+  margin: 20px 0;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .verified {
@@ -63,4 +65,21 @@ ul {
 
 .informacion-contacto {
   margin-top: 20px;
+}
+.submit-btn {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top: 15px;
+  align-items: center;
+  font-weight: bold;
+  background-color: white;
+  color: #7B1F30;
+  border: 1px solid #7B1F30;
+  }
+
+
+.submit-btn:hover {
+  background-color: #7B1F30;
+  color: white;
 }

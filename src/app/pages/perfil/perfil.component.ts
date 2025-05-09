@@ -17,9 +17,6 @@ import { MatDialog } from '@angular/material/dialog';
     MatIconModule,
     MatTabsModule,
     MatCard,
-    MatFormField,
-    MatLabel,
-
   ],
   templateUrl: './perfil.component.html',
   styleUrl: './perfil.component.css'
@@ -30,7 +27,7 @@ export class PerfilComponent {
     this.router.navigate(['/hoja-vida']);
   }
   nombre= 'Luis Villa'
-  email= 'Luisvillawest10gmail.com'
+  email= 'Luisvillawest10@gmail.com'
   imagen='/imagen.jpg'
   Datos_vendedor={
     tipo_usuario: 'Usuario vendedor',
@@ -41,36 +38,46 @@ export class PerfilComponent {
     laboral: 'Atención adecuada a los clientes, realización de labores de venta, cumplimiento de objetivos',
     profesional: 'Promotor de ventas de ganado, atención al cliente, pasión por las ventas',
     aptitudes: 'Responsabilidad y puntualidad, atención al cliente, pasión por las ventas',
-
   }
+  Profecional='Promotor de ventas de ganado, atención al cliente, pasión por las ventas'
 
-  dataSource = [
-    { id:11, name: 'Camilo', username: 'Diaz',  email: 'kamilodiaz0521@gmail.com', phone: 22, website: 'Goo',},
-    { id:12, name: 'Luis',   username:'Garcia',  email: 'luis@correo.com', phone: 28, website: 'Goo',},
-    { id:13, name: 'Andres', username:'Rodriguez',  email: 'andres@correo.com', phone: 26, website: 'Goo',},
-    { id:14, name: 'Maria', username:'Perez',  email: 'maria@correo.com', phone: 30, website: 'Goo',},
-    { id:15, name: 'Pedro', username:'Gomez',  email: 'pedro@correo.com', phone: 24, website: 'Goo',}
-  ];
-
-  filtros ={
-    id: '',
-    name: '',
-    email: '',
-    phone: '',
-    website: '',
+  Aptitudes={
+    responsabilidad: 'Responsabilidad y puntualidad',
+    atencion: 'Atención al cliente',
+    pasion: 'Pasión por las ventas',
+    puntualidad: 'Puntualidad',
   }
+  ubicacion='Yopal, Casanare'
+  telefono='3162436822'
 
-  datafilter= [...this.dataSource]
-  aplicarFiltros(){
-    this.datafilter = this.dataSource.filter((row: any) =>{
-      return Object.entries(this.filtros).every(([key, filtro]) =>{
-        const valorFiltro = filtro.toLowerCase();
-        return row[key]?.toString().toLowerCase().includes(valorFiltro);
-      });
-    });
-  }
+  // dataSource = [
+  //   { id:11, name: 'Camilo', username: 'Diaz',  email: 'kamilodiaz0521@gmail.com', phone: 22, website: 'Goo',},
+  //   { id:12, name: 'Luis',   username:'Garcia',  email: 'luis@correo.com', phone: 28, website: 'Goo',},
+  //   { id:13, name: 'Andres', username:'Rodriguez',  email: 'andres@correo.com', phone: 26, website: 'Goo',},
+  //   { id:14, name: 'Maria', username:'Perez',  email: 'maria@correo.com', phone: 30, website: 'Goo',},
+  //   { id:15, name: 'Pedro', username:'Gomez',  email: 'pedro@correo.com', phone: 24, website: 'Goo',}
+  // ];
+
+  // filtros ={
+  //   id: '',
+  //   name: '',
+  //   email: '',
+  //   phone: '',
+  //   website: '',
+  // }
+
+  // datafilter= [...this.dataSource]
+  // aplicarFiltros(){
+  //   this.datafilter = this.dataSource.filter((row: any) =>{
+  //     return Object.entries(this.filtros).every(([key, filtro]) =>{
+  //       const valorFiltro = filtro.toLowerCase();
+  //       return row[key]?.toString().toLowerCase().includes(valorFiltro);
+  //     });
+  //   });
+  // }
 
   Editar(){
+    this.router.navigate(['/editar-perfil']);
 
   }
 

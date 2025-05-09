@@ -36,14 +36,16 @@ export class LoginComponent {
 
     goToRegister(){
       console.log('Boton de registro clickeado');
+      alert('creando cuenta...');
       this.router.navigate(['/registro']);
     }
     login(){
-    
       this.router.navigate(['/inicio'])
+      alert('iniciando sesión...');
     }
     recoverPassword(){
       console.log('Boton de recuperar clickeado');
+      alert('recuperando contraseña...');
       this.router.navigate(['/recover-password']);
     }
     createAccount(){

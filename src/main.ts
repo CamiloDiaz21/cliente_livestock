@@ -14,6 +14,7 @@ import { UserHeaderComponent } from './app/pages/component/user-header/user-head
 import { PublicacionesComponent } from './app/pages/publicaciones/publicaciones.component';
 import { PerfilComponent } from './app/pages/perfil/perfil.component';
 import { HojaVidaComponent } from './app/pages/hoja-vida/hoja-vida.component';
+import { EditarPerfilComponent } from './app/pages/editar-perfil/editar-perfil.component';
 
 
 
@@ -31,6 +32,7 @@ bootstrapApplication(AppComponent,{
           { path: 'publicaciones', component: PublicacionesComponent},
           { path: 'hoja-vida', component: HojaVidaComponent},
           { path: 'perfil', component: PerfilComponent},
+          { path: 'editar-perfil', component: EditarPerfilComponent},
 
       ]),
       provideAnimations(),

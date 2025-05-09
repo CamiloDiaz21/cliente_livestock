@@ -5,7 +5,7 @@
     <img mat-card-avatar src={{imagen}} class="perfil-img" />
     <h2> {{nombre}} <mat-icon class="verified">verified</mat-icon></h2>
     <p class="email">{{email}}</p>
-    <button mat-raised-button color="primary" (click)="Editar()">Editar</button>
+    <button mat-raised-button class="submit-btn" (click)="Editar()">Editar</button>
 
     <mat-card class="tipo-usuario" color="warn">
       <p><strong>{{Datos_vendedor.tipo_usuario}}</strong></p>
@@ -14,7 +14,7 @@
 
   <mat-card class="perfil-info">
     <mat-tab-group>
-      <mat-tab label="Información del perfil">
+      <mat-tab label="Hoja de vida">
         <div class="info-grid">
           <div class="historia-laboral">
             <h3>HISTORIA LABORAL</h3>
@@ -26,26 +26,24 @@
           </div>
           <div class="perfil-profesional">
             <h3>PERFIL PROFESIONAL</h3>
-            <p>Promotor de ventas de ganado...</p>
+            <p>{{Profecional}}</p>
 
             <h3>APTITUDES</h3>
             <ul>
-              <li>Responsabilidad y puntualidad</li>
-              <li>Atención al cliente</li>
-              <li>Pasión por las ventas</li>
+              <li>{{Aptitudes.responsabilidad}}</li>
+              <li>{{Aptitudes.atencion}}</li>
+              <li>{{Aptitudes.pasion}}</li>
+              <li>{{Aptitudes.puntualidad}}</li>
             </ul>
           </div>
           <div class="informacion-contacto">
             <h3>INFORMACIÓN DE CONTACTO</h3>
-            <p>📍 Yopal, Casanare</p>
-            <p>📞 3162436822 - 3112329580</p>
-            <p>📧<span>{{email}}</span></p>
+            <p>📍 {{ubicacion}}</p>
+            <p>📞{{telefono}} </p>
+            <p>📧{{email}}</p>
 
           </div>
         </div>
-      </mat-tab>
-      <mat-tab label="Hoja de vida">
-        <p>Contenido de la hoja de vida...</p>
       </mat-tab>
     </mat-tab-group>
   </mat-card>

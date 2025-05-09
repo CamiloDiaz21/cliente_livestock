@@ -1,0 +1,53 @@
+.full-width {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.title {
+  text-align: center;
+}
+
+.mat-card {
+  max-width: 500px;  /* más pequeño */
+  margin: 20px auto; /* centrado vertical y horizontal */
+  padding: 20px;
+  background-color: #eccaca; /* opcional para más contraste */
+  border-radius: 8px;     /* opcional para un look más suave */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* opcional */
+}
+
+.foto-perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.preview-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.submit-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.submit-btn {
+  padding: 10px 30px;
+  font-weight: bold;
+  background-color: white;
+  color: #7B1F30;
+  border: 1px solid #7B1F30;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #7B1F30;
+  color: white;
+}
