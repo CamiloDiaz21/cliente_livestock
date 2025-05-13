@@ -4,7 +4,7 @@
     <div class="form-section">
       <h2>CREAR CUENTA</h2>
       <form [formGroup]="registroForm" (ngSubmit)="aceptar()">
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" class="nombres">
           <mat-label>Nombres</mat-label>
           <input matInput formControlName="nombre" type="text" required />
         </mat-form-field>
@@ -73,7 +73,7 @@
 
         <mat-checkbox formControlName="terminos"> Términos y condiciones de uso</mat-checkbox>
 
-        <button mat-raised-button color="primary" class="submit-btn" type="submit">ACEPTAR</button>
+        <button mat-raised-button color="primary" class="submit-btn" type="submit">REGISTRAR</button>
       </form>
 
     </div>

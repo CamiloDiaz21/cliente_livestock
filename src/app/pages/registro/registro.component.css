@@ -11,13 +11,11 @@
 
 /* Tarjeta del Formulario */
 .register-card {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 700px;
+  width: 80%;
+  max-width: 450px;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 12px;
-  padding: 30px;
+  padding: 25px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -37,13 +35,13 @@
 /* Estilo de los Inputs */
 mat-form-field {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 1px;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 5px;
 }
 
 .small-field {
@@ -53,14 +51,15 @@ mat-form-field {
 
 /* Botón de Aceptar */
 .submit-btn {
-  width: 100%;
-  margin-top: 20px;
+  margin: 20px auto 0 auto; /* Centra el botón horizontalmente */
+  padding: 10px 30px;
   font-weight: bold;
   background-color: white;
   color: #7B1F30;
   border: 2px solid #7B1F30;
   border-radius: 25px;
   transition: 0.3s ease;
+  display: block;
 }
 
 .submit-btn:hover {
@@ -72,3 +71,4 @@ mat-form-field {
 mat-checkbox {
   margin-top: 10px;
 }
+

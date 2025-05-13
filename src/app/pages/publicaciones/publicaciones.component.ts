@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
     UserHeaderComponent,
     MatCardModule,
     MatIconModule,
+    SlickCarouselModule,
   ],
   templateUrl: './publicaciones.component.html',
   styleUrl: './publicaciones.component.css'

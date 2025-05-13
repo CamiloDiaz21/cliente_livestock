@@ -1,0 +1,35 @@
+<mat-card class="mb-4">
+  <mat-card-title>Nueva publicación</mat-card-title>
+  <mat-card-content>
+
+    <input type="file" multiple (change)="onImageSelected($event)" />
+
+    <mat-form-field appearance="outline" class="w-100 mt-3">
+      <mat-label>Descripción</mat-label>
+      <textarea matInput [(ngModel)]="description" rows="4"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="publicar()">Publicar</button>
+  </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf="publicacionCreada" class="mt-4">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Luis Villa</mat-card-title>
+    <mat-card-subtitle>Publicado desde {{fecha}}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="scroll-container">
+      <img *ngFor="let img of imagenesSeleccionadas" [src]="img" class="preview-img" />
+    </div>
+
+    <h4 class="mt-3">INFORMACIÓN</h4>
+    <p>{{description}}</p>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-button color="accent">Contactar vendedor</button>
+  </mat-card-actions>
+</mat-card>

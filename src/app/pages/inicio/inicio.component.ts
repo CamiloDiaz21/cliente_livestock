@@ -26,6 +26,21 @@ import { MatIconModule } from '@angular/material/icon';
 export class InicioComponent {
   constructor(private router: Router) {}
 
+  nombreUsuario: string = 'Camilo Diaz';
+  apellidoUsuario: string = 'Diaz';
+  fecha = ' Publicado desde el 20/03/2022';
+  informacion = 'Se vende lote de ganado raza Brahman rojo puro.';
+
+  imagen = '/imagen.jpg';
+
+
+
+
+
+
+
+
+
   currentIndex= 0;
 
   sectionTitle= 'seccion destacada';
@@ -40,7 +55,7 @@ export class InicioComponent {
     },
     {
       title: ' ',
-      image: 'venta.jpg',
+      image: 'venta2.jpg',
     },
     {
       title: ' ',

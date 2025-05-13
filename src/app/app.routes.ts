@@ -10,6 +10,7 @@ import { PublicacionesComponent } from './pages/publicaciones/publicaciones.comp
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { HojaVidaComponent } from './pages/hoja-vida/hoja-vida.component';
 import { EditarPerfilComponent } from './pages/editar-perfil/editar-perfil.component';
+import { HacerPublicacionComponent } from './pages/hacer-publicacion/hacer-publicacion.component';
 
 
 export const routes: Routes = [
@@ -23,5 +24,6 @@ export const routes: Routes = [
     { path: 'publicaciones', component: PublicacionesComponent},
     { path: 'hoja-vida', component: HojaVidaComponent},
     { path: 'editar-perfil', component: EditarPerfilComponent},
+    { path: 'publicar', component: HacerPublicacionComponent},
     { path: '**', redirectTo: 'login' },
   ];
