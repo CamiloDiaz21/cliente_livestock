@@ -1,36 +1,44 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-// import {MatOption} from '@angular/material/select';
+import { MatOption} from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardTitle } from '@angular/material/card';
+import {ApiService} from '../../../../src/services/api.services'
+
 
 @Component({
   selector: 'app-hacer-publicacion',
   imports: [
     MatButtonModule,
     MatCardModule,
+    CommonModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
     FormsModule,
-    CommonModule,
-    // MatOption,
+    MatCardTitle,
+    MatOption,
+    ReactiveFormsModule,
+
   ],
   templateUrl: './hacer-publicacion.component.html',
   styleUrl: './hacer-publicacion.component.css'
 })
 export class HacerPublicacionComponent {
 
-  tipoVenta: number = 2;
-  imagenesSeleccionadas: string[] = [];
-  description: string = '';
-  fecha: string = new Date().toLocaleDateString();
-  publicacionCreada: boolean = false;
+  publicacionForm!: FormGroup;
+
+imagenesSeleccionadas: string[] = [];
+  tipoVenta: string = '';
+  descripcion: string = '';
 
   onImageSelected(event: any) {
     const files = event.target.files;
@@ -46,10 +54,12 @@ export class HacerPublicacionComponent {
   }
 
   publicar() {
-    console .log(this.imagenesSeleccionadas);
-    console .log(this.description);
-    this.publicacionCreada = true;
+    console.log('Publicación:', {
+      tipo: this.tipoVenta,
+      descripcion: this.descripcion,
+      imagenes: this.imagenesSeleccionadas
+    });
+    // Aquí puedes agregar lógica para enviar esta info al backend
   }
 
-  tipoventa: number = 2;
 }

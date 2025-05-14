@@ -9,7 +9,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import {ApiService} from '../../../../src/services/api.services'
 
 
@@ -34,6 +33,7 @@ export class RegistroComponent {
   registroForm!: FormGroup;
 
   constructor(private fb: FormBuilder, private apiService: ApiService, private router: Router) {
+
 
     this.registroForm = this.fb.group({
       nombre: ['', Validators.required],
@@ -68,7 +68,7 @@ export class RegistroComponent {
 
         }
       });
-      
+
     } else {
       console.log('Formulario inválido');
     }
