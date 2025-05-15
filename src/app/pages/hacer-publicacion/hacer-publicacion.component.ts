@@ -1,44 +1,71 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MatOption} from '@angular/material/select';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import { MatCardTitle } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
+import { Router } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 import {ApiService} from '../../../../src/services/api.services'
 
 
 @Component({
   selector: 'app-hacer-publicacion',
   imports: [
-    MatButtonModule,
-    MatCardModule,
+    MatCheckboxModule,
     CommonModule,
+    MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule,
-    FormsModule,
-    MatCardTitle,
-    MatOption,
+    MatButtonModule,
+    MatSelectModule,
     ReactiveFormsModule,
-
   ],
   templateUrl: './hacer-publicacion.component.html',
   styleUrl: './hacer-publicacion.component.css'
 })
 export class HacerPublicacionComponent {
-
   publicacionForm!: FormGroup;
+  imagenesSeleccionadas: string[] = [];
 
-imagenesSeleccionadas: string[] = [];
-  tipoVenta: string = '';
-  descripcion: string = '';
+  constructor(private fb: FormBuilder, private apiService: ApiService, private router: Router) {
+
+
+    this.publicacionForm = this.fb.group({
+      tipoVenta: ['', Validators.required],
+      Imagenes: ['', Validators.required],
+      Informacion: ['', Validators.required],
+
+    });
+  }
+
+  puclicar() {
+    if (this.publicacionForm.valid) {
+      this.publicacionForm.value.Imagenes = this.imagenesSeleccionadas
+      console.log('Registro exitoso', this.publicacionForm.value);
+      // console.log('JSON formateado:\n', JSON.stringify(this.publicacionForm.value, null, 2));
+      console.log(this.imagenesSeleccionadas)
+    //   this.apiService.postData('registro', this.publicacionForm.value).subscribe({
+    //     next: (response) => {
+    //       console.log('Respuesta del servidor:', response);
+    //       alert('Usuario Creado')
+    //       this.router.navigate(['/publicaciones']);
+
+    //     },
+    //     error: (error) => {
+    //       console.error('Error al enviar POST:', error);
+
+    //     }
+    //   });
+
+    } else {
+      console.log('Formulario inválido');
+    }
+
+  }
 
   onImageSelected(event: any) {
     const files = event.target.files;
@@ -51,15 +78,6 @@ imagenesSeleccionadas: string[] = [];
       };
       reader.readAsDataURL(file);
     }
-  }
-
-  publicar() {
-    console.log('Publicación:', {
-      tipo: this.tipoVenta,
-      descripcion: this.descripcion,
-      imagenes: this.imagenesSeleccionadas
-    });
-    // Aquí puedes agregar lógica para enviar esta info al backend
   }
 
 }
