@@ -1,7 +1,7 @@
 
 <div class="perfil-container">
   <mat-card class="perfil-lateral">
-    <button mat-icon-button class="back-btn"><mat-icon>arrow_back</mat-icon></button>
+
     <img mat-card-avatar src={{imagen}} class="perfil-img" />
     <h2> {{nombre}} <mat-icon class="verified">verified</mat-icon></h2>
     <p class="email">{{email}}</p>
@@ -43,6 +43,12 @@
             <p>📧{{email}}</p>
 
           </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Publicaciones">
+        <div class="info-grid">
+          <h2>Publicaciones</h2>
+            <button mat-raised-button appearence="outline" class="submit-btn" (click)="Publicar()" ><mat-icon>add</mat-icon>Hacer Publicación</button>
         </div>
       </mat-tab>
     </mat-tab-group>

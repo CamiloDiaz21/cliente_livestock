@@ -7,22 +7,46 @@
 
         <mat-form-field appearance="outline">
           <mat-label>Tipo de Publicación</mat-label>
-          <mat-select formControlName="tipoVenta" required>
-            <mat-option value=1>Venta de ganado</mat-option>
-            <mat-option value=2>Venta de haciendas</mat-option>
+          <mat-select formControlName="TipoPublicacion" required>
+            <mat-option value=1> Ganado</mat-option>
+            <mat-option value=2>Haciendas</mat-option>
           </mat-select>
         </mat-form-field>
+
+        <ng-container *ngIf="publicacionForm.get('TipoPublicacion')?.value == '1'">
+  <mat-form-field appearance="outline">
+    <mat-label>Raza del Ganado</mat-label>
+    <input matInput formControlName="RazaGanado" type="text" required />
+  </mat-form-field>
+</ng-container>
 
         <mat-label>Subir Imagenes</mat-label>
         <br>
         <div class="imagenes">
           <input formControlName="Imagenes" type="file" multiple (change)="onImageSelected($event)" />
         </div>
+
         <br>
         <mat-form-field appearance="outline">
-          <mat-label>Informacion</mat-label>
-          <input matInput formControlName="Informacion" type="text" required />
+          <mat-label>Contacto del Vendedor</mat-label>
+          <input matInput formControlName="DatosVender" type="text" required />
         </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Descripcion</mat-label>
+          <textarea matInput formControlName="Descripcion" type="text" required ></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Precio</mat-label>
+          <input matInput formControlName="Precio" type="text" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Ubicacion</mat-label>
+          <input matInput formControlName="Ubicacion" type="text" required />
+        </mat-form-field>
+
 
         <button mat-raised-button color="primary" class="submit-btn" type="submit">PUBLICAR</button>
       </form>

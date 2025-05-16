@@ -1,9 +1,10 @@
 
 .perfil-container {
   display: flex;
-  gap: 20px;
-  padding: 20px;
+  gap: 100px;
+  padding: 10px;
   background: url('/fondo.jpg') center/cover no-repeat;
+  background-size: cover;
   flex-wrap: wrap;
 }
 

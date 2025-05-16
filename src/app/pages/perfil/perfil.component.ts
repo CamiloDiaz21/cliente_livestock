@@ -8,6 +8,7 @@ import { MatFormField } from '@angular/material/form-field';
 import { MatLabel } from '@angular/material/form-field';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
+import { HacerPublicacionComponent } from '../hacer-publicacion/hacer-publicacion.component';
 
 
 @Component({
@@ -80,5 +81,13 @@ export class PerfilComponent {
     this.router.navigate(['/editar-perfil']);
 
   }
+
+  Publicar(){
+    this.dialog.open(HacerPublicacionComponent,{
+      width: '600px'
+    })
+
+  }
+
 
 }

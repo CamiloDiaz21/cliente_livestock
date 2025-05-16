@@ -35,9 +35,13 @@ export class HacerPublicacionComponent {
 
 
     this.publicacionForm = this.fb.group({
-      tipoVenta: ['', Validators.required],
+      TipoPublicacion: ['', Validators.required],
       Imagenes: ['', Validators.required],
-      Informacion: ['', Validators.required],
+      DatosVender: ['', Validators.required],
+      Descripcion: ['', Validators.required],
+      Precio: ['', Validators.required],
+      Ubicacion: ['', Validators.required],
+      RazaGanado: [''],
 
     });
   }
@@ -51,8 +55,8 @@ export class HacerPublicacionComponent {
     //   this.apiService.postData('registro', this.publicacionForm.value).subscribe({
     //     next: (response) => {
     //       console.log('Respuesta del servidor:', response);
-    //       alert('Usuario Creado')
-    //       this.router.navigate(['/publicaciones']);
+      alert('Publicacion Creada')
+      this.router.navigate(['/publicaciones']);
 
     //     },
     //     error: (error) => {
