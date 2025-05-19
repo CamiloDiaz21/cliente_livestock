@@ -46,7 +46,7 @@ export class HacerPublicacionComponent {
     });
   }
 
-  puclicar() {
+  publicar() {
     if (this.publicacionForm.valid) {
       this.publicacionForm.value.Imagenes = this.imagenesSeleccionadas
       console.log('Registro exitoso', this.publicacionForm.value);

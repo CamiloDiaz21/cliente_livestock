@@ -5,7 +5,7 @@
     <img mat-card-avatar src={{imagen}} class="perfil-img" />
     <h2> {{nombre}} <mat-icon class="verified">verified</mat-icon></h2>
     <p class="email">{{email}}</p>
-    <button mat-raised-button class="submit-btn" (click)="Editar()">Editar</button>
+    <button mat-raised-button class="submit-btn" (click)="Editar()">Editar <mat-icon>edit</mat-icon></button>
 
     <mat-card class="tipo-usuario" color="warn">
       <p><strong>{{Datos_vendedor.tipo_usuario}}</strong></p>
@@ -16,33 +16,9 @@
     <mat-tab-group>
       <mat-tab label="Hoja de vida">
         <div class="info-grid">
-          <div class="historia-laboral">
-            <h3>HISTORIA LABORAL</h3>
-            <ul>
-              <li>{{Datos_trabajo.laboral}}</li>
-              <li>{{Datos_trabajo.profesional}}</li>
-              <li>{{Datos_trabajo.aptitudes}}</li>
-            </ul>
-          </div>
-          <div class="perfil-profesional">
-            <h3>PERFIL PROFESIONAL</h3>
-            <p>{{Profecional}}</p>
 
-            <h3>APTITUDES</h3>
-            <ul>
-              <li>{{Aptitudes.responsabilidad}}</li>
-              <li>{{Aptitudes.atencion}}</li>
-              <li>{{Aptitudes.pasion}}</li>
-              <li>{{Aptitudes.puntualidad}}</li>
-            </ul>
-          </div>
-          <div class="informacion-contacto">
-            <h3>INFORMACIÓN DE CONTACTO</h3>
-            <p>📍 {{ubicacion}}</p>
-            <p>📞{{telefono}} </p>
-            <p>📧{{email}}</p>
+          
 
-          </div>
         </div>
       </mat-tab>
       <mat-tab label="Publicaciones">

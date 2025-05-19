@@ -24,6 +24,35 @@ import { HacerPublicacionComponent } from '../hacer-publicacion/hacer-publicacio
 })
 export class PerfilComponent {
   constructor(private router: Router, private http:HttpClient, private dialog: MatDialog) {}
+
+  selectedFile: File | null = null;
+
+onFileSelected(event: Event) {
+  const input = event.target as HTMLInputElement;
+
+  if (input.files && input.files.length > 0) {
+    this.selectedFile = input.files[0];
+    console.log('Archivo seleccionado:', this.selectedFile.name);
+  }
+}
+
+uploadCV() {
+  if (!this.selectedFile) return;
+
+  const formData = new FormData();
+  formData.append('cv', this.selectedFile);
+
+  // Ejemplo usando HttpClient
+  this.http.post('/api/upload-cv', formData).subscribe(
+    (res) => {
+      console.log('CV subida correctamente');
+    },
+    (err) => {
+      console.error('Error al subir CV', err);
+    }
+  );
+}
+
   Hoja_vida(){
     this.router.navigate(['/hoja-vida']);
   }
@@ -91,3 +120,4 @@ export class PerfilComponent {
 
 
 }
+

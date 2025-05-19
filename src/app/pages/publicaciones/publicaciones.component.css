@@ -1,90 +1,88 @@
-/* Contenedor general del post */
+/* -------------------------------
+  Contenedor general del post
+-------------------------------- */
 .post-container {
   max-width: 1250px;
   margin: 50px auto;
+  padding: 20px;
   border: 1px solid #803636b2;
   border-radius: 10px;
-  padding: 20px;
   background: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Encabezado de usuario */
-/* Encabezado de usuario */
+/* -------------------------------
+  Encabezado de usuario
+-------------------------------- */
 .post-header {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   gap: 15px;
   padding-bottom: 25px;
   border-bottom: 1px solid #ddd;
   margin-bottom: 25px;
 }
 
-/* Imagen de perfil */
 .avatar {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   object-fit: cover;
   border-radius: 50%;
   border: 2px solid #7B1F30;
 }
 
-/* Información del usuario */
 .user-info h2 {
   margin: 0;
-  font-size: 20px;
+  font-size: 22px;
   color: #2c2c2c;
-  font-weight: 600;
+  font-weight: 60px;
   cursor: pointer;
   display: flex;
   align-items: center;
 }
 
-.user-info h2 mat-icon.verified {
+.user-info h2 mat-icon.verified,
+.verified {
   color: dodgerblue;
-  font-size: 20px;
   margin-left: 6px;
+  vertical-align: middle;
 }
 
 .user-info small {
   color: #666;
   font-size: 13px;
+  margin-top: 2.5px;
   display: block;
-  margin-top: 3px;
 }
 
-
-.verified {
-  color: dodgerblue;
-  font-size: 18px;
-  vertical-align: middle;
-  margin-left: 4px;
-}
-
-/* Carrusel */
-/* Contenedor general del carrusel */
+/*-------------------------------
+  Carrusel
+-------------------------------- */
 .carousel-container {
-  position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin: 20px 0;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px auto;
+  gap: 20px;
+  flex-wrap: nowrap;
+  max-width: 800px;
+  padding: 0 20px;
+  position: relative;
 }
 
-/* Botones de navegación */
+/* -------------------------------
+  Botones de navegación
+-------------------------------- */
 .carousel-container button {
   background-color: #7B1F30;
   color: white;
   border: none;
   border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s;
 }
 
 .carousel-container button:disabled {
@@ -94,68 +92,86 @@
 
 .carousel-container button:hover:not(:disabled) {
   background-color: #5a0f0f;
+  transform: scale(1.05);
 }
 
-/* Contenedor del track que oculta el desbordamiento */
+/* -------------------------------
+  Track del carrusel
+-------------------------------- */
 .carousel-track-container {
   overflow: hidden;
-  width: 80%;
-  max-width: 600px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-  position: relative;
+  flex: 1;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Línea de tarjetas (se desplaza horizontalmente) */
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
+  will-change: transform;
 }
 
-/* Tarjeta individual */
+/* -------------------------------
+   Tarjetas del carrusel
+-------------------------------- */
 .carousel-card {
-  min-width: 100%;
+  flex: 100%;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 12px;
+  padding: 16px;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .carousel-card img {
   width: 100%;
-  max-height: 400px;
+  max-height: 3800px;
   object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .carousel-card mat-card-title {
-  margin-top: 10px;
-  font-size: 16px;
+  margin-top: 12px;
+  font-size: 17px;
   font-weight: 600;
   color: #333;
 }
 
-/* Responsive */
+/* -------------------------------
+  Responsive
+-------------------------------- */
 @media screen and (max-width: 768px) {
+  .carousel-container {
+    flex-direction: column;
+    gap: 15px;
+    padding: 0;
+  }
+
+  .carousel-container button {
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+  }
+
   .carousel-track-container {
     width: 95%;
   }
 
   .carousel-card img {
-    max-height: 250px;
+    max-height: 230px;
   }
 
-  .carousel-container button {
-    width: 32px;
-    height: 32px;
-    font-size: 18px;
+  .carousel-card {
+    padding: 10px;
   }
 }
 
-
-/* Descripción */
+/* -------------------------------
+  Descripción del post
+-------------------------------- */
 .post-description {
   background: #f9f2f2;
   padding: 15px;
@@ -165,7 +181,9 @@
   color: #333;
 }
 
-/* Botón de contacto */
+/* -------------------------------
+  Botón de contacto
+-------------------------------- */
 .contact-button {
   display: flex;
   justify-content: center;
@@ -187,7 +205,9 @@
   color: white;
 }
 
-/* Título de sección */
+/* -------------------------------
+  Título de sección
+-------------------------------- */
 .inicio-section {
   text-align: center;
   margin: 40px 0 20px 0;
@@ -199,18 +219,31 @@
   font-weight: 600;
 }
 
-/* Responsive ajustes */
+/* -------------------------------
+  Responsive
+-------------------------------- */
 @media screen and (max-width: 768px) {
   .carousel-container {
     flex-direction: column;
   }
 
   .carousel-track-container {
+    width: 95%;
     max-width: 100%;
   }
 
   .carousel-card {
     padding: 5px;
+  }
+
+  .carousel-card img {
+    max-height: 250px;
+  }
+
+  .carousel-container button {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
   }
 
   .post-container {

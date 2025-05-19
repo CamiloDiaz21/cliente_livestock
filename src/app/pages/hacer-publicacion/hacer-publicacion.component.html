@@ -3,7 +3,7 @@
     <!-- Sección del formulario -->
     <div class="form-section">
       <h2>CREAR PUBLICACION</h2>
-      <form [formGroup]="publicacionForm" (ngSubmit)="puclicar()">
+      <form [formGroup]="publicacionForm" (ngSubmit)="publicar()">
 
         <mat-form-field appearance="outline">
           <mat-label>Tipo de Publicación</mat-label>
@@ -48,7 +48,7 @@
         </mat-form-field>
 
 
-        <button mat-raised-button color="primary" class="submit-btn" type="submit">PUBLICAR</button>
+        <button mat-raised-button color="primary" class="submit-btn" type="submit" (click)="publicar()">PUBLICAR</button>
       </form>
 
     </div>
