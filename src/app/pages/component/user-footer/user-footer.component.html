@@ -1,5 +1,3 @@
-
-
 <footer class="footer">
   <div class="footer-top">
     <!-- Contacto -->
@@ -7,12 +5,15 @@
       <h3>Contáctanos</h3>
       <p>Contáctanos para saber más sobre nuestros servicios.</p>
       <form>
-        <label>Nombre *</label>
-        <input type="text" placeholder="Nombre" required />
-        <label>Dirección de correo electrónico *</label>
-        <input type="email" placeholder="Correo" required />
-        <label>Mensaje *</label>
-        <textarea placeholder="Escribe tu mensaje" required></textarea>
+        <label for="nombre">Nombre *</label>
+        <input id="nombre" type="text" placeholder="Nombre" required />
+
+        <label for="correo">Dirección de correo electrónico *</label>
+        <input id="correo" type="email" placeholder="Correo" required />
+
+        <label for="mensaje">Mensaje *</label>
+        <textarea id="mensaje" placeholder="Escribe tu mensaje" required></textarea>
+
         <button type="submit">Enviar formulario</button>
       </form>
     </div>
@@ -27,10 +28,12 @@
           style="border:0;"
         ></iframe>
       </div>
+
       <div class="location">
         <strong>Ubicación</strong>
         <p>LIVESTOKWEB<br />Yopal, Casanare, Colombia</p>
       </div>
+
       <div class="social">
         <a href="#"><i class="fab fa-facebook"></i></a>
         <a href="#"><i class="fab fa-tiktok"></i></a>
@@ -41,15 +44,16 @@
   </div>
 
   <!-- Sobre Nosotros -->
-
-</footer>
-<div class="footer-bottom">
-  <h3>Sobre nosotros</h3>
-  <p>
-    <strong>LIVESTOKWEB</strong> es una empresa pionera en Yopal, Casanare, Colombia, dedicada a la innovación en el sector ganadero. Con una profunda raíz en la tradición llanera, nos esforzamos por ofrecer servicios de venta, consultoría de ganado que no solo cumplen, sino que superan las expectativas de nuestros clientes. Nuestro equipo está compuesto por profesionales altamente calificados, apasionados por la ganadería y comprometidos con el desarrollo sostenible del sector. Creemos en la importancia de la tecnología y la innovación para avanzar en nuestro campo, manteniendo siempre un profundo respeto por nuestras tradiciones.
-
-
-    <br />
+  <div class="footer-bottom">
+    <h3>Sobre nosotros</h3>
+    <p>
+      <strong>LIVESTOKWEB</strong> es una empresa pionera en Yopal, Casanare, Colombia, dedicada a la innovación en el
+      sector ganadero. Con una profunda raíz en la tradición llanera, nos esforzamos por ofrecer servicios de venta y
+      consultoría de ganado que no solo cumplen, sino que superan las expectativas de nuestros clientes. Nuestro equipo
+      está compuesto por profesionales altamente calificados, apasionados por la ganadería y comprometidos con el
+      desarrollo sostenible del sector. Creemos en la importancia de la tecnología y la innovación para avanzar en
+      nuestro campo, manteniendo siempre un profundo respeto por nuestras tradiciones.
+    </p>
     <button class="btn-red">Conoce más aquí</button>
-  </p>
-</div>
+  </div>
+</footer>

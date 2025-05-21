@@ -1,24 +1,35 @@
 <app-user-header></app-user-header>
+<br>
 
+<!-- Encabezado -->
+<section class="inicio-section">
+  <h1>Donde la tradición y el futuro se encuentran</h1>
+</section>
+
+<!-- Publicación -->
 <div class="post-container">
 
-  <!-- Encabezado del usuario -->
+  <!-- Usuario -->
   <div class="post-header">
     <img src="/imagen.jpg" alt="Avatar" class="avatar" />
     <div class="user-info">
-      <strong (click)="Perfil()">Luis Villa</strong><span class="verified">✔️</span><br />
+      <h2 (click)="Perfil()"> Luis Villa <mat-icon class="verified">verified</mat-icon></h2>
       <small># Publicado desde 20/03/2023</small>
     </div>
   </div>
 
-  <!-- Carrusel de imágenes -->
-  <div class="carousel-container">
+  <!-- Carrusel -->
+  <div class="carousel-container" *ngIf="cards.length > 0">
     <button mat-icon-button (click)="goPrevius()" [disabled]="currentIndex === 0">
-      &lt;
+      <mat-icon>chevron_left</mat-icon>
     </button>
 
     <div class="carousel-track-container">
-      <div class="carousel-track" [style.transform]="getTransform()">
+      <div
+        class="carousel-track"
+        [style.transform]="'translateX(-' + currentIndex * 100 + '%)'"
+        [style.width.%]="cards.length * 100"
+      >
         <mat-card class="carousel-card" *ngFor="let card of cards">
           <img mat-card-image [src]="card.image" alt="Imagen de la tarjeta" />
           <mat-card-title>{{ card.title }}</mat-card-title>
@@ -27,25 +38,24 @@
     </div>
 
     <button mat-icon-button (click)="goNext()" [disabled]="currentIndex === cards.length - 1">
-      &gt;
+      <mat-icon>chevron_right</mat-icon>
     </button>
   </div>
+
   <br>
 
-  <!-- Información de la publicación -->
+  <!-- Descripción -->
   <div class="post-description">
     <h4>INFORMACIÓN</h4>
     <p>Se vende lote de ganado raza brahman rojo puro.</p>
   </div>
 
-  <!-- Botón centrado -->
+  <!-- Botón -->
   <div class="contact-button">
     <button mat-raised-button color="primary" class="submit-btn">
       Contactar vendedor
     </button>
   </div>
-
 </div>
 
 <app-user-footer></app-user-footer>
-

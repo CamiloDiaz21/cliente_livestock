@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
+//import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 import { MatButton } from '@angular/material/button';
@@ -18,7 +18,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule,
+    //MatButtonModule,
     MatIconModule,
     MatButton,
     FormsModule,
@@ -31,22 +31,34 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 })
 export class LoginComponent {
   correo: string = '';
-    constructor(private router: Router) {}
-    hidePassword=true;
+  contrasena: string = ''; // ✅ Agregado para resolver el error
+  error: string | null = null;
+  hidePassword = true;
 
-    goToRegister(){
-      console.log('Boton de registro clickeado');
-      this.router.navigate(['/registro']);
+  constructor(private router: Router) {}
+
+  goToRegister() {
+    alert('creando cuenta...');
+    this.router.navigate(['/registro']);
+  }
+
+  login() {
+    if (this.correo === '' || this.contrasena === '') {
+      this.error = 'Correo y contraseña son obligatorios.';
+    } else {
+      this.error = null;
+      alert('Iniciando sesión...');
+      this.router.navigate(['/inicio']);
     }
-    login(){
-    
-      this.router.navigate(['/inicio'])
-    }
-    recoverPassword(){
-      console.log('Boton de recuperar clickeado');
-      this.router.navigate(['/recover-password']);
-    }
-    createAccount(){
-      alert('creando cuenta...');
-    }
+  }
+
+  recoverPassword() {
+    alert('Recuperando contraseña...');
+    this.router.navigate(['/recover-password']);
+  }
+
+  createAccount() {
+    alert('Creando cuenta...');
+  }
 }
+

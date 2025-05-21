@@ -1,13 +1,10 @@
 <header class="main-header">
-  <div class="logo">LIVESTOKWEB</div>
-    <nav class="nav-menu">
-
-    <a class="active" href="/inicio">INICIO</a>
-    <a href="#">REGISTRO</a>
-    <a href="/publicaciones">PUBLICACIONES</a>
-    <a href="#">GANADO PREMIUM</a>
-    <a href="#">VENTA DE FINCAS</a>
-    <a href="#">BIBLIOGRAFÍA GANADERA</a>
-    <a href="#">CONTACTO</a>
+  <div class="logo-animado">LIVESTOKWEB</div>
+  <nav class="nav-menu">
+    <a routerLink="/inicio" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">INICIO</a>
+    <a routerLink="/publicaciones" routerLinkActive="active-link">PUBLICACIONES</a>
+    <a routerLink="/ganado-premium" routerLinkActive="active-link">VENTA DE GANADO</a>
+    <a routerLink="/venta-fincas" routerLinkActive="active-link">VENTA DE FINCAS</a>
+    <a routerLink="/bibliografia" routerLinkActive="active-link">BIBLIOGRAFÍA GANADERA</a>
   </nav>
 </header>

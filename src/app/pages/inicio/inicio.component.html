@@ -2,7 +2,7 @@
 
 <!-- Sección de inicio -->
 <section class="inicio-section">
-  <h1>Donde la tradición y el futuro se encuentran</h1>
+  <h1 class="text">Donde la tradición y el futuro se encuentran</h1>
   <button mat-raised-button class="main-button">Conoce más aquí</button>
 </section>
 
@@ -26,7 +26,7 @@
   <div class="post-header">
     <img src="/imagen.jpg" alt="Avatar" class="avatar">
     <div class="user-info">
-      <strong>Luis Villa</strong> <span class="verified">✔️</span><br>
+      <h2 (click)="Perfil()"> Luis Villa <mat-icon class="verified">verified</mat-icon></h2>
       <small># Publicado desde 20/03/2022</small>
     </div>
   </div>
@@ -56,14 +56,61 @@
   <div class="post-description">
     <h4>INFORMACIÓN</h4>
     <p>Se vende lote de ganado raza Brahman rojo puro.</p>
+
   </div>
 
-  <!-- Botón de contacto -->
   <div class="contact-button">
-    <button mat-raised-button color="primary" class="contact-seller-button">
+    <button mat-raised-button color="primary" class="submit-btn">
       Contactar vendedor
     </button>
   </div>
+  <br>
+  <!-- Botón de contacto -->
+
+
+
+  <div class="post-header">
+    <img src={{imagen}} alt="Avatar" class="avatar">
+    <div class="user-info">
+      <h2 (click)="Perfil()">{{nombreUsuario}} <mat-icon class="verified">verified</mat-icon></h2>
+      <small>{{fecha}}</small>
+    </div>
+  </div>
+
+  <!-- Carrusel de imágenes -->
+  <div class="carousel-container">
+    <button mat-icon-button (click)="goPrevius()" [disabled]="currentIndex === 0">
+      &lt;
+    </button>
+
+    <div class="carousel-track-container">
+      <div class="carousel-track" [style.transform]="getTransform()">
+        <mat-card class="carousel-card" *ngFor="let card of cards">
+          <img mat-card-image [src]="card.image" alt="Imagen de la tarjeta" />
+          <mat-card-title>{{ card.title }}</mat-card-title>
+        </mat-card>
+      </div>
+    </div>
+
+    <button mat-icon-button (click)="goNext()" [disabled]="currentIndex === cards.length - 1">
+      &gt;
+    </button>
+  </div>
+  <br>
+
+  <!-- Descripción de publicación -->
+  <div class="post-description">
+    <h4>INFORMACIÓN</h4>
+    <p>{{informacion}}</p>
+  </div>
+  <br>
+  <!-- Botón de contacto -->
+  <div class="contact-button">
+    <button mat-raised-button color="primary" class="submit-btn">
+      Contactar vendedor
+    </button>
+  </div>
+
 
 </section>
 <app-user-footer></app-user-footer>
