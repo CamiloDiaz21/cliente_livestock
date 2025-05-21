@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { MatButton } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -30,18 +31,32 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  correo: string = '';
-    constructor(private router: Router) {}
-    hidePassword=true;
+  correo_electronico: string = '';
+  contrasena: string = '';
+  error: string = '';
 
+
+  constructor(private http: HttpClient, private router: Router) {}
+  hidePassword = true;
+
+  login() {
+    this.http.post<any>('http://localhost:8082/v1/login', {
+      email: this.correo_electronico,
+      password: this.contrasena
+    }).subscribe({
+      next: (res) => {
+        localStorage.setItem('token', res.token);
+        this.router.navigate(['/inicio']); // redirige al perfil o dashboard
+      },
+      error: (err) => {
+        this.error = err.error.message || 'Error al iniciar sesión';
+      }
+    });
+  }
     goToRegister(){
       console.log('Boton de registro clickeado');
       alert('creando cuenta...');
       this.router.navigate(['/registro']);
-    }
-    login(){
-      this.router.navigate(['/inicio'])
-      alert('iniciando sesión...');
     }
     recoverPassword(){
       console.log('Boton de recuperar clickeado');
