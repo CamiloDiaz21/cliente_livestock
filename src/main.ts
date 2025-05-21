@@ -1,4 +1,3 @@
-import { Component } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { LoginComponent } from './app/pages/login/login.component';
 import { provideRouter } from '@angular/router';
@@ -16,6 +15,7 @@ import { PerfilComponent } from './app/pages/perfil/perfil.component';
 import { HojaVidaComponent } from './app/pages/hoja-vida/hoja-vida.component';
 import { EditarPerfilComponent } from './app/pages/editar-perfil/editar-perfil.component';
 import { HacerPublicacionComponent } from './app/pages/hacer-publicacion/hacer-publicacion.component';
+
 
 
 

@@ -56,7 +56,7 @@ export class HacerPublicacionComponent {
     //     next: (response) => {
     //       console.log('Respuesta del servidor:', response);
       alert('Publicacion Creada')
-      this.router.navigate(['/publicaciones']);
+      // this.router.navigate(['/publicaciones']);
 
     //     },
     //     error: (error) => {

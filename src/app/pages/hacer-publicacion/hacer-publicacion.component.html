@@ -26,6 +26,10 @@
           <input formControlName="Imagenes" type="file" multiple (change)="onImageSelected($event)" />
         </div>
 
+        <div class="preview-container">
+         <img *ngFor="let img of imagenesSeleccionadas" [src]="img" class="preview-image" />
+        </div>
+        
         <br>
         <mat-form-field appearance="outline">
           <mat-label>Contacto del Vendedor</mat-label>

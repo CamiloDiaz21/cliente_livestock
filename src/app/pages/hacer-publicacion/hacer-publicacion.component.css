@@ -1,5 +1,6 @@
 /* Contenedor Principal */
 .register-container {
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,3 +72,17 @@ mat-checkbox {
   margin-top: 10px;
 }
 
+.preview-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.preview-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
