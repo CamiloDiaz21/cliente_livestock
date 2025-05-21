@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 import { MatButton } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -19,7 +18,7 @@ import { HttpClient } from '@angular/common/http';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule,
+    //MatButtonModule,
     MatIconModule,
     MatButton,
     FormsModule,
@@ -31,13 +30,17 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  correo_electronico: string = '';
-  contrasena: string = '';
-  error: string = '';
-
-
-  constructor(private http: HttpClient, private router: Router) {}
+  correo: string = '';
+  contrasena: string = ''; // ✅ Agregado para resolver el error
+  error: string | null = null;
   hidePassword = true;
+
+  constructor(private router: Router) {}
+
+  goToRegister() {
+    alert('creando cuenta...');
+    this.router.navigate(['/registro']);
+  }
 
   login() {
     this.http.post<any>('http://localhost:8087/v1/login', {
@@ -66,4 +69,15 @@ export class LoginComponent {
     createAccount(){
       alert('creando cuenta...');
     }
+  }
+
+  recoverPassword() {
+    alert('Recuperando contraseña...');
+    this.router.navigate(['/recover-password']);
+  }
+
+  createAccount() {
+    alert('Creando cuenta...');
+  }
 }
+
