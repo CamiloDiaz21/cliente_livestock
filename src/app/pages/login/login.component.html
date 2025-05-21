@@ -3,44 +3,44 @@
     <div class="logo-container">
       <img src="/logo.jpg" alt="Logo del sistema" class="logo">
     </div>
-    <br>
-    <br>
-    <br>
+
     <h1 class="title">Bienvenido a Livestock</h1>
     <p class="subtitle">Ingrese sus credenciales para continuar</p>
 
-    <!-- Campo de Usuario -->
-    <form (ngSubmit)="login()">
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Correo</mat-label>
-      <input matInput type="correo_electronico" placeholder="Ingrese su correo" [(ngModel)]="correo_electronico" required email>
-    </mat-form-field>
+    <form (ngSubmit)="login()" #loginForm="ngForm">
+      <!-- Campo de correo -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Correo</mat-label>
+        <input matInput type="email" placeholder="Ingrese su correo" [(ngModel)]="correo_electronico" name="correo_electronico" required email>
+      </mat-form-field>
 
-    <!-- Campo de Contraseña -->
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Contraseña</mat-label>
-      <input matInput [type]="contrasena ? 'contrasena' : 'text'" placeholder="Ingrese su contraseña">
-      <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword">
-        <mat-icon>{{ contrasena ? 'visibility_off' : 'visibility' }}</mat-icon>
-      </button>
-    </mat-form-field>
+      <!-- Campo de contraseña -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="Ingrese su contraseña" [(ngModel)]="contrasena" name="contrasena" required>
+        <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword">
+          <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <!-- Mostrar errores -->
+      <div *ngIf="error" class="error">{{ error }}</div>
+
+      <!-- Recordar contraseña y recuperar -->
+      <div class="options">
+        <mat-checkbox>Recordar contraseña</mat-checkbox>
+        <button mat-button color="accent" type="button" (click)="recoverPassword()">¿Olvidaste tu contraseña?</button>
+      </div>
+
+      <!-- Botón de Iniciar sesión -->
+      <div class="actions">
+        <button mat-raised-button color="primary" class="submit-btn" type="submit">Iniciar Sesión</button>
+      </div>
+
+      <!-- Botón de registrar cuenta nueva -->
+      <div class="actions">
+        <button mat-raised-button color="primary" class="submit-btn" type="button" (click)="goToRegister()">Cuenta nueva</button>
+      </div>
     </form>
-      <!-- Opciones de "Recordar contraseña" y "Olvidaste tu contraseña?" -->
-  <div class="options">
-    <mat-checkbox>Recordar contraseña</mat-checkbox>
-    <button mat-button color="accent" (click)="recoverPassword()">¿Olvidaste tu contraseña?</button>
-  </div>
-  <br>
-    <!-- Botón de Ingreso -->
-    <div class="actions">
-    <button mat-raised-button color="primary" class="submit-btn" (click)="login()">Iniciar Sesión</button>
-  </div>
-
-    <!-- <mat-button class="custom-button">Mi Botón</mat-button> -->
-    <!-- Enlaces para recuperar contraseña y crear cuenta -->
-    <div class="actions">
-      <button mat-raised-button color="primary" class="submit-btn" (click)="goToRegister()">cuenta nueva</button>
-    </div>
   </mat-card>
 </div>
-

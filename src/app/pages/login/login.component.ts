@@ -40,7 +40,7 @@ export class LoginComponent {
   hidePassword = true;
 
   login() {
-    this.http.post<any>('http://localhost:8082/v1/login', {
+    this.http.post<any>('http://localhost:8087/v1/login', {
       email: this.correo_electronico,
       password: this.contrasena
     }).subscribe({
