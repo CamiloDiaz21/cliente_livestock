@@ -31,29 +31,35 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  correo_electronico: string = '';
-  contrasena: string = '';
-  error: string = '';
-
 
   constructor(private http: HttpClient, private router: Router) {}
   hidePassword = true;
 
-  login() {
-    this.http.post<any>('http://localhost:8087/v1/login', {
-      email: this.correo_electronico,
-      password: this.contrasena
-    }).subscribe({
-      next: (res) => {
-        localStorage.setItem('token', res.token);
-        this.router.navigate(['/inicio']); // redirige al perfil o dashboard
-      },
-      error: (err) => {
-        this.error = err.error.message || 'Error al iniciar sesión';
-      }
-    });
+  correo_electronico: string = '';
+  Contrasena: string = '';
+  error: string = '';
+// hidePassword = true;
+
+login() {
+  if (!this.correo_electronico || !this.Contrasena) {
+    this.error = 'Por favor ingrese correo y contraseña.';
+    return;
   }
-    goToRegister(){
+
+  this.http.post<any>('http://localhost:8082/v1/registro_usuario', {
+    email: this.correo_electronico,
+    password: this.Contrasena
+  }).subscribe({
+    next: (res) => {
+      localStorage.setItem('token', res.token);
+      this.router.navigate(['/inicio']); // o donde quieras redirigir
+    },
+    error: (err) => {
+      this.error = err.error.message || 'Correo o contraseña incorrectos';
+      console.log(err);
+    }
+  });
+    }    goToRegister(){
       console.log('Boton de registro clickeado');
       alert('creando cuenta...');
       this.router.navigate(['/registro']);
