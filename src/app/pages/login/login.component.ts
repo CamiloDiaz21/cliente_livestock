@@ -1,75 +1,68 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { Router } from '@angular/router';
-import { MatButton } from '@angular/material/button';
-import { FormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { HttpClient } from '@angular/common/http';
-
 
 @Component({
   selector: 'app-login',
+  standalone: true,
   imports: [
     CommonModule,
+    FormsModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    MatButton,
-    FormsModule,
-    FormsModule,
-    MatCheckboxModule,
-
+    MatCheckboxModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  CorreoElectronico: string = '';
+  Contrasena: string = '';
+  hidePassword: boolean = true;
+  error: string = '';
 
   constructor(private http: HttpClient, private router: Router) {}
-  hidePassword = true;
 
-  correo_electronico: string = '';
-  Contrasena: string = '';
-  error: string = '';
-// hidePassword = true;
+  login(): void {
+    if (!this.CorreoElectronico || !this.Contrasena) {
+      this.error = 'Por favor ingrese correo y contraseña.';
+      return;
+    }
 
-login() {
-  if (!this.correo_electronico || !this.Contrasena) {
-    this.error = 'Por favor ingrese correo y contraseña.';
-    return;
+    this.http.post<any>('http://localhost:8087/v1/registro_usuario', {
+      correo: this.CorreoElectronico,
+      contrasena: this.Contrasena
+    }).subscribe({
+      next: (res) => {
+        // Puedes guardar un token si el backend lo genera
+        localStorage.setItem('token', res.token);
+        this.router.navigate(['/inicio']);
+      },
+      error: (err) => {
+        this.error = err.error?.error || 'Correo o contraseña incorrectos';
+        console.error('Error de login:', err);
+      }
+
+    });
   }
 
-  this.http.post<any>('http://localhost:8082/v1/registro_usuario', {
-    email: this.correo_electronico,
-    password: this.Contrasena
-  }).subscribe({
-    next: (res) => {
-      localStorage.setItem('token', res.token);
-      this.router.navigate(['/inicio']); // o donde quieras redirigir
-    },
-    error: (err) => {
-      this.error = err.error.message || 'Correo o contraseña incorrectos';
-      console.log(err);
-    }
-  });
-    }    goToRegister(){
-      console.log('Boton de registro clickeado');
-      alert('creando cuenta...');
-      this.router.navigate(['/registro']);
-    }
-    recoverPassword(){
-      console.log('Boton de recuperar clickeado');
-      alert('recuperando contraseña...');
-      this.router.navigate(['/recover-password']);
-    }
-    createAccount(){
-      alert('creando cuenta...');
-    }
+  goToRegister(): void {
+    this.router.navigate(['/registro']);
+  }
+
+  recoverPassword(): void {
+    alert('Función de recuperación aún no implementada.');
+    this.router.navigate(['/recover-password']);
+  }
 }

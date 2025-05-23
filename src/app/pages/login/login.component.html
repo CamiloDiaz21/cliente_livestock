@@ -1,17 +1,13 @@
 <div class="login-container">
   <mat-card class="login-card">
-    <div class="logo-container">
-      <img src="/logo.jpg" alt="Logo del sistema" class="logo">
-    </div>
-
-    <h1 class="title">Bienvenido a Livestock</h1>
+    <div class="logo-animado">LIVESTOKWEB</div>
     <p class="subtitle">Ingrese sus credenciales para continuar</p>
 
     <form (ngSubmit)="login()" #loginForm="ngForm">
       <!-- Campo de correo -->
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Correo</mat-label>
-        <input matInput type="email" placeholder="Ingrese su correo" [(ngModel)]="correo_electronico" name="correo_electronico" required email>
+        <input matInput type="email" placeholder="Ingrese su correo" [(ngModel)]="CorreoElectronico" name="CorreoElectronico" required email>
       </mat-form-field>
 
       <!-- Campo de contraseña -->
@@ -29,7 +25,7 @@
       <!-- Recordar contraseña y recuperar -->
       <div class="options">
         <mat-checkbox>Recordar contraseña</mat-checkbox>
-        <button mat-button color="accent" type="button" (click)="recoverPassword()">¿Olvidaste tu contraseña?</button>
+        <button mat-button color="primary" type="button" (click)="recoverPassword()">¿Olvidaste tu contraseña?</button>
       </div>
 
       <!-- Botón de Iniciar sesión -->

@@ -21,23 +21,6 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Logo centrado y flotando arriba */
-.logo-container {
-  position: absolute;
-  top: -50px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: white;
-  border-radius: 50%;
-  padding: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.logo {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-}
 
 /* Títulos */
 .title {
@@ -86,7 +69,7 @@
   color: #7B1F30;
   border: 2px solid #7B1F30;
   transition: 0.3s ease;
-  border-radius: 6px;
+  border-radius: 60px;
 }
 
 .submit-btn:hover {
@@ -99,4 +82,46 @@
   color: red;
   font-size: 13px;
   margin-top: 8px;
+}
+.logo-animado {
+  font-size: 28px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #151515, #c20202, #e65d08);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: logoGradient 5s ease infinite;
+  cursor: pointer;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.logo-animado:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 10px rgba(200, 50, 50, 0.5);
+}
+
+@keyframes logoGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.actions {
+  margin-top: 15px;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
