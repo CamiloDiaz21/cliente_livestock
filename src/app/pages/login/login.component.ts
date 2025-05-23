@@ -66,3 +66,4 @@ export class LoginComponent {
     this.router.navigate(['/recover-password']);
   }
 }
+
