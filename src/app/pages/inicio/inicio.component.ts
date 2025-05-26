@@ -32,15 +32,6 @@ export class InicioComponent {
   informacion = 'Se vende lote de ganado raza Brahman rojo puro.';
 
   imagen = '/imagen.jpg';
-
-
-
-
-
-
-
-
-
   currentIndex= 0;
 
   sectionTitle= 'seccion destacada';
