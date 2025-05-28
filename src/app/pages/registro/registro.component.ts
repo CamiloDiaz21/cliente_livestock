@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -8,6 +9,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import {ApiService} from '../../../../src/services/api.services'
+
 
 @Component({
   selector: 'app-registro',
@@ -27,64 +30,47 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class RegistroComponent {
 
-  constructor(private router: Router) {}
+  registroForm!: FormGroup;
+
+  constructor(private fb: FormBuilder, private apiService: ApiService, private router: Router) {
+
+
+    this.registroForm = this.fb.group({
+      nombre: ['', Validators.required],
+      apellido: ['', Validators.required],
+      tipoUsuario: ['', Validators.required],
+      tipoDocumento: ['', Validators.required],
+      numeroDocumento: ['', Validators.required],
+      correo_electronico: ['', [Validators.required, Validators.email]],
+      dia: ['', Validators.required],
+      mes: ['', Validators.required],
+      anio: ['', Validators.required],
+      celular:['', Validators.required],
+      contrasena: ['', Validators.required],
+      confirmarContrasena: ['', Validators.required],
+      terminos: [false, Validators.requiredTrue]
+    });
+  }
 
   aceptar() {
-    console.log('🔔 Botón de registro clickeado');
-    this.router.navigate(['/login']);
+    if (this.registroForm.valid) {
+      console.log('Registro exitoso', this.registroForm.value);
+      console.log('JSON formateado:\n', JSON.stringify(this.registroForm.value, null, 2));
+      this.apiService.postData('registro', this.registroForm.value).subscribe({
+        next: (response) => {
+          console.log('Respuesta del servidor:', response);
+          alert('Usuario Creado')
+        },
+        error: (error) => {
+          console.error('Error al enviar POST:', error);
+
+        }
+      });
+
+    } else {
+      console.log('Formulario inválido');
+    }
   }
-  // registroForm: FormGroup; // ← ✅ CORREGIDO
-
-  // constructor(
-  //   private fb: FormBuilder,
-  //   private apiService: ApiService,
-  //   private router: Router
-  // ) {
-  //   this.registroForm = this.fb.group({
-  //     nombre: ['', Validators.required],
-  //     apellido: ['', Validators.required],
-  //     tipodocumeto: ['', Validators.required],
-  //     documento: ['', Validators.required],
-  //     correo: ['', [Validators.required, Validators.email]],
-  //     ciudad: ['', Validators.required],
-  //     departamento: ['', Validators.required],
-  //     pais: ['', Validators.required],
-  //     birthDate: ['', Validators.required],
-  //     password: ['', [Validators.required, Validators.minLength(6)]],
-  //     confirmPassword: ['', Validators.required],
-  //     aceptaTerminos: [false, Validators.requiredTrue]
-  //   });
-  // }
-
-  // Registrar() {
-  //   if (this.registroForm.valid) {
-  //     console.log('✅ Formulario válido - procesando registro...');
-
-  //     const formData = this.registroForm.value;
-  //     const extendedData = {
-  //       ...formData,
-  //       Fecha_creacion: new Date().toISOString(),
-  //       role: 'user',
-  //     };
-
-  //     console.log('📋 Datos enviados:', extendedData);
-
-  //     this.apiService.Post(API_URLS.CRUD.Api_crud1, extendedData).subscribe({
-  //       next: (response) => {
-  //         console.log('🎉 Registro exitoso:', response);
-  //         alert('✅ Se creó un registro exitosamente');
-  //       },
-  //       error: (error) => {
-  //         console.error('❌ Error al crear el registro:', error);
-  //         alert('⚠️ Ocurrió un error al crear el registro');
-  //       }
-  //     });
-
-  //   } else {
-  //     console.warn('⚠️ Formulario inválido o incompleto');
-  //     this.registroForm.markAllAsTouched(); // para mostrar errores visuales
-  //   }
-  // }
 
 
 

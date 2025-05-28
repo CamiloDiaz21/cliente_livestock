@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { UserHeaderComponent } from '../component/user-header/user-header.component';
 import { UserFooterComponent } from '../component/user-footer/user-footer.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @Component({
@@ -14,7 +15,8 @@ import { UserFooterComponent } from '../component/user-footer/user-footer.compon
     UserFooterComponent,
     MatButtonModule,
     MatCardModule,
-    CommonModule
+    CommonModule,
+    MatIconModule,
 
 
   ],
@@ -24,6 +26,12 @@ import { UserFooterComponent } from '../component/user-footer/user-footer.compon
 export class InicioComponent {
   constructor(private router: Router) {}
 
+  nombreUsuario: string = 'Camilo Diaz';
+  apellidoUsuario: string = 'Diaz';
+  fecha = ' Publicado desde el 20/03/2022';
+  informacion = 'Se vende lote de ganado raza Brahman rojo puro.';
+
+  imagen = '/imagen.jpg';
   currentIndex= 0;
 
   sectionTitle= 'seccion destacada';
@@ -38,7 +46,7 @@ export class InicioComponent {
     },
     {
       title: ' ',
-      image: 'venta.jpg',
+      image: 'venta2.jpg',
     },
     {
       title: ' ',
@@ -67,6 +75,9 @@ export class InicioComponent {
 
   Publicaciones(){
     this.router.navigate(['/publicaciones']);
+  }
+  Perfil(){
+    this.router.navigate(['/perfil'])
   }
 
 }

@@ -1,0 +1,62 @@
+<div class="register-container">
+  <mat-card class="register-card">
+    <!-- Sección del formulario -->
+    <div class="form-section">
+      <h2>CREAR PUBLICACION</h2>
+      <form [formGroup]="publicacionForm" (ngSubmit)="publicar()">
+
+        <mat-form-field appearance="outline">
+          <mat-label>Tipo de Publicación</mat-label>
+          <mat-select formControlName="TipoPublicacion" required>
+            <mat-option value=1> Ganado</mat-option>
+            <mat-option value=2>Haciendas</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <ng-container *ngIf="publicacionForm.get('TipoPublicacion')?.value == '1'">
+  <mat-form-field appearance="outline">
+    <mat-label>Raza del Ganado</mat-label>
+    <input matInput formControlName="RazaGanado" type="text" required />
+  </mat-form-field>
+</ng-container>
+
+        <mat-label>Subir Imagenes</mat-label>
+        <br>
+        <div class="imagenes">
+          <input formControlName="Imagenes" type="file" multiple (change)="onImageSelected($event)" />
+        </div>
+
+        <div class="preview-container">
+         <img *ngFor="let img of imagenesSeleccionadas" [src]="img" class="preview-image" />
+        </div>
+        
+        <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Contacto del Vendedor</mat-label>
+          <input matInput formControlName="DatosVender" type="text" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Descripcion</mat-label>
+          <textarea matInput formControlName="Descripcion" type="text" required ></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Precio</mat-label>
+          <input matInput formControlName="Precio" type="text" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Ubicacion</mat-label>
+          <input matInput formControlName="Ubicacion" type="text" required />
+        </mat-form-field>
+
+
+        <button mat-raised-button color="primary" class="submit-btn" type="submit" (click)="publicar()">PUBLICAR</button>
+      </form>
+
+    </div>
+
+    <!-- Sección del Logo -->
+  </mat-card>
+</div>

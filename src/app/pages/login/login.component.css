@@ -1,95 +1,127 @@
-.login-container{
-  background:  url('/fondo.jpg') no-repeat center center ;
+/* Fondo principal */
+.login-container {
+  background: url('/fondo.jpg') no-repeat center center;
   background-size: cover;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 16px;
 }
-/* Estilos para la targeta de iniciar sesion */
-.login-card{
+
+/* Tarjeta de login */
+.login-card {
   width: 100%;
   max-width: 400px;
-  padding: 20px;
+  padding: 40px 20px 30px;
   text-align: center;
-  background: rgba(252, 250, 250, 0.762); /* For browsers that do not support rgba */
-  border-radius: 10px;
-}
-.logo-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  position: absolute;
-  top: -50px; /* Hace que el logo sobresalga del card */
-  left: 50%;
-  transform: translateX(-50%);
+  background:rgba(252, 250, 250, 0.762);
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-.logo {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: rgba(252, 250, 250, 0.762);
-  padding: 10px;
-}
 
-.full-width {
-  width: 100%;
-  margin-bottom: 10px;
-}
-/* estilo de titulo */
+/* Títulos */
 .title {
-  margin: 0;
+  margin-top: 60px;
   font-size: 24px;
-  font-weight: bolder;
-  color: #7B1F30
+  font-weight: bold;
+  color: #7B1F30;
 }
-/* Estilo de titulo */
+
 .subtitle {
   font-size: 14px;
   color: #7B1F30;
-  margin-bottom: 10px;
-}
-/* estilo de formularios y botones */
-.full-width {
-  width: 100%;
-  margin-bottom: 15px;
-}
-.action{
-  display: flex;
-  justify-content: space-between;
-}
-.mat-form-field {
-  width: 100%;
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
 }
 
-.mat-input-element {
-  color: white;
+/* Formularios */
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
 }
+
+.full-width {
+  width: 100%;
+}
+
+/* Opciones (recordar y olvidar) */
 .options {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 14px;
+  margin: 10px 0;
+  color: #444;
 }
-.divider {
-  width: 2px;
-  background: rgba(0, 0, 0, 0.2);
-  height: 100%;
+
+/* Botones */
+.actions {
+  margin-top: 20px;
 }
+
 .submit-btn {
   width: 100%;
-  margin-top: 15px;
+  padding: 10px;
   font-weight: bold;
   background-color: white;
   color: #7B1F30;
-  border: 1px solid #7B1F30;
-  
+  border: 2px solid #7B1F30;
+  transition: 0.3s ease;
+  border-radius: 60px;
 }
+
 .submit-btn:hover {
   background-color: #7B1F30;
   color: white;
+}
+
+/* Mensaje de error */
+.error-message {
+  color: red;
+  font-size: 13px;
+  margin-top: 8px;
+}
+.logo-animado {
+  font-size: 28px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #151515, #c20202, #e65d08);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: logoGradient 5s ease infinite;
+  cursor: pointer;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.logo-animado:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 10px rgba(200, 50, 50, 0.5);
+}
+
+@keyframes logoGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.actions {
+  margin-top: 15px;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

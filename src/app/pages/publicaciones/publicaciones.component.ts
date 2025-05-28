@@ -1,10 +1,12 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { UserHeaderComponent } from '../component/user-header/user-header.component';
 import { UserFooterComponent } from '../component/user-footer/user-footer.component';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-publicaciones',
@@ -14,6 +16,8 @@ import { MatCardModule } from '@angular/material/card';
     UserFooterComponent,
     UserHeaderComponent,
     MatCardModule,
+    MatIconModule,
+    SlickCarouselModule,
   ],
   templateUrl: './publicaciones.component.html',
   styleUrl: './publicaciones.component.css'

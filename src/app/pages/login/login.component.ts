@@ -1,52 +1,90 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { Router } from '@angular/router';
-import { MatButton } from '@angular/material/button';
-import { FormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
 
 @Component({
   selector: 'app-login',
+  standalone: true,
   imports: [
     CommonModule,
+    FormsModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    MatButton,
-    FormsModule,
-    FormsModule,
-    MatCheckboxModule,
-
+    MatCheckboxModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  correo: string = '';
-    constructor(private router: Router) {}
-    hidePassword=true;
+  CorreoElectronico: string = '';
+  ContrasenaCLIENTE: string = '';
+  Contrasena: string = ''; // recibida del backend
+  hidePassword: boolean = true;
+  error: string = '';
 
-    goToRegister(){
-      console.log('Boton de registro clickeado');
-      this.router.navigate(['/registro']);
+  constructor(private http: HttpClient, private router: Router) {}
+
+  login() {
+  this.error = '';
+
+  if (!this.CorreoElectronico || !this.ContrasenaCLIENTE) {
+    this.error = '⚠️ Debes llenar todos los campos.';
+    return;
+  }
+
+  const url = `http://localhost:8087/v1/registro_usuario?query=CorreoElectronico:${this.CorreoElectronico}`;
+
+  this.http.get<any>(url).subscribe(
+    (response) => {
+      const usuarios = response['Consulta de id'];
+      console.log(usuarios);
+
+      if (!usuarios || usuarios.length === 0) {
+        this.error = '❌ Correo electrónico no encontrado.';
+        return;
+      }
+
+      const usuario = usuarios[0];
+      const contrasenaBD = usuario.Contrasena?.Contrasena;
+
+      if (!contrasenaBD) {
+        this.error = '❌ No se encontró la contraseña del usuario.';
+        return;
+      }
+
+      if (this.ContrasenaCLIENTE === contrasenaBD) {
+        console.log('✅ Inicio de sesión exitoso.');
+        alert('Usuario iniciado con éxito');
+        this.router.navigate(['/inicio']); // Redirige a donde necesites
+      } else {
+        this.error = '❌ Contraseña incorrecta.';
+      }
+    },
+    (error) => {
+      this.error = '❌ Error al buscar el usuario. Intenta más tarde.';
+      console.error('Error del servidor:', error);
     }
-    login(){
-    
-      this.router.navigate(['/inicio'])
-    }
-    recoverPassword(){
-      console.log('Boton de recuperar clickeado');
-      this.router.navigate(['/recover-password']);
-    }
-    createAccount(){
-      alert('creando cuenta...');
-    }
+  );
+}
+
+
+  goToRegister(): void {
+    this.router.navigate(['/registro']);
+  }
+
+  recoverPassword(): void {
+    alert('Función de recuperación aún no implementada.');
+    this.router.navigate(['/recover-password']);
+  }
 }

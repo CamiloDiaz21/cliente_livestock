@@ -1,116 +1,257 @@
+/* -------------------------------
+  Contenedor general del post
+-------------------------------- */
 .post-container {
-  max-width: 800px;
-  margin: 20px auto;
-  border: 1px solid #ccc;
+  max-width: 1250px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #803636b2;
   border-radius: 10px;
-  padding: 15px;
   background: #fff;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-
-
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* -------------------------------
+  Encabezado de usuario
+-------------------------------- */
 .post-header {
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
+  gap: 15px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 25px;
 }
 
 .avatar {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   object-fit: cover;
   border-radius: 50%;
-  margin-right: 10px;
+  border: 2px solid #7B1F30;
 }
 
+.user-info h2 {
+  margin: 0;
+  font-size: 22px;
+  color: #2c2c2c;
+  font-weight: 60px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.user-info h2 mat-icon.verified,
 .verified {
   color: dodgerblue;
-  font-size: 1.2em;
-  margin-left: 5px;
+  margin-left: 6px;
+  vertical-align: middle;
 }
 
-.post-imagen {
+.user-info small {
+  color: #666;
+  font-size: 13px;
+  margin-top: 2.5px;
+  display: block;
+}
+
+/*-------------------------------
+  Carrusel
+-------------------------------- */
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px auto;
+  gap: 20px;
+  flex-wrap: nowrap;
+  max-width: 800px;
+  padding: 0 20px;
+  position: relative;
+}
+
+/* -------------------------------
+  Botones de navegación
+-------------------------------- */
+.carousel-container button {
+  background-color: #7B1F30;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.carousel-container button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.carousel-container button:hover:not(:disabled) {
+  background-color: #5a0f0f;
+  transform: scale(1.05);
+}
+
+/* -------------------------------
+  Track del carrusel
+-------------------------------- */
+.carousel-track-container {
+  overflow: hidden;
+  flex: 1;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+
+/* -------------------------------
+   Tarjetas del carrusel
+-------------------------------- */
+.carousel-card {
+  flex: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.carousel-card img {
   width: 100%;
-  max-height: 450px;
+  max-height: 3800px;
   object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 10px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
+.carousel-card mat-card-title {
+  margin-top: 12px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* -------------------------------
+  Responsive
+-------------------------------- */
+@media screen and (max-width: 768px) {
+  .carousel-container {
+    flex-direction: column;
+    gap: 15px;
+    padding: 0;
+  }
+
+  .carousel-container button {
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+  }
+
+  .carousel-track-container {
+    width: 95%;
+  }
+
+  .carousel-card img {
+    max-height: 230px;
+  }
+
+  .carousel-card {
+    padding: 10px;
+  }
+}
+
+/* -------------------------------
+  Descripción del post
+-------------------------------- */
 .post-description {
-  background: #eddede;
-  padding: 10px;
+  background: #f9f2f2;
+  padding: 15px;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 15px;
+  margin-top: 20px;
+  color: #333;
 }
 
+/* -------------------------------
+  Botón de contacto
+-------------------------------- */
+.contact-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
 
 .submit-btn {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  margin-top: 15px;
-  align-items: center;
+  padding: 10px 30px;
   font-weight: bold;
   background-color: white;
   color: #7B1F30;
-  border: 1px solid #7B1F30;
-  }
-
+  border: 2px solid #7B1F30;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
 
 .submit-btn:hover {
   background-color: #7B1F30;
   color: white;
 }
 
-.carousel-wrapper{
-
+/* -------------------------------
+  Título de sección
+-------------------------------- */
+.inicio-section {
   text-align: center;
-  padding: 20px;
-  max-width: 2000px;
-  margin: auto;
+  margin: 40px 0 20px 0;
 }
 
-.description{
-  margin-bottom: 20px;
-  font-style: italic;
-  color: #e61c1c;
+.inicio-section h1 {
+  font-size: 28px;
+  color: #5a0f0f;
+  font-weight: 600;
 }
 
-.carousel-container{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
+/* -------------------------------
+  Responsive
+-------------------------------- */
+@media screen and (max-width: 768px) {
+  .carousel-container {
+    flex-direction: column;
+  }
 
-.carousel-track-container{
-  width: 500px;
-  overflow: hidden;
-}
-.carousel-track{
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
+  .carousel-track-container {
+    width: 95%;
+    max-width: 100%;
+  }
 
-.carousel-card{
+  .carousel-card {
+    padding: 5px;
+  }
 
-  min-width: 500px;
-  margin: 0 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
+  .carousel-card img {
+    max-height: 250px;
+  }
 
-.detalle-info{
-  margin-top: 30px;
-  padding: 20px;
-  border-top: 2px solid #000000;
-  background-color: #cabdbd;
-  text-align: center;
-  animation: fadeIn 0.3 ease-in-out;
-}
+  .carousel-container button {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
 
-@keyframes fadeIn{
-  from {opacity: 0;}
-  to {opacity: 1;}
+  .post-container {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  .inicio-section h1 {
+    font-size: 22px;
+  }
 }

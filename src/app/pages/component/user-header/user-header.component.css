@@ -1,40 +1,111 @@
 .main-header {
-  background: white;
+  background: #f5f1f1;
   background-size: cover;
   background-position: center;
+  position: fixed;
+  top: 0;
+  width: 95%;
+  height: 70px;
   display: flex;
-  flex-direction: column;
-  align-items: start;
-  padding: 20px 40px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
   font-weight: bold;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.logo-animado {
+  font-size: 28px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #151515, #e30707, #e65d08);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: logoGradient 5s ease infinite;
+  cursor: pointer;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.logo-animado:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 10px rgba(200, 50, 50, 0.5);
+}
+
+@keyframes logoGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
 
-  .logo {
-    font-size: 28px;
-    font-weight: 800;
-    margin-bottom: 10px;
+/* Menú de navegación */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  font-weight: 500;
+}
+
+.nav-menu a {
+  position: relative;
+  text-decoration: none;
+  color: #2c2c2c;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  background: #8e0000;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: #8e0000;
+}
+
+.nav-menu a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+
+/* Enlace activo */
+.active-link {
+  color: #7B1F30;
+  border-bottom: 2px solid #7B1F30;
+}
+
+/* Responsivo */
+@media screen and (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 15px 25px;
   }
 
   .nav-menu {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
 
-    a {
-      text-decoration: none;
-      color: rgb(30, 8, 8);
-      padding-bottom: 5px;
-      border-bottom: 3px solid transparent;
-
-      &.active {
-        color: #7B1F30;
-        border-color:#cccccc;
-      }
-
-      &:hover {
-        color: #7B1F30;
-        border-color: #7B1F30;
-      }
-    }
+  .logo {
+    margin-bottom: 10px;
   }
 }
