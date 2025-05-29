@@ -10,6 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import {ApiService} from '../../../../src/services/api.services'
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -31,13 +32,17 @@ export class HacerPublicacionComponent {
   publicacionForm!: FormGroup;
   imagenesSeleccionadas: string[] = [];
 
-  constructor(private fb: FormBuilder, private apiService: ApiService, private router: Router) {
+  constructor(private fb: FormBuilder,
+              private apiService: ApiService,
+              private router: Router,
+              private http: HttpClient
+            ) {
 
 
     this.publicacionForm = this.fb.group({
-      TipoPublicacion: ['', Validators.required],
-      Imagenes: ['', Validators.required],
-      DatosVender: ['', Validators.required],
+      TPublicacion: ['', Validators.required],
+      imagenes: ['', Validators.required],
+      DatosVendedor: ['', Validators.required],
       Descripcion: ['', Validators.required],
       Precio: ['', Validators.required],
       Ubicacion: ['', Validators.required],
@@ -46,30 +51,47 @@ export class HacerPublicacionComponent {
     });
   }
 
-  publicar() {
-    if (this.publicacionForm.valid) {
-      this.publicacionForm.value.Imagenes = this.imagenesSeleccionadas
-      console.log('Registro exitoso', this.publicacionForm.value);
-      // console.log('JSON formateado:\n', JSON.stringify(this.publicacionForm.value, null, 2));
-      console.log(this.imagenesSeleccionadas)
+publicar() {
+    const url = `http://localhost:8085/v1/publicaciones`;
+
+    this.http.post<any>(url, this.publicacionForm.value).subscribe({
+      next: (response) => {
+        console.log('Respuesta del servidor:', response);
+        alert('Publicación creada exitosamente.');
+        this.router.navigate(['/publicaciones']);
+      },
+      error: (error) => {
+        console.error('Error al enviar POST:', error);
+        alert('Error al crear la publicación.');
+      }
+    });
+  }
+
+
+
+    // if (this.publicacionForm.valid) {
+    //   this.publicacionForm.value.Imagenes = this.imagenesSeleccionadas
+    //   console.log('Registro exitoso', this.publicacionForm.value);
+    //   console.log('JSON formateado:\n', JSON.stringify(this.publicacionForm.value, null, 2));
+    //   console.log(this.imagenesSeleccionadas)
     //   this.apiService.postData('registro', this.publicacionForm.value).subscribe({
     //     next: (response) => {
     //       console.log('Respuesta del servidor:', response);
-      alert('Publicacion Creada')
-      // this.router.navigate(['/publicaciones']);
+    //   alert('Publicacion Creada')
+    //   this.router.navigate(['/publicaciones']);
 
     //     },
     //     error: (error) => {
     //       console.error('Error al enviar POST:', error);
 
-    //     }
-    //   });
+  //       }
+  //     });
 
-    } else {
-      console.log('Formulario inválido');
-    }
+  //   } else {
+  //     console.log('Formulario inválido');
+  //   }
 
-  }
+  // }
 
   onImageSelected(event: any) {
     const files = event.target.files;

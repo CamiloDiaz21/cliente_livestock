@@ -1,38 +1,51 @@
-
 <div class="perfil-container">
   <mat-card class="perfil-lateral">
-
-    <img mat-card-avatar src={{imagen}} class="perfil-img" />
-    <h2> {{nombre}} <mat-icon class="verified">verified</mat-icon></h2>
-    <p class="email">{{email}}</p>
-    <button mat-raised-button class="submit-btn" (click)="Editar()">Editar <mat-icon>edit</mat-icon></button>
-
-    <mat-card class="tipo-usuario" color="warn">
-      <p><strong>{{Datos_vendedor.tipo_usuario}}</strong></p>
-    </mat-card>
+    <div *ngIf="usuario">
+      <img [src]="usuario.imagen_url" alt="Foto de perfil" class="imagen-perfil" />
+      <h2>
+        {{ usuario.Nombre }}
+        <mat-icon *ngIf="usuario.verificado" color="primary">verified</mat-icon>
+      </h2>
+      <p>{{ usuario.CorreoElectronico }}</p>
+      <button mat-raised-button color="primary" class="btn-editar" (click)="Editar()">
+        <mat-icon>edit</mat-icon> Editar
+      </button>
+      <div class="rol-badge" [ngClass]="{'vendedor': usuario.IdTipoUsuario === 'vendedor'}">
+        Usuario {{ usuario.IdTipoUsuario }}
+      </div>
+    </div>
   </mat-card>
 
   <mat-card class="perfil-info">
     <mat-tab-group>
-      <mat-tab label="Hoja de vida">
-                <div class="info-grid">
-          <h2>Hoja de vida</h2>
-            <button mat-raised-button appearence="outline" class="submit-btn" (click)="Publicar()" ><mat-icon>add</mat-icon>Publicación Hoja de vida</button>
-        </div>
+      <mat-tab label="Información de Perfil">
         <div class="info-grid">
-
-
-
+          <h3>Nombre: {{ usuario?.Nombre }}</h3>
+          <h3>Correo: {{ usuario?.CorreoElectronico }}</h3>
+          <h3>Rol: {{ usuario?.IdTipoUsuario }}</h3>
+          <h3>Verificado: {{ usuario?.verificado ? 'Sí' : 'No' }}</h3>
         </div>
       </mat-tab>
+
+      <mat-tab label="Hoja de vida">
+        <div class="info-grid">
+          <h2>Hoja de vida</h2>
+          <button mat-raised-button color="accent" (click)="Publicar()">
+            <mat-icon>add</mat-icon> Publicar Hoja de vida
+          </button>
+          <!-- Aquí podrías renderizar datos reales del CV -->
+        </div>
+      </mat-tab>
+
       <mat-tab label="Publicaciones">
         <div class="info-grid">
           <h2>Publicaciones</h2>
-            <button mat-raised-button appearence="outline" class="submit-btn" (click)="Publicar()" ><mat-icon>add</mat-icon>Hacer Publicación</button>
+          <button mat-raised-button color="accent" (click)="Publicar()">
+            <mat-icon>add</mat-icon> Hacer Publicación
+          </button>
+          <!-- Aquí se pueden mostrar publicaciones reales -->
         </div>
       </mat-tab>
     </mat-tab-group>
   </mat-card>
 </div>
-
-
