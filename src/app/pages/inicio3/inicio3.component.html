@@ -1,0 +1,116 @@
+<app-user-header></app-user-header>
+
+<!-- Sección de inicio -->
+<section class="inicio-section">
+  <h1 class="text">Donde la tradición y el futuro se encuentran</h1>
+  <button mat-raised-button class="main-button">Conoce más aquí</button>
+</section>
+
+<!-- Tarjeta de bienvenida -->
+<section class="welcome-card">
+  <h2>Bienvenidos a <span class="brand-name">LIVESTOKWEB</span></h2>
+  <p>
+    En LIVESTOKWEB, nos dedicamos a revolucionar el mundo de la ganadería en Casanare,
+    con un enfoque único en la venta llanera. Comprometidos con la calidad y la innovación,
+    ofrecemos una experiencia inigualable a nuestros clientes.
+  </p>
+
+  <button mat-raised-button class="main-button" (click)="Publicaciones()">Publicaciones</button>
+</section>
+
+<!-- Publicaciones -->
+<section class="post-container">
+
+  <!-- Cabecera de publicación -->
+
+  <div class="post-header">
+    <img src="/imagen.jpg" alt="Avatar" class="avatar">
+    <div class="user-info">
+      <h2 (click)="Perfil()"> Luis Villa <mat-icon class="verified">verified</mat-icon></h2>
+      <small># Publicado desde 20/03/2022</small>
+    </div>
+  </div>
+
+  <!-- Carrusel de imágenes -->
+  <div class="carousel-container">
+    <button mat-icon-button (click)="goPrevius()" [disabled]="currentIndex === 0">
+      &lt;
+    </button>
+
+    <div class="carousel-track-container">
+      <div class="carousel-track" [style.transform]="getTransform()">
+        <mat-card class="carousel-card" *ngFor="let card of cards">
+          <img mat-card-image [src]="card.image" alt="Imagen de la tarjeta" />
+          <mat-card-title>{{ card.title }}</mat-card-title>
+        </mat-card>
+      </div>
+    </div>
+
+    <button mat-icon-button (click)="goNext()" [disabled]="currentIndex === cards.length - 1">
+      &gt;
+    </button>
+  </div>
+  <br>
+
+  <!-- Descripción de publicación -->
+  <div class="post-description">
+    <h4>INFORMACIÓN</h4>
+    <p>Se vende lote de ganado raza Brahman rojo puro.</p>
+
+  </div>
+
+  <div class="contact-button">
+    <button mat-raised-button color="primary" class="submit-btn">
+      Contactar vendedor
+    </button>
+  </div>
+  <br>
+  <!-- Botón de contacto -->
+
+
+
+  <div class="post-header">
+    <img src={{imagen}} alt="Avatar" class="avatar">
+    <div class="user-info">
+      <h2 (click)="Perfil()">{{nombreUsuario}} <mat-icon class="verified">verified</mat-icon></h2>
+      <small>{{fecha}}</small>
+    </div>
+  </div>
+
+  <!-- Carrusel de imágenes -->
+  <div class="carousel-container">
+    <button mat-icon-button (click)="goPrevius()" [disabled]="currentIndex === 0">
+      &lt;
+    </button>
+
+    <div class="carousel-track-container">
+      <div class="carousel-track" [style.transform]="getTransform()">
+        <mat-card class="carousel-card" *ngFor="let card of cards">
+          <img mat-card-image [src]="card.image" alt="Imagen de la tarjeta" />
+          <mat-card-title>{{ card.title }}</mat-card-title>
+        </mat-card>
+      </div>
+    </div>
+
+    <button mat-icon-button (click)="goNext()" [disabled]="currentIndex === cards.length - 1">
+      &gt;
+    </button>
+  </div>
+  <br>
+
+  <!-- Descripción de publicación -->
+  <div class="post-description">
+    <h4>INFORMACIÓN</h4>
+    <p>{{informacion}}</p>
+  </div>
+  <br>
+  <!-- Botón de contacto -->
+  <div class="contact-button">
+    <button mat-raised-button color="primary" class="submit-btn">
+      Contactar vendedor
+    </button>
+  </div>
+
+
+</section>
+<app-user-footer></app-user-footer>
