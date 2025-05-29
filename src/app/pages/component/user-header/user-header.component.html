@@ -1,11 +1,14 @@
 <header class="main-header">
-  <div class="logo-animado">LIVESTOKWEB</div>
-  
+  <div class="logo-contenedor">
+    <div class="logo-animado">LIVESTOKWEB</div>
+
+    <div class="nombre-usuario" (click)="perfil()">{{NombreUsuario}}</div>
+  </div>
   <nav class="nav-menu">
     <a routerLink="/inicio" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">INICIO</a>
     <a routerLink="/publicaciones" routerLinkActive="active-link">PUBLICACIONES</a>
-    <a routerLink="/ganado-premium" routerLinkActive="active-link">VENTA DE GANADO</a>
-    <a routerLink="/venta-fincas" routerLinkActive="active-link">VENTA DE FINCAS</a>
-    <a routerLink="/bibliografia" routerLinkActive="active-link">BIBLIOGRAFÍA GANADERA</a>
+    <a routerLink="/ganado" routerLinkActive="active-link">VENTA DE GANADO</a>
+    <a routerLink="/haciendas" routerLinkActive="active-link">VENTA DE FINCAS</a>
+    <a routerLink="/biografia" routerLinkActive="active-link">BIBLIOGRAFÍA GANADERA</a>
   </nav>
 </header>

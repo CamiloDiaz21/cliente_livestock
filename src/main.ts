@@ -16,6 +16,9 @@ import { HojaVidaComponent } from './app/pages/hoja-vida/hoja-vida.component';
 import { EditarPerfilComponent } from './app/pages/editar-perfil/editar-perfil.component';
 import { HacerPublicacionComponent } from './app/pages/hacer-publicacion/hacer-publicacion.component';
 import {Inicio3Component} from './app/pages/inicio3/inicio3.component';
+import { PublicacionGanadoComponent } from './app/pages/publicacion-ganado/publicacion-ganado.component';
+import { PublicacionHaciendaComponent } from './app/pages/publicacion-hacienda/publicacion-hacienda.component';
+import { BiografiaComponent } from './app/pages/biografia/biografia.component';
 
 
 
@@ -36,7 +39,10 @@ bootstrapApplication(AppComponent,{
           { path: 'perfil', component: PerfilComponent},
           { path: 'editar-perfil', component: EditarPerfilComponent},
           { path: 'publicar', component: HacerPublicacionComponent},
+          { path: 'ganado', component: PublicacionGanadoComponent},
           {path: 'inicio3', component: Inicio3Component},
+          {path: 'biografia', component: BiografiaComponent},
+          {path: 'haciendas', component: PublicacionHaciendaComponent},
 
       ]),
       provideAnimations(),
