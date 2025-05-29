@@ -15,6 +15,7 @@ import { PublicacionGanadoComponent } from './pages/publicacion-ganado/publicaci
 import { Inicio3Component } from './pages/inicio3/inicio3.component';
 import { PublicacionHaciendaComponent } from './pages/publicacion-hacienda/publicacion-hacienda.component';
 import { BiografiaComponent } from './pages/biografia/biografia.component';
+import { UserHeader2Component } from './pages/component/user-header2/user-header2.component';
 
 
 export const routes: Routes = [
@@ -34,4 +35,5 @@ export const routes: Routes = [
     { path: 'haciendas', component: PublicacionHaciendaComponent},
     { path: '**', redirectTo: 'login' },
     { path : 'inicio3', component: Inicio3Component, data: { animation: 'InicioPage' }},
+    { path: 'user-header2', component: UserHeader2Component},
   ];

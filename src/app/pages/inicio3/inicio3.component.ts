@@ -3,14 +3,14 @@ import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
-import { UserHeaderComponent } from '../component/user-header/user-header.component';
 import { UserFooterComponent } from '../component/user-footer/user-footer.component';
 import { MatIconModule } from '@angular/material/icon';
+import { UserHeader2Component } from '../component/user-header2/user-header2.component';
 
 @Component({
   selector: 'app-inicio3',
   imports: [    
-    UserHeaderComponent,
+    UserHeader2Component,
     UserFooterComponent,
     MatButtonModule,
     MatCardModule,

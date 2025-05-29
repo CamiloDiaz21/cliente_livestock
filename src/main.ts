@@ -19,6 +19,7 @@ import {Inicio3Component} from './app/pages/inicio3/inicio3.component';
 import { PublicacionGanadoComponent } from './app/pages/publicacion-ganado/publicacion-ganado.component';
 import { PublicacionHaciendaComponent } from './app/pages/publicacion-hacienda/publicacion-hacienda.component';
 import { BiografiaComponent } from './app/pages/biografia/biografia.component';
+import { UserHeader2Component } from './app/pages/component/user-header2/user-header2.component';
 
 
 
@@ -43,6 +44,7 @@ bootstrapApplication(AppComponent,{
           {path: 'inicio3', component: Inicio3Component},
           {path: 'biografia', component: BiografiaComponent},
           {path: 'haciendas', component: PublicacionHaciendaComponent},
+          { path: 'user-header2', component: UserHeader2Component},
 
       ]),
       provideAnimations(),
