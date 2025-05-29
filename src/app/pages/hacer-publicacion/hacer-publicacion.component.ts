@@ -9,12 +9,12 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-import {ApiService} from '../../../../src/services/api.services'
+import { ApiService } from '../../../../src/services/api.services';
 import { HttpClient } from '@angular/common/http';
-
 
 @Component({
   selector: 'app-hacer-publicacion',
+  standalone: true,
   imports: [
     MatCheckboxModule,
     CommonModule,
@@ -26,84 +26,75 @@ import { HttpClient } from '@angular/common/http';
     ReactiveFormsModule,
   ],
   templateUrl: './hacer-publicacion.component.html',
-  styleUrl: './hacer-publicacion.component.css'
+  styleUrl: './hacer-publicacion.component.css',
 })
 export class HacerPublicacionComponent {
   publicacionForm!: FormGroup;
   imagenesSeleccionadas: string[] = [];
 
-  constructor(private fb: FormBuilder,
-              private apiService: ApiService,
-              private router: Router,
-              private http: HttpClient
-            ) {
-
-
+  constructor(
+    private fb: FormBuilder,
+    private apiService: ApiService,
+    private router: Router,
+    private http: HttpClient
+  ) {
     this.publicacionForm = this.fb.group({
-      TPublicacion: ['', Validators.required],
-      imagenes: ['', Validators.required],
+      IdTipoVenta: ['', Validators.required],
       DatosVendedor: ['', Validators.required],
       Descripcion: ['', Validators.required],
       Precio: ['', Validators.required],
       Ubicacion: ['', Validators.required],
       RazaGanado: [''],
-
+      Imagenes: [[]], // Inicializamos como array
     });
   }
 
-publicar() {
-    const url = `http://localhost:8085/v1/publicaciones`;
+onImageSelected(event: any) {
+  const files: FileList = event.target.files;
+  this.imagenesSeleccionadas = [];
 
+  if (files && files.length > 0) {
+    Array.from(files).forEach((file: File) => {
+      const reader = new FileReader();
+
+      reader.onload = (e: any) => {
+        const base64Image = e.target.result;
+        this.imagenesSeleccionadas.push(base64Image);
+
+        // ⚠️ Corrige aquí
+        this.publicacionForm.patchValue({
+          Imagenes: this.imagenesSeleccionadas
+        });
+      };
+
+      reader.readAsDataURL(file);
+    });
+  }
+}
+
+publicar() {
+  if (this.publicacionForm.valid) {
+    // ⚠️ Y también aquí
+    this.publicacionForm.patchValue({ Imagenes: this.imagenesSeleccionadas });
+
+    console.log('Datos a enviar al servidor:');
+    console.log(this.publicacionForm.value);
+    console.log(this.imagenesSeleccionadas);
+
+    const url = 'http://localhost:8083/v1/publicaciones';
     this.http.post<any>(url, this.publicacionForm.value).subscribe({
       next: (response) => {
         console.log('Respuesta del servidor:', response);
         alert('Publicación creada exitosamente.');
         this.router.navigate(['/publicaciones']);
       },
-      error: (error) => {
-        console.error('Error al enviar POST:', error);
+      error: (error: any) => {
+        console.error('Error al enviar POST:', error.message);
         alert('Error al crear la publicación.');
-      }
+      },
     });
+  } else {
+    alert('Formulario inválido. Por favor, completa todos los campos obligatorios.');
   }
-
-
-
-    // if (this.publicacionForm.valid) {
-    //   this.publicacionForm.value.Imagenes = this.imagenesSeleccionadas
-    //   console.log('Registro exitoso', this.publicacionForm.value);
-    //   console.log('JSON formateado:\n', JSON.stringify(this.publicacionForm.value, null, 2));
-    //   console.log(this.imagenesSeleccionadas)
-    //   this.apiService.postData('registro', this.publicacionForm.value).subscribe({
-    //     next: (response) => {
-    //       console.log('Respuesta del servidor:', response);
-    //   alert('Publicacion Creada')
-    //   this.router.navigate(['/publicaciones']);
-
-    //     },
-    //     error: (error) => {
-    //       console.error('Error al enviar POST:', error);
-
-  //       }
-  //     });
-
-  //   } else {
-  //     console.log('Formulario inválido');
-  //   }
-
-  // }
-
-  onImageSelected(event: any) {
-    const files = event.target.files;
-    this.imagenesSeleccionadas = [];
-
-    for (let file of files) {
-      const reader = new FileReader();
-      reader.onload = (e: any) => {
-        this.imagenesSeleccionadas.push(e.target.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  }
-
+}
 }

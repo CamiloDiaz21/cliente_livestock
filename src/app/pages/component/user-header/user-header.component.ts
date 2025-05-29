@@ -1,6 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-header',
@@ -12,6 +12,10 @@ import { RouterModule } from '@angular/router';
   styleUrl: './user-header.component.css'
 })
 export class UserHeaderComponent {
+  constructor(private router: Router) {}
+
+  NombreUsuario: string = 'Cristian Camilo Diaz Vega';
+
   prevScrollPos = window.pageYOffset;
 
   @HostListener('window:scroll', [])
@@ -28,5 +32,9 @@ export class UserHeaderComponent {
     }
 
     this.prevScrollPos = currentScrollPos;
+  }
+
+  perfil() {
+    this.router.navigate(['/perfil']);
   }
 }

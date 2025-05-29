@@ -1,0 +1,21 @@
+<div class="contenedor-bibliografia">
+  <h1>Bibliografía Ganadera</h1>
+  <p>Explora libros, artículos, y recursos útiles para el sector ganadero.</p>
+
+  <div class="filtros">
+    <button (click)="seleccionarFiltro('todos')">Todos</button>
+    <button (click)="seleccionarFiltro('libro')">Libros</button>
+    <button (click)="seleccionarFiltro('articulo')">Artículos</button>
+    <button (click)="seleccionarFiltro('video')">Videos</button>
+  </div>
+
+  <div class="grid-recursos">
+    <div class="tarjeta-recurso" *ngFor="let recurso of recursosFiltrados">
+      <img [src]="recurso.imagen" alt="Recurso" />
+      <h3>{{ recurso.titulo }}</h3>
+      <p><strong>Autor:</strong> {{ recurso.autor }}</p>
+      <p><strong>Año:</strong> {{ recurso.anio }}</p>
+      <a [href]="recurso.enlace" target="_blank">Ver recurso</a>
+    </div>
+  </div>
+</div>
