@@ -111,3 +111,43 @@ ul {
   background: #aaa;
   cursor: not-allowed;
 }
+.perfil-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.perfil-lateral {
+  width: 25%;
+  background-color: #fdeff2;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.imagen-perfil {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 15px;
+}
+
+.btn-editar {
+  margin: 10px 0;
+}
+
+.rol-badge {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #e0bebe;
+  border-radius: 8px;
+}
+
+.perfil-info {
+  width: 75%;
+  border-radius: 10px;
+}
+
+.info-grid {
+  padding: 20px;
+}

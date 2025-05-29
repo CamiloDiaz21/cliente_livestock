@@ -63,7 +63,6 @@ export class RegistroComponent {
         },
         error: (error) => {
           console.error('Error al enviar POST:', error);
-
         }
       });
 
