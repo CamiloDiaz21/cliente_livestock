@@ -42,13 +42,12 @@ export class LoginComponent {
     this.error = '⚠️ Debes llenar todos los campos.';
     return;
   }
+
   const url = `http://localhost:8087/v1/registro_usuario?query=CorreoElectronico:${this.CorreoElectronico}`;
 
   this.http.get<any>(url).subscribe(
     (response) => {
       const usuarios = response['Consulta de id'];
-      console.log("Usuario",usuarios[0]["Id"]);
-      localStorage.setItem('usuarioId', usuarios[0]["Id"].toString());
 
       if (!usuarios || usuarios.length === 0) {
         this.error = '❌ Correo electrónico no encontrado.';
@@ -66,7 +65,9 @@ export class LoginComponent {
       if (this.ContrasenaCLIENTE === contrasenaBD) {
         console.log('✅ Inicio de sesión exitoso.');
         alert('Usuario iniciado con éxito');
-        this.router.navigate(['/inicio']); // Redirige a donde necesites
+
+        localStorage.setItem('usuarioId', usuario.Id.toString()); // ✅ AQUÍ
+        this.router.navigate(['/inicio']);
       } else {
         this.error = '❌ Contraseña incorrecta.';
       }

@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { UserFooterComponent } from "../component/user-footer/user-footer.component";
+import { UserHeaderComponent } from "../component/user-header/user-header.component";
 
 @Component({
   selector: 'app-biografia',
   imports: [
     CommonModule,
-  ],
+    UserFooterComponent,
+    UserHeaderComponent
+],
   templateUrl: './biografia.component.html',
   styleUrl: './biografia.component.css'
 })
@@ -18,7 +22,7 @@ export class BiografiaComponent {
       titulo: 'Manual de Ganadería Sostenible',
       autor: 'Instituto Agropecuario',
       anio: 2020,
-      imagen: 'assets/img/manual1.jpg',
+      imagen: '/fondo.jpg',
       enlace: '#',
     },
     {
@@ -26,7 +30,7 @@ export class BiografiaComponent {
       titulo: 'Estrategias de Alimentación en Bovinos',
       autor: 'Revista AgroVida',
       anio: 2022,
-      imagen: 'assets/img/articulo1.jpg',
+      imagen: '/fondo.jpg',
       enlace: '#',
     },
     {
@@ -34,7 +38,7 @@ export class BiografiaComponent {
       titulo: 'Crianza eficiente de ganado de carne',
       autor: 'FAO',
       anio: 2021,
-      imagen: 'assets/img/video1.jpg',
+      imagen: '/fondo.jpg',
       enlace: '#',
     },
   ];
