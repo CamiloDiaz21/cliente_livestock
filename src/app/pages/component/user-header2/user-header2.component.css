@@ -59,25 +59,25 @@
 
 /* Botón: Iniciar Sesión */
 .btn-login {
-  color: #b71c1c;
-  border: 2px solid #b71c1c;
+  color: #7B1F30;
+  border: 2px solid #7B1F30;
   background-color: transparent;
 }
 
 .btn-login:hover {
-  background-color: #b71c1c;
+  background-color: #7B1F30;
   color: white;
 }
 
 /* Botón: Registrarse */
 .btn-register {
   color: white;                     /* <- texto blanco */
-  background-color: #b71c1c;        /* <- fondo rojo */
-  border: 2px solid #b71c1c;
+  background-color: #7B1F30;        /* <- fondo rojo */
+  border: 2px solid #7B1F30;
 }
 
 .btn-register:hover {
-  background-color: #b71c1c;
+  background-color: #7B1F30;
   color: white;
 }
 

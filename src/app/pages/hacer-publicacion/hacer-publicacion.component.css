@@ -1,6 +1,6 @@
 /* Contenedor Principal */
 .register-container {
-
+  background: url('/fondo.jpg') center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -27,7 +27,7 @@ import { UserHeader2Component } from './app/pages/component/user-header2/user-he
 bootstrapApplication(AppComponent,{
   providers:[
       provideRouter([
-          { path: '', redirectTo: 'login', pathMatch: 'full' },
+          { path: '', redirectTo: 'inicio3', pathMatch: 'full' },
           { path: 'login', component: LoginComponent },
           { path: 'registro', component: RegistroComponent},
           { path: 'inicio', component: InicioComponent},

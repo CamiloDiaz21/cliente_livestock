@@ -39,6 +39,7 @@ export class HacerPublicacionComponent {
     private http: HttpClient
   ) {
     this.publicacionForm = this.fb.group({
+      IdUsuarioVendedor:[''],
       IdTipoVenta: ['', Validators.required],
       DatosVendedor: ['', Validators.required],
       Descripcion: ['', Validators.required],
@@ -81,7 +82,7 @@ publicar() {
     console.log(this.publicacionForm.value);
     console.log(this.imagenesSeleccionadas);
 
-    const url = 'http://localhost:8083/v1/publicaciones';
+    const url = 'http://localhost:8085/v1/publicaciones';
     this.http.post<any>(url, this.publicacionForm.value).subscribe({
       next: (response) => {
         console.log('Respuesta del servidor:', response);
