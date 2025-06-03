@@ -11,8 +11,8 @@
   align-items: center;
   z-index: 1000;
   box-sizing: border-box;
+  flex-wrap: wrap; /* importante para responsividad */
 }
-
 
 .logo-animado {
   font-size: 1.7rem;
@@ -32,20 +32,12 @@
   100% { background-position: 0% 50%; }
 }
 
-.nav-menu {
+/* Botones de autenticación */
+.auth-buttons {
   display: flex;
-  gap: 1.5rem;
-}
-
-.nav-menu a {
-  text-decoration: none;
-  color: #2c2c2c;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.nav-menu a:hover {
-  color: #8e0000;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .auth-buttons a {
@@ -53,7 +45,6 @@
   font-weight: 600;
   padding: 6px 14px;
   border-radius: 20px;
-  margin-left: 10px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -71,8 +62,8 @@
 
 /* Botón: Registrarse */
 .btn-register {
-  color: white;                     /* <- texto blanco */
-  background-color: #7B1F30;        /* <- fondo rojo */
+  color: white;
+  background-color: #7B1F30;
   border: 2px solid #7B1F30;
 }
 
@@ -81,5 +72,16 @@
   color: white;
 }
 
+/* Responsive para móviles */
+@media screen and (max-width: 600px) {
+  .auth-buttons {
+    width: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
 
-
+  .auth-buttons a {
+    width: 100%;
+    text-align: center;
+  }
+}

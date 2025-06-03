@@ -445,3 +445,93 @@ p {
 .card:hover .download {
   color: #fff;
 }
+
+/* Responsive para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+  .inicio-section {
+    height: auto;
+    padding: 40px 20px;
+    font-size: 1.5rem;
+  }
+
+  .inicio-section h1 {
+    font-size: 20px;
+  }
+
+  .inicio-section button {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .welcome-card {
+    width: 90%;
+    padding: 20px;
+    font-size: 1rem;
+  }
+
+  .post-container {
+    margin: 20px 10px;
+    padding: 15px;
+  }
+
+  .post-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .carousel-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .carousel-track-container {
+    width: 95%;
+  }
+
+  .carousel-card img {
+    max-height: 220px;
+  }
+
+  .about-container {
+    flex-direction: column;
+    padding: 10px;
+    gap: 20px;
+  }
+
+  .video-section,
+  .text-section {
+    flex: 1 1 100%;
+  }
+
+  .buttons-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .participacion-container {
+    padding: 20px 15px;
+  }
+
+  .cards-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+  }
+}
+
