@@ -70,10 +70,14 @@ export class Inicio3Component {
 
 
   Publicaciones(){
-    this.router.navigate(['/publicaciones']);
+    this.router.navigate(['/login']);
   }
   Perfil(){
     this.router.navigate(['/perfil'])
+  }
+  
+  Conocemasaqui(){
+    this.router.navigate(['/login']);
   }
 
 }
