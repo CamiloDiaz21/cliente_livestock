@@ -14,8 +14,13 @@ import { Router } from '@angular/router';
 export class UserHeaderComponent {
   constructor(private router: Router) {}
 
-  NombreUsuario: string = 'Cristian Camilo Diaz Vega';
+ nombre: string = '';
 
+ngOnInit() {
+  const nombre = localStorage.getItem('usuarioNombre') || '';
+  const apellido = localStorage.getItem('usuarioApellido') || '';
+  this.nombre = `${nombre} ${apellido}`.trim();
+}
   prevScrollPos = window.pageYOffset;
 
   @HostListener('window:scroll', [])

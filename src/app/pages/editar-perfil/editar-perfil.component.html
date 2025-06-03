@@ -7,11 +7,6 @@
     <input type="file" (change)="cargarImagen($event)" accept="image/*" />
   </div>
 
-  <!-- Hoja de vida -->
-  <div class="hoja-vida"> 
-    <p class="title">Hoja de vida (opcional)</p>
-    <input type="file" (change)="cargarDocumento($event)" accept=".pdf,.doc,.docx" />
-  </div>
 
   <form [formGroup]="perfilForm" (ngSubmit)="guardarCambios()">
     <div class="submit-container">

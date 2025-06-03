@@ -3,8 +3,10 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
 import { UserHeaderComponent } from '../component/user-header/user-header.component';
 import { UserFooterComponent } from '../component/user-footer/user-footer.component';
+import { HacerPublicacionComponent } from '../hacer-publicacion/hacer-publicacion.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -24,50 +26,45 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class PublicacionesComponent {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private dialog: MatDialog) {}
 
-  // @ViewChild('scrollContainer',{static: true}) scrollContainer!:ElementRef;
-  currentIndex= 0;
+filtroSeleccionado = 'todos';
 
-  sectionTitle= 'seccion destacada';
-  sectionDescription= 'Venta';
-
-  selectedInfo:{title: string, description:string}|null =null;
-
-  cards =[
+  recursos = [
     {
-      title: '',
-      image: 'venta.jpg',
+      tipo: 'ganado',
+      Descripcion: 'lote de ganado raza brahman rojo puro',
+      Usuario: 'luis villa',
+      FCreacion: '21/03/2023',
+      imagen: '/fondo.jpg',
+      enlace: '#',
     },
     {
-      title: '',
-      image: 'venta.jpg',
+      tipo: 'hacienda',
+      Descripcion: 'Finca villa hermosa ',
+      Usuario: ' Camilo Diaz',
+      FCreacion: '21/03/2023',
+      imagen: '/fondo.jpg',
+      enlace: '#',
     },
-    {
-      title: '',
-      image: 'venta.jpg',
-    },
 
-  ]
+  ];
 
-
-  goNext(){
-    if(this.currentIndex< this.cards.length-1){
-      this.currentIndex++;
-    }
+  get recursosFiltrados() {
+    if (this.filtroSeleccionado === 'todos') return this.recursos;
+    return this.recursos.filter(r => r.tipo === this.filtroSeleccionado);
   }
 
-  goPrevius(){
-    if(this.currentIndex>0){
-      this.currentIndex--;
-    }
+  seleccionarFiltro(tipo: string) {
+    this.filtroSeleccionado = tipo;
   }
-
-  getTransform(){
-    return `translateX(-${this.currentIndex*100}%)`
-  }
-
   Perfil(){
     this.router.navigate(['/perfil'])
   }
+  Publicar(): void {
+      this.dialog.open(HacerPublicacionComponent, {
+        width: '600px'
+      });
+    }
+
 }

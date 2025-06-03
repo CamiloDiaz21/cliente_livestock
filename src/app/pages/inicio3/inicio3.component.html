@@ -16,101 +16,84 @@
   </p>
 
   <button mat-raised-button class="main-button" (click)="Publicaciones()">Publicaciones</button>
+
+  <div class="about-container">
+  <div class="video-section">
+    <iframe width="100%" height="315"
+            src="https://www.youtube.com/embed/2LjS2zgL2us"
+            title="YouTube video player"
+            frameborder="0"
+            allowfullscreen>
+    </iframe>
+
+    <div class="buttons-group">
+      <span class="subasta-text">Subasta No. 2006,</span>
+      <button mat-button color="warn">Listado Lotes</button>
+      <button mat-raised-button color="primary">
+        <mat-icon>video_library</mat-icon> Videos
+      </button>
+    </div>
+  </div>
+
+  <div class="text-section">
+    <h6 class="subtitle">SOBRE NOSOTROS</h6>
+    <h2 class="title">LIVESTOK ¡Pasión por el ganado, orgullo del campo!</h2>
+    <p>
+      Con la firme convicción de que la ganadería merecía una plataforma sólida, segura y adaptada a los nuevos tiempos, Livestock comenzó como un sueño impulsado por el compromiso con el campo colombiano. Lo que comenzó como una simple herramienta para conectar compradores y vendedores, creció rápidamente hasta convertirse en un ecosistema digital que facilita subastas, garantiza la trazabilidad del ganado y promueve prácticas sostenibles.
+    </p>
+    <p>
+      Somos una empresa dedicada a servirle a la comunidad ganadera mediante la comercialización.
+    </p>
+    <button mat-raised-button color="accent" class="learn-more">
+      Más sobre nosotros
+    </button>
+  </div>
+</div>
+<div class="participacion-container">
+  <h6 class="subtitle">SUBASTA LÍNEA</h6>
+  <h2 class="title">¿Cómo participar en nuestras subastas?</h2>
+  <p class="contact-info">
+   Cualquier inquietud comuníquese con nosotros a los siguientes números telefónicos:
+    <span class="highlight">📱 311 232 9580 - 316 246 6822</span>
+  </p>
+
+  <div class="cards-container">
+    <!-- PROVEEDOR -->
+    <div class="card">
+      <img src="/fondo.jpg" alt="Proveedor">
+      <h3 class="card-title">COMPRADOR</h3>
+      <ul>
+        <li>Guía de Movilización con destino subasta, expedida por el ICA.</li>
+        <li>Animales contraherrados con Hierro Matador.</li>
+        <li>Bono de venta expedido por el ICA si los animales no son de criadero.</li>
+      </ul>
+      <a class="link" href="#">Cómo Participar →</a>
+    </div>
+
+    <!-- COMPRADOR -->
+    <div class="card">
+      <img src="/fondo.jpg" alt="Comprador">
+      <h3 class="card-title">VENDEDOR</h3>
+      <p>Para participar debe estar registrado. ¿Cómo registrarse?</p>
+      <ul>
+        <li>Descargue y diligencie el siguiente formulario:</li>
+      </ul>
+      <div class="buttons">
+        <button class="btn orange">Persona Natural</button>
+        <button class="btn orange">Persona Jurídica</button>
+      </div>
+      <ul>
+        <li>
+          Autenticar y enviar el formulario a nuestras oficinas en Yopal (Casanare).
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 </section>
 
-<!-- Publicaciones -->
-<section class="post-container">
-
-  <!-- Cabecera de publicación -->
-
-  <div class="post-header">
-    <img src="/imagen.jpg" alt="Avatar" class="avatar">
-    <div class="user-info">
-      <h2 (click)="Perfil()"> Luis Villa <mat-icon class="verified">verified</mat-icon></h2>
-      <small># Publicado desde 20/03/2022</small>
-    </div>
-  </div>
-
-  <!-- Carrusel de imágenes -->
-  <div class="carousel-container">
-    <button mat-icon-button (click)="goPrevius()" [disabled]="currentIndex === 0">
-      &lt;
-    </button>
-
-    <div class="carousel-track-container">
-      <div class="carousel-track" [style.transform]="getTransform()">
-        <mat-card class="carousel-card" *ngFor="let card of cards">
-          <img mat-card-image [src]="card.image" alt="Imagen de la tarjeta" />
-          <mat-card-title>{{ card.title }}</mat-card-title>
-        </mat-card>
-      </div>
-    </div>
-
-    <button mat-icon-button (click)="goNext()" [disabled]="currentIndex === cards.length - 1">
-      &gt;
-    </button>
-  </div>
-  <br>
-
-  <!-- Descripción de publicación -->
-  <div class="post-description">
-    <h4>INFORMACIÓN</h4>
-    <p>Se vende lote de ganado raza Brahman rojo puro.</p>
-
-  </div>
-
-  <div class="contact-button">
-    <button mat-raised-button color="primary" class="submit-btn">
-      Contactar vendedor
-    </button>
-  </div>
-  <br>
-  <!-- Botón de contacto -->
 
 
 
-  <div class="post-header">
-    <img src={{imagen}} alt="Avatar" class="avatar">
-    <div class="user-info">
-      <h2 (click)="Perfil()">{{nombreUsuario}} <mat-icon class="verified">verified</mat-icon></h2>
-      <small>{{fecha}}</small>
-    </div>
-  </div>
-
-  <!-- Carrusel de imágenes -->
-  <div class="carousel-container">
-    <button mat-icon-button (click)="goPrevius()" [disabled]="currentIndex === 0">
-      &lt;
-    </button>
-
-    <div class="carousel-track-container">
-      <div class="carousel-track" [style.transform]="getTransform()">
-        <mat-card class="carousel-card" *ngFor="let card of cards">
-          <img mat-card-image [src]="card.image" alt="Imagen de la tarjeta" />
-          <mat-card-title>{{ card.title }}</mat-card-title>
-        </mat-card>
-      </div>
-    </div>
-
-    <button mat-icon-button (click)="goNext()" [disabled]="currentIndex === cards.length - 1">
-      &gt;
-    </button>
-  </div>
-  <br>
-
-  <!-- Descripción de publicación -->
-  <div class="post-description">
-    <h4>INFORMACIÓN</h4>
-    <p>{{informacion}}</p>
-  </div>
-  <br>
-  <!-- Botón de contacto -->
-  <div class="contact-button">
-    <button mat-raised-button color="primary" class="submit-btn">
-      Contactar vendedor
-    </button>
-  </div>
-
-
-</section>
 <app-user-footer></app-user-footer>

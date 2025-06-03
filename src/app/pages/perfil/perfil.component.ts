@@ -27,7 +27,6 @@ import { HacerPublicacionComponent } from '../hacer-publicacion/hacer-publicacio
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
-  usuario?: Usuario;
 
   constructor(
     private usuarioService: UsuarioService,
@@ -35,15 +34,17 @@ export class PerfilComponent implements OnInit {
     private dialog: MatDialog
   ) {}
 
-  ngOnInit(): void {
-    const idUsuario = 1; // Puedes cambiar esto por un valor dinámico (desde sesión, token, etc.)
-    this.usuarioService.obtenerUsuario(idUsuario).subscribe(data => {
-      this.usuario = {
-        ...data,
-        imagen_url: this.generarImagenPerfil(data.id) // Genera o asigna una imagen si no viene del backend
-      };
-    });
-  }
+usuario: any = {};
+
+ngOnInit(): void {
+  this.usuario = {
+    Nombre: localStorage.getItem('usuarioNombre') || '',
+    Apellido: localStorage.getItem('usuarioApellido') || '',
+    CorreoElectronico: localStorage.getItem('CorreoUsuario') || '',
+    IdTipoUsuario: localStorage.getItem('usuarioTipo') || '',
+    verificado: false  // o true si lo estás manejando con otro dato
+  };
+}
 
   Editar(): void {
     this.router.navigate(['/editar-perfil']);

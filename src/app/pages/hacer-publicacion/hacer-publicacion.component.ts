@@ -30,6 +30,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HacerPublicacionComponent {
   publicacionForm!: FormGroup;
+
   imagenesSeleccionadas: string[] = [];
 
   constructor(
@@ -39,7 +40,7 @@ export class HacerPublicacionComponent {
     private http: HttpClient
   ) {
     this.publicacionForm = this.fb.group({
-      IdUsuarioVendedor:[''],
+      IdUsuarioVendedor: [''],
       IdTipoVenta: ['', Validators.required],
       DatosVendedor: ['', Validators.required],
       Descripcion: ['', Validators.required],
@@ -75,15 +76,28 @@ onImageSelected(event: any) {
 
 publicar() {
   if (this.publicacionForm.valid) {
-    // ⚠️ Y también aquí
     this.publicacionForm.patchValue({ Imagenes: this.imagenesSeleccionadas });
 
-    console.log('Datos a enviar al servidor:');
-    console.log(this.publicacionForm.value);
-    console.log(this.imagenesSeleccionadas);
+    const usuarioId = localStorage.getItem('usuarioId');
+    this.publicacionForm.patchValue({
+      IdUsuarioVendedor: Number(usuarioId)
+    });
 
-    const url = 'http://localhost:8085/v1/publicaciones';
-    this.http.post<any>(url, this.publicacionForm.value).subscribe({
+    const formData = this.publicacionForm.value;
+
+    // ✅ Ajustar IdTipoVenta
+    formData.IdTipoVenta = {
+      Id: Number(formData.IdTipoVenta)
+    };
+
+    // ✅ Convertir Precio a número (elimina puntos si vienen en formato "200.000.000")
+    const precioStr = String(formData.Precio).replace(/\./g, '');
+    formData.Precio = parseFloat(precioStr);
+
+    console.log('Datos a enviar al servidor:', formData);
+
+    const url = 'http://localhost:8088/v1/publicaciones';
+    this.http.post<any>(url, formData).subscribe({
       next: (response) => {
         console.log('Respuesta del servidor:', response);
         alert('Publicación creada exitosamente.');
@@ -98,4 +112,6 @@ publicar() {
     alert('Formulario inválido. Por favor, completa todos los campos obligatorios.');
   }
 }
+
+
 }

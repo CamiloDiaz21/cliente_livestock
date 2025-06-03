@@ -14,12 +14,16 @@
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-.nombre-usuario {
+
+
+.username {
   font-size: 14px;
-  font-weight: 500;
-  color: #222;
-  margin-top: 4px;
+  color: #333;
+  margin-top: 2px;
+  cursor: pointer;
+
 }
+
 /* Logo */
 .logo-animado {
   font-size: 28px;

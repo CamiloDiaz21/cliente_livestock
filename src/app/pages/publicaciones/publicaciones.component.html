@@ -4,58 +4,29 @@
 <!-- Encabezado -->
 <section class="inicio-section">
 <br>
-</section>
 
-<!-- Publicación -->
-<div class="post-container">
+<div class="contenedor-bibliografia">
+  <h1>Publicaciones </h1>
+  <p>Explora todas las publicaciones que han hecho en Livestock.</p>
 
-  <!-- Usuario -->
-  <div class="post-header">
-    <img src="/imagen.jpg" alt="Avatar" class="avatar" />
-    <div class="user-info">
-      <h2 (click)="Perfil()"> Luis Villa <mat-icon class="verified">verified</mat-icon></h2>
-      <small># Publicado desde 20/03/2023</small>
+  <div class="filtros">
+    <button (click)="seleccionarFiltro('todos')">Todos</button>
+    <button (click)="seleccionarFiltro('ganado')">ganado</button>
+    <button (click)="seleccionarFiltro('hacienda')">hacienda</button>
+  </div>
+    <button mat-raised-button color="accent" (click)="Publicar()">
+      <mat-icon>add</mat-icon> Hacer Publicación
+    </button>
+
+
+  <div class="grid-recursos">
+    <div class="tarjeta-recurso" *ngFor="let recurso of recursosFiltrados">
+      <img [src]="recurso.imagen" alt="Recurso" />
+      <h3>{{ recurso.Descripcion }}</h3>
+      <p><strong>Usuario:</strong> {{ recurso.Usuario }}</p>
+      <p><strong>Fecha:</strong> {{ recurso.FCreacion }}</p>
+      <a [href]="recurso.enlace" target="_blank">Ver recurso</a>
     </div>
-  </div>
-
-  <!-- Carrusel -->
-  <div class="carousel-container" *ngIf="cards.length > 0">
-    <button mat-icon-button (click)="goPrevius()" [disabled]="currentIndex === 0">
-      <mat-icon>chevron_left</mat-icon>
-    </button>
-
-    <div class="carousel-track-container">
-      <div
-        class="carousel-track"
-        [style.transform]="'translateX(-' + currentIndex * 100 + '%)'"
-        [style.width.%]="cards.length * 100"
-      >
-        <mat-card class="carousel-card" *ngFor="let card of cards">
-          <img mat-card-image [src]="card.image" alt="Imagen de la tarjeta" />
-          <mat-card-title>{{ card.title }}</mat-card-title>
-        </mat-card>
-      </div>
-    </div>
-
-    <button mat-icon-button (click)="goNext()" [disabled]="currentIndex === cards.length - 1">
-      <mat-icon>chevron_right</mat-icon>
-    </button>
-  </div>
-
-  <br>
-
-  <!-- Descripción -->
-  <div class="post-description">
-    <h4>INFORMACIÓN</h4>
-    <p>Se vende lote de ganado raza brahman rojo puro.</p>
-  </div>
-
-  <!-- Botón -->
-  <div class="contact-button">
-    <button mat-raised-button color="primary" class="submit-btn">
-      Contactar vendedor
-    </button>
   </div>
 </div>
-
 <app-user-footer></app-user-footer>

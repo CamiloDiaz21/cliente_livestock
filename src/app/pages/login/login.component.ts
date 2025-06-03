@@ -67,6 +67,11 @@ export class LoginComponent {
         alert('Usuario iniciado con éxito');
 
         localStorage.setItem('usuarioId', usuario.Id.toString()); // ✅ AQUÍ
+        localStorage.setItem('usuarioNombre', usuario.Nombre.toString());
+        localStorage.setItem('usuarioApellido', usuario.Apellido.toString());
+        localStorage.setItem('usuarioTipo', usuario.IdTipoUsuario.toString());
+        localStorage.setItem('CorreoUsuario', usuario.CorreoElectronico.toString());
+
         this.router.navigate(['/inicio']);
       } else {
         this.error = '❌ Contraseña incorrecta.';

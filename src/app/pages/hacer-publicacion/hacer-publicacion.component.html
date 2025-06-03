@@ -23,7 +23,7 @@
       <mat-label>Subir Imágenes</mat-label>
         <br />
         <div class="Imagenes">
-          <input type="file" multiple (change)="onImageSelected($event)" />
+          <input type="file" multiple accept="image/*" (change)="onImageSelected($event)" />
         </div>
 
 <div class="preview-container">
@@ -51,7 +51,7 @@
         </mat-form-field>
 
 
-        <button mat-raised-button color="primary" class="submit-btn" type="submit" (click)="publicar()">PUBLICAR</button>
+        <button mat-raised-button color="primary" class="submit-btn" type="submit">PUBLICAR</button>
       </form>
 
     </div>
