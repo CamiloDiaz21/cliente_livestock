@@ -1,153 +1,170 @@
-
 .perfil-container {
   display: flex;
-  gap: 100px;
-  padding: 10px;
   background: url('/fondo.jpg') center/cover no-repeat;
-  background-size: cover;
   flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
 }
 
 .perfil-lateral {
-  width: 280px;
+  width: 300px;
   padding: 20px;
-  text-align: center;
-  position: relative;
+  display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.back-btn {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-}
-
-.perfil-img {
-  margin: 20px 0;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.verified {
-  color: #42a5f5;
-  font-size: 18px;
-  vertical-align: middle;
-}
-
-.email {
-  font-size: 0.9em;
-  color: gray;
-}
-
-.tipo-usuario {
-  background-color: #e0c0c0;
-  margin-top: 20px;
-  padding: 10px;
-}
-
-.perfil-info {
-  flex: 1;
-  padding: 20px;
-  background-color: #f7f7f7;
-}
-
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-ul {
-  padding-left: 20px;
-}
-
-.informacion-contacto {
-  margin-top: 20px;
-}
-.submit-btn {
-  display: flex;
   text-align: center;
-  justify-content: center;
-  margin-top: 15px;
-  align-items: center;
-  font-weight: bold;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   background-color: white;
-  color: #7B1F30;
-  border: 1px solid #7B1F30;
-  }
-
-
-.submit-btn:hover {
-  background-color: #7B1F30;
-  color: white;
-}
-
-
-.upload-section {
-  margin-top: 30px;
-  background: #f4f4f4;
-  padding: 20px;
-  border-radius: 8px;
-  text-align: center;
-}
-
-.upload-section input[type="file"] {
-  margin: 10px 0;
-}
-
-.submit-btn {
-  padding: 8px 20px;
-  background: #7B1F30;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.submit-btn:disabled {
-  background: #aaa;
-  cursor: not-allowed;
-}
-.perfil-container {
-  display: flex;
-  gap: 20px;
-  padding: 20px;
-}
-
-.perfil-lateral {
-  width: 25%;
-  background-color: #fdeff2;
-  text-align: center;
-  border-radius: 10px;
 }
 
 .imagen-perfil {
   width: 120px;
   height: 120px;
-  border-radius: 50%;
   object-fit: cover;
-  margin-top: 15px;
+  border-radius: 50%;
+  border: 3px solid #3f51b5;
+  margin-bottom: 15px;
+}
+
+.perfil-lateral h2 {
+  margin: 10px 0 5px;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.perfil-lateral p {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 10px;
 }
 
 .btn-editar {
-  margin: 10px 0;
+  margin-top: 15px;
+  width: 100%;
 }
 
 .rol-badge {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #e0bebe;
-  border-radius: 8px;
+  margin-top: 20px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  background-color: #e0e0e0;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.rol-badge.vendedor {
+  background-color: #ffeb3b;
+  color: #000;
 }
 
 .perfil-info {
-  width: 75%;
-  border-radius: 10px;
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+mat-tab-group {
+  width: 100%;
 }
 
 .info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   padding: 20px;
+}
+
+.info-grid h2,
+.info-grid h3 {
+  margin: 0;
+  color: #333;
+}
+
+button {
+  background-color: #3f51b5; /* color primario */
+  color: #fff;
+  padding: 10px 20px;
+  font-weight: 600;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 4px 10px rgba(63, 81, 181, 0.4);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+button:hover {
+  background-color: #303f9f; /* tono más oscuro al pasar el mouse */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(63, 81, 181, 0.5);
+}
+
+button:active {
+  transform: scale(0.98);
+  box-shadow: 0 3px 7px rgba(63, 81, 181, 0.3);
+}
+
+.btn-editar {
+  background-color: #009688;
+  box-shadow: 0 4px 10px rgba(0, 150, 136, 0.4);
+}
+
+.btn-editar:hover {
+  background-color: #00796b;
+  box-shadow: 0 6px 14px rgba(0, 150, 136, 0.5);
+}
+
+.mat-raised-button.mat-accent {
+  background-color: #e91e63 !important;
+  color: #fff !important;
+  box-shadow: 0 4px 10px rgba(233, 30, 99, 0.4);
+}
+
+.mat-raised-button.mat-accent:hover {
+  background-color: #c2185b !important;
+  box-shadow: 0 6px 14px rgba(233, 30, 99, 0.5);
+}
+/* 📱 Responsive para móviles */
+@media (max-width: 768px) {
+  .perfil-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .perfil-lateral,
+  .perfil-info {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .imagen-perfil {
+    width: 100px;
+    height: 100px;
+  }
+
+  .info-grid {
+    padding: 10px;
+  }
+
+  .perfil-lateral h2 {
+    font-size: 1.2rem;
+  }
+
+  .rol-badge {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
 }

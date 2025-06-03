@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 export class UserHeaderComponent {
   constructor(private router: Router) {}
 
- nombre: string = '';
+nombre: string = '';
 
 ngOnInit() {
   const nombre = localStorage.getItem('usuarioNombre') || '';

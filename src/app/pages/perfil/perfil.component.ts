@@ -28,6 +28,7 @@ import { HacerPublicacionComponent } from '../hacer-publicacion/hacer-publicacio
 })
 export class PerfilComponent implements OnInit {
 
+
   constructor(
     private usuarioService: UsuarioService,
     private router: Router,
@@ -41,9 +42,11 @@ ngOnInit(): void {
     Nombre: localStorage.getItem('usuarioNombre') || '',
     Apellido: localStorage.getItem('usuarioApellido') || '',
     CorreoElectronico: localStorage.getItem('CorreoUsuario') || '',
-    IdTipoUsuario: localStorage.getItem('usuarioTipo') || '',
-    verificado: false  // o true si lo estás manejando con otro dato
+    usuarioTipo: localStorage.getItem('usuarioTipo') || '',
+
+
   };
+
 }
 
   Editar(): void {
