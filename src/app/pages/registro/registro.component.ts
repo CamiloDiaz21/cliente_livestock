@@ -60,6 +60,7 @@ export class RegistroComponent {
         next: (response) => {
           console.log('Respuesta del servidor:', response);
           alert('Usuario Creado')
+          this.router.navigate(['/login']);
         },
         error: (error) => {
           console.error('Error al enviar POST:', error);

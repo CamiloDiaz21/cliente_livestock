@@ -39,8 +39,8 @@ usuario: any = {};
 
 ngOnInit(): void {
   this.usuario = {
+    Nombres: localStorage.getItem('usuarioNombre') + ' ' + localStorage.getItem('usuarioApellido'),
     Nombre: localStorage.getItem('usuarioNombre') || '',
-    Apellido: localStorage.getItem('usuarioApellido') || '',
     CorreoElectronico: localStorage.getItem('CorreoUsuario') || '',
     usuarioTipo: localStorage.getItem('usuarioTipo') || '',
 
