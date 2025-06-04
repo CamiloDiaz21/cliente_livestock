@@ -1,16 +1,18 @@
-<mat-card class="mat-card">
-  <h2 class="title">Subir Foto de Perfil</h2>
+<mat-card class="perfil-upload-card">
+  <h2 class="upload-title">Subir Foto de Perfil</h2>
 
-  <!-- Foto de perfil -->
   <div class="foto-perfil">
     <img *ngIf="imagenPrevia" [src]="imagenPrevia" alt="Foto de perfil" class="preview-img" />
-    <input type="file" (change)="cargarImagen($event)" accept="image/*" />
+    <label class="custom-file-upload">
+      <input type="file" (change)="cargarImagen($event)" accept="image/*" />
+      
+      Seleccionar Foto
+    </label>
   </div>
-
 
   <form [formGroup]="perfilForm" (ngSubmit)="guardarCambios()">
     <div class="submit-container">
-      <button mat-raised-button  class="submit-btn">Guardar</button>
+      <button mat-raised-button class="submit-btn">Guardar</button>
     </div>
   </form>
 </mat-card>

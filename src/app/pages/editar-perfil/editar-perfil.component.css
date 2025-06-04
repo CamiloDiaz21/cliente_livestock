@@ -1,54 +1,97 @@
-.full-width {
-  width: 100%;
-  margin-bottom: 15px;
-}
-
-.title {
+.perfil-upload-card {
+  max-width: 500px;
+  background: url('/fondo.jpg') center/cover no-repeat;
+  margin: 40px auto;
+  padding: 30px 20px;
+  background-color: #fbe9e7;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   text-align: center;
-  
 }
 
-.mat-card {
-  max-width: 500px;  /* más pequeño */
-  margin: 20px auto; /* centrado vertical y horizontal */
-  padding: 20px;
-  background-color: #eccaca; /* opcional para más contraste */
-  border-radius: 8px;     /* opcional para un look más suave */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* opcional */
+.upload-title {
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+  color: #4e0d18;
 }
 
 .foto-perfil {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 12px;
   margin-bottom: 20px;
 }
 
 .preview-img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
-  margin-bottom: 10px;
+  object-fit: cover;
+  border: 4px solid #7B1F30;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-file-upload {
+  background-color: #7B1F30;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(123, 31, 48, 0.3);
+}
+
+.custom-file-upload:hover {
+  background-color: #5e1825;
+  transform: translateY(-2px);
+}
+
+.custom-file-upload input[type="file"] {
+  display: none;
 }
 
 .submit-container {
+  margin-top: 30px;
   display: flex;
   justify-content: center;
-  margin-top: 20px;
 }
 
 .submit-btn {
-  padding: 10px 30px;
-  font-weight: bold;
-  background-color: white;
+  background-color: #ffffff;
   color: #7B1F30;
-  border: 1px solid #7B1F30;
-  border-radius: 6px;
-  cursor: pointer;
+  border: 2px solid #7B1F30;
+  padding: 10px 30px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: 0.3s ease;
 }
 
 .submit-btn:hover {
   background-color: #7B1F30;
-  color: white;
+  color: #fff;
+  box-shadow: 0 6px 12px rgba(123, 31, 48, 0.4);
+}
+
+/* Responsive para móviles */
+@media (max-width: 600px) {
+  .perfil-upload-card {
+    margin: 20px 10px;
+    padding: 20px 15px;
+  }
+
+  .preview-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .upload-title {
+    font-size: 1.3rem;
+  }
+
+  .submit-btn {
+    padding: 8px 20px;
+  }
 }
