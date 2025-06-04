@@ -23,23 +23,42 @@ ngOnInit() {
 }
   prevScrollPos = window.pageYOffset;
 
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const currentScrollPos = window.pageYOffset;
-    const header = document.querySelector('.main-header') as HTMLElement;
+@HostListener('window:scroll', [])
+onWindowScroll() {
+  const header = document.querySelector('.main-header') as HTMLElement;
 
-    if (!header) return;
+  if (!header) return;
 
-    if (this.prevScrollPos > currentScrollPos) {
-      header.style.top = '0'; // Mostrar
-    } else {
-      header.style.top = '-100px'; // Ocultar
-    }
-
-    this.prevScrollPos = currentScrollPos;
+  if (window.scrollY > 50) {
+    header.classList.add('shrink');
+  } else {
+    header.classList.remove('shrink');
   }
+}
+
+  
 
   perfil() {
     this.router.navigate(['/perfil']);
   }
+
+  menuAbierto = false;
+
+toggleMenu() {
+  this.menuAbierto = !this.menuAbierto;
+}
+
+verPerfil() {
+  // Redirigir al perfil u otra lógica
+  this.menuAbierto = false;
+  this.router.navigate(['/perfil']);
+}
+
+//cerrarSesion() {
+  // Lógica de cierre de sesión
+  //this.menuAbierto = false;
+  // Por ejemplo:
+  //this.authService.logout();
+  //this.router.navigate(['/login']);
+//}
 }
