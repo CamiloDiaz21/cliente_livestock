@@ -10,8 +10,8 @@
       <button mat-raised-button color="primary" class="btn-editar" (click)="Editar()">
         <mat-icon>edit</mat-icon> Editar
       </button>
-      <div class="rol-badge" [ngClass]="{'vendedor': usuario.IdTipoUsuario === 'vendedor'}">
-        Usuario {{ usuario.IdTipoUsuario }}
+      <div class="rol-badge" [ngClass]="{'vendedor': usuario.usuarioTipo === 'vendedor'}">
+        Usuario {{ usuario.usuarioTipo }}
       </div>
     </div>
   </mat-card>
@@ -22,7 +22,7 @@
         <div class="info-grid">
           <h3>Nombre: {{ usuario?.Nombre }}</h3>
           <h3>Correo: {{ usuario?.CorreoElectronico }}</h3>
-          <h3>Rol: {{ usuario?.IdTipoUsuario }}</h3>
+          <h3>Usuario: {{ usuario?.usuarioTipo }}</h3>
         </div>
       </mat-tab>
 
