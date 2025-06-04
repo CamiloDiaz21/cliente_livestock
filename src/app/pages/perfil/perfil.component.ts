@@ -11,6 +11,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 
 import { UsuarioService, Usuario } from '../../../services/usuario.service';
 import { HacerPublicacionComponent } from '../hacer-publicacion/hacer-publicacion.component';
+import { UserHeaderComponent } from "../component/user-header/user-header.component";
 
 @Component({
   selector: 'app-perfil',
@@ -21,8 +22,9 @@ import { HacerPublicacionComponent } from '../hacer-publicacion/hacer-publicacio
     MatTabsModule,
     MatCardModule,
     HttpClientModule,
-    CommonModule
-  ],
+    CommonModule,
+    UserHeaderComponent
+],
   templateUrl: './perfil.component.html',
   styleUrls: ['./perfil.component.css']
 })
