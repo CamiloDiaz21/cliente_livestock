@@ -38,10 +38,8 @@ bootstrapApplication(AppComponent,{
           { path: 'perfil', component: PerfilComponent},
           { path: 'editar-perfil', component: EditarPerfilComponent},
           { path: 'publicar', component: HacerPublicacionComponent},
-
           {path: 'inicio3', component: Inicio3Component},
           {path: 'biografia', component: BiografiaComponent},
-
           { path: 'user-header2', component: UserHeader2Component},
 
       ]),

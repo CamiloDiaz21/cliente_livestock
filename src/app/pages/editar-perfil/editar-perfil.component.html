@@ -1,18 +1,46 @@
-<mat-card class="perfil-upload-card">
-  <h2 class="upload-title">Subir Foto de Perfil</h2>
+<div class= "fondo"><!-- editar-perfil.component.html -->
+<mat-card class="form-card">
+  <h2>Editar Perfil</h2>
 
-  <div class="foto-perfil">
-    <img *ngIf="imagenPrevia" [src]="imagenPrevia" alt="Foto de perfil" class="preview-img" />
-    <label class="custom-file-upload">
-      <input type="file" (change)="cargarImagen($event)" accept="image/*" />
-      
-      Seleccionar Foto
-    </label>
-  </div>
+  <form (ngSubmit)="guardarCambios()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nombres</mat-label>
+      <input matInput [(ngModel)]="usuario.Nombres" name="nombre" required />
+    </mat-form-field>
 
-  <form [formGroup]="perfilForm" (ngSubmit)="guardarCambios()">
-    <div class="submit-container">
-      <button mat-raised-button class="submit-btn">Guardar</button>
-    </div>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Apellidos</mat-label>
+      <input matInput [(ngModel)]="usuario.Apellidos" name="apellido" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Correo</mat-label>
+      <input matInput [(ngModel)]="usuario.CorreoElectronico" name="correo" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Tipo de documento</mat-label>
+      <input matInput [(ngModel)]="usuario.TipoDocumento" name="tipoDocumento" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Número de documento</mat-label>
+      <input matInput [(ngModel)]="usuario.NDocumento" name="nDocumento" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Celular</mat-label>
+      <input matInput [(ngModel)]="usuario.Celular" name="celular" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Fecha de nacimiento</mat-label>
+      <input matInput type="date" [(ngModel)]="usuario.FNacimiento" name="fnacimiento" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">
+      Guardar Cambios
+    </button>
   </form>
 </mat-card>
+</div>

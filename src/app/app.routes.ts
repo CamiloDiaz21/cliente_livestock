@@ -11,9 +11,7 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
 import { HojaVidaComponent } from './pages/hoja-vida/hoja-vida.component';
 import { EditarPerfilComponent } from './pages/editar-perfil/editar-perfil.component';
 import { HacerPublicacionComponent } from './pages/hacer-publicacion/hacer-publicacion.component';
-import { PublicacionGanadoComponent } from './pages/publicacion-ganado/publicacion-ganado.component';
 import { Inicio3Component } from './pages/inicio3/inicio3.component';
-import { PublicacionHaciendaComponent } from './pages/publicacion-hacienda/publicacion-hacienda.component';
 import { BiografiaComponent } from './pages/biografia/biografia.component';
 import { UserHeader2Component } from './pages/component/user-header2/user-header2.component';
 
@@ -30,9 +28,7 @@ export const routes: Routes = [
     { path: 'hoja-vida', component: HojaVidaComponent},
     { path: 'editar-perfil', component: EditarPerfilComponent},
     { path: 'publicar', component: HacerPublicacionComponent},
-    { path: 'ganado', component: PublicacionGanadoComponent},
     { path: 'biografia', component: BiografiaComponent},
-    { path: 'haciendas', component: PublicacionHaciendaComponent},
     { path: '**', redirectTo: 'login' },
     { path : 'inicio3', component: Inicio3Component, data: { animation: 'InicioPage' }},
     { path: 'user-header2', component: UserHeader2Component},

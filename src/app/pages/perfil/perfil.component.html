@@ -18,12 +18,53 @@
   <mat-card class="perfil-info">
     <mat-tab-group>
       <mat-tab label="Perfil">
-        <div class="info-grid">
-          <h3><strong>Nombre:</strong> {{ usuario?.Nombres }}</h3>
-          <h3><strong>Correo:</strong> {{ usuario?.CorreoElectronico }}</h3>
-          <h3><strong>Tipo:</strong> {{ usuario?.usuarioTipo }}</h3>
-        </div>
-      </mat-tab>
+  <div class="info-grid-2col">
+
+    <div class="info-pair">
+      <div class="info-item">
+        <strong>Nombre:</strong>
+        <span>{{ usuario?.Nombres }}</span>
+      </div>
+      <div class="info-item">
+        <strong>Tipo de documento:</strong>
+        <span>{{ usuario?.tipodocumento || 'No definido' }}</span>
+      </div>
+    </div>
+
+    <div class="info-pair">
+      <div class="info-item">
+        <strong>Correo:</strong>
+        <span>{{ usuario?.CorreoElectronico }}</span>
+      </div>
+      <div class="info-item">
+        <strong>Número de documento:</strong>
+        <span>{{ usuario?.DocumentoUsuario || 'No definido' }}</span>
+      </div>
+    </div>
+
+    <div class="info-pair">
+      <div class="info-item">
+        <strong>Tipo de usuario:</strong>
+        <span>{{ usuario?.usuarioTipo }}</span>
+      </div>
+      <div class="info-item">
+        <strong>Celular:</strong>
+        <span>{{ usuario?.telefono || usuario?.telefono }}</span>
+      </div>
+    </div>
+
+    <div class="info-pair">
+      <div class="info-item"></div> <!-- vacío para equilibrio -->
+      <div class="info-item">
+        <strong>Fecha de nacimiento:</strong>
+        <span>{{ usuario?.FechaNacimiento || 'No definida' }}</span>
+      </div>
+    </div>
+
+  </div>
+</mat-tab>
+
+
 
       <mat-tab label="Hoja de Vida">
         <div class="info-grid">
