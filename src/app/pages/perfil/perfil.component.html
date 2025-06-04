@@ -1,38 +1,36 @@
 <div class="perfil-container">
-  <mat-card class="perfil-lateral">
-    <div *ngIf="usuario">
-      <img [src]="usuario.imagen_url" alt="Foto de perfil" class="imagen-perfil" />
-      <h2>
-        {{ usuario.Nombre }}
-        <mat-icon *ngIf="usuario.verificado" color="primary">verified</mat-icon>
-      </h2>
-      <p>{{ usuario.CorreoElectronico }}</p>
-      <button mat-raised-button color="primary" class="btn-editar" (click)="Editar()">
-        <mat-icon>edit</mat-icon> Editar
-      </button>
-      <div class="rol-badge" [ngClass]="{'vendedor': usuario.usuarioTipo === 'vendedor'}">
-        Usuario {{ usuario.usuarioTipo }}
-      </div>
+  <mat-card class="perfil-lateral" *ngIf="usuario">
+    <img [src]="usuario.imagen_url" alt="Foto de perfil" class="imagen-perfil" />
+    <h2>
+      {{ usuario.Nombre }}
+      <mat-icon *ngIf="usuario.verificado" class="icon-verificado">verified</mat-icon>
+    </h2>
+    <p class="correo">{{ usuario.CorreoElectronico }}</p>
+    <button mat-raised-button class="btn-editar" (click)="Editar()">
+      <mat-icon>edit</mat-icon> Editar Perfil
+    </button>
+    <div class="rol-badge" [ngClass]="{ 'vendedor': usuario.usuarioTipo === 'vendedor' }">
+      Usuario {{ usuario.usuarioTipo }}
     </div>
   </mat-card>
 
   <mat-card class="perfil-info">
     <mat-tab-group>
-      <mat-tab label="Información de Perfil">
+      <mat-tab label="Perfil">
         <div class="info-grid">
-          <h3>Nombre: {{ usuario?.Nombre }}</h3>
-          <h3>Correo: {{ usuario?.CorreoElectronico }}</h3>
-          <h3>Usuario: {{ usuario?.usuarioTipo }}</h3>
+          <h3><strong>Nombre:</strong> {{ usuario?.Nombres }}</h3>
+          <h3><strong>Correo:</strong> {{ usuario?.CorreoElectronico }}</h3>
+          <h3><strong>Tipo:</strong> {{ usuario?.usuarioTipo }}</h3>
         </div>
       </mat-tab>
 
-      <mat-tab label="Hoja de vida">
+      <mat-tab label="Hoja de Vida">
         <div class="info-grid">
           <h2>Hoja de vida</h2>
           <button mat-raised-button color="accent" (click)="Publicar()">
-            <mat-icon>add</mat-icon> Publicar Hoja de vida
+            <mat-icon>upload</mat-icon> Publicar Hoja de vida
           </button>
-          <!-- Aquí podrías renderizar datos reales del CV -->
+          <!-- CV data aquí -->
         </div>
       </mat-tab>
 
@@ -40,9 +38,9 @@
         <div class="info-grid">
           <h2>Publicaciones</h2>
           <button mat-raised-button color="accent" (click)="Publicar()">
-            <mat-icon>add</mat-icon> Hacer Publicación
+            <mat-icon>post_add</mat-icon> Hacer Publicación
           </button>
-          <!-- Aquí se pueden mostrar publicaciones reales -->
+          <!-- Publicaciones aquí -->
         </div>
       </mat-tab>
     </mat-tab-group>
