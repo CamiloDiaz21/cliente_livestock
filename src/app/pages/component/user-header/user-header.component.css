@@ -1,30 +1,23 @@
 .main-header {
-  background: #f5f1f1;
-  background-size: cover;
-  background-position: center;
+  background-color: #f5f1f1;
   position: fixed;
   top: 0;
-  width: 95%;
+  width: 100%;
   height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 40px;
+  padding: 0 30px;
   font-weight: bold;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-
-.username {
-  font-size: 14px;
-  color: #333;
-  margin-top: 2px;
-  cursor: pointer;
-
+  box-shadow: 0 2px 5px rgba(240, 155, 155, 0.1);
 }
 
 /* Logo */
+.logo-contenedor {
+  flex: 1;
+}
+
 .logo-animado {
   font-size: 28px;
   font-weight: bold;
@@ -48,25 +41,21 @@
   100% { background-position: 0% 50%; }
 }
 
-
 /* Menú de navegación */
 .nav-menu {
+  flex: 2;
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 20px;
-}
-
-.nav-menu {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-  font-weight: 500;
+  overflow: hidden;
+  flex-wrap: wrap;
 }
 
 .nav-menu a {
-  position: relative;
+  color: #333;
   text-decoration: none;
-  color: #2c2c2c;
+  position: relative;
   transition: color 0.3s ease;
 }
 
@@ -92,14 +81,55 @@
   transform-origin: left;
 }
 
-
-/* Enlace activo */
 .active-link {
+  font-weight: 600;
   color: #7B1F30;
   border-bottom: 2px solid #7B1F30;
 }
 
-/* Responsivo */
+/* Usuario */
+.user-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.profile-pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  flex-shrink: 0;
+}
+
+.username {
+  font-size: 16px;
+  color: #692828;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 220px;
+}
+
+/* Header al hacer scroll */
+.main-header.shrink {
+  height: 55px;
+  background: rgba(245, 241, 241, 0.9);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.main-header.shrink .logo-animado {
+  font-size: 20px;
+}
+
+/* Responsive */
 @media screen and (max-width: 768px) {
   .main-header {
     flex-direction: column;
@@ -109,12 +139,26 @@
   }
 
   .nav-menu {
+    justify-content: flex-start;
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+    width: 100%;
+    margin-top: 10px;
   }
 
-  .logo {
-    margin-bottom: 10px;
+  .user-info {
+    align-self: flex-end;
+    margin-top: 10px;
+  }
+
+  .username {
+    max-width: 150px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .username {
+    display: none;
   }
 }

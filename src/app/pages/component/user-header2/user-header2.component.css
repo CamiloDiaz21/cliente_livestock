@@ -42,7 +42,7 @@
 
 .auth-buttons a {
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 450;
   padding: 6px 14px;
   border-radius: 20px;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -51,7 +51,7 @@
 /* Botón: Iniciar Sesión */
 .btn-login {
   color: #7B1F30;
-  border: 2px solid #7B1F30;
+  border: 3px solid #7B1F30;
   background-color: transparent;
 }
 
