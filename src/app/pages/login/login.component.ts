@@ -31,18 +31,26 @@ export class LoginComponent {
   ContrasenaCLIENTE: string = '';
   hidePassword: boolean = true;
   error: string = '';
-
   IdTipoUsuario: any = null;
+  IdTipoDocumento:  any = null;
 
   constructor(private http: HttpClient, private router: Router) {
-    // ✅ Recuperar tipo de usuario guardado (si existe)
-    const tipoGuardado = localStorage.getItem('usuarioTipo');
-    if (tipoGuardado) {
+    const tipoUsuario = localStorage.getItem('usuarioTipo');
+    const tipodocumento = localStorage.getItem('tipodocumento');
+
+    if (tipoUsuario) {
       try {
-        this.IdTipoUsuario = JSON.parse(tipoGuardado);
+        this.IdTipoUsuario = JSON.parse(tipoUsuario);
       } catch (e) {
         console.warn('Error al parsear usuarioTipo:', e);
-        this.IdTipoUsuario = null;
+      }
+    }
+
+    if (tipodocumento) {
+      try {
+        this.IdTipoDocumento = JSON.parse(tipodocumento);
+      } catch (e) {
+        console.warn('Error al parsear tipodocumento:', e);
       }
     }
   }
@@ -83,11 +91,18 @@ export class LoginComponent {
           localStorage.setItem('usuarioNombre', usuario.Nombre || '');
           localStorage.setItem('usuarioApellido', usuario.Apellido || '');
           localStorage.setItem('CorreoUsuario', usuario.CorreoElectronico || '');
+          localStorage.setItem('DocumentoUsuario', usuario.NDocumento || '');
+          localStorage.setItem('FechaNacimiento', usuario.FNacimiento || '');
+          localStorage.setItem('telefono', usuario.Celular || '');
 
           // ✅ Guardar tipo de usuario de forma segura
           const tipoNombre = usuario.IdTipoUsuario?.Nombre || '';
           this.IdTipoUsuario = tipoNombre;
           localStorage.setItem('usuarioTipo', JSON.stringify(tipoNombre));
+
+          const tipodocumento = usuario.IdTipoDocumento?.Nombre || '';
+          this.IdTipoDocumento = tipodocumento;
+          localStorage.setItem('tipodocumento', JSON.stringify(tipodocumento));
 
 
           // ✅ Redirigir al inicio

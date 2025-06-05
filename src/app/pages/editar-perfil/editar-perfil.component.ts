@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; // 👈 Importa esto
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -10,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   selector: 'app-editar-perfil',
   standalone: true,
   imports: [
+    FormsModule,
     CommonModule,
     MatCardModule,
     MatInputModule,
@@ -20,72 +23,49 @@ import { ReactiveFormsModule } from '@angular/forms';
   styleUrl: './editar-perfil.component.css'
 })
 export class EditarPerfilComponent {
+usuario: any = {};
 
-  perfilForm: FormGroup;
-  imagenPrevia: string | ArrayBuffer | null = null;
-  imagenSeleccionada: File | null = null;
+  constructor(private http: HttpClient, private router: Router) {}
 
-  constructor(private fb: FormBuilder) {
-    this.perfilForm = this.fb.group({
-      // Aquí puedes agregar más campos si es necesario
-    });
-  }
-
-  cargarImagen(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      const file = input.files[0];
-
-      // Validación de tipo de archivo
-      if (!file.type.startsWith('image/')) {
-        alert('Por favor, selecciona un archivo de imagen válido.');
-        return;
-      }
-
-      // Guardamos el archivo en una propiedad para su envío posterior
-      this.imagenSeleccionada = file;
-
-      // Creamos la vista previa
-      const lector = new FileReader();
-      lector.onload = () => {
-        this.imagenPrevia = lector.result;
-      };
-      lector.readAsDataURL(file);
-    }
-  }
-
-  cargarDocumento(event: Event): void {
-    // Para hoja de vida
-  }
-
-  onFileselected(event: Event, row: any): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      const file = input.files[0];
-      console.log(file);
-      console.log('Esta es la fila', row);
-      alert('Documento ha sido subido: ' + file.name);
-      // Puedes enviarlo a un API o guardar en la base de datos aquí
-    }
-  }
-
-  guardarCambios(): void {
-  const datos = this.perfilForm.value;
-  console.log('Datos del perfil:', datos);
-
-  if (this.imagenPrevia) {
-    const soloBase64 = (this.imagenPrevia as string).split(',')[1];
-
-    // Aquí puedes enviar el base64 como parte de tu payload
-    const payload = {
-      ...datos,
-      imagenBase64: soloBase64
+  ngOnInit() {
+    this.usuario = {
+      Id: localStorage.getItem('usuarioId'),
+      Nombres: localStorage.getItem('usuarioNombre'),
+      Apellidos: localStorage.getItem('usuarioApellido'),
+      CorreoElectronico: localStorage.getItem('CorreoUsuario'),
+      NDocumento: localStorage.getItem('DocumentoUsuario'),
+      FNacimiento: localStorage.getItem('FechaNacimiento'),
+      Celular: localStorage.getItem('telefono'),
+      TipoDocumento: localStorage.getItem('tipodocumento')?.replace(/"/g, '')
     };
-
-    console.log('Payload para enviar al backend:', payload);
-
-    // Aquí llamas a tu servicio HTTP
-    // this.miServicio.actualizarPerfil(payload).subscribe(...)
   }
+
+
+
+  guardarCambios() {
+  const usuarioId = localStorage.getItem('usuarioId');
+  const url = `http://localhost:8087/v1/registro_usuario/${usuarioId}`;
+
+  this.http.put(url, this.usuario).subscribe({
+    next: () => {
+      alert('✅ Perfil actualizado exitosamente');
+
+      // 🔄 Actualiza los datos en localStorage también
+      localStorage.setItem('usuarioNombre', this.usuario.Nombre || '');
+      localStorage.setItem('usuarioApellido', this.usuario.Apellido || '');
+      localStorage.setItem('CorreoUsuario', this.usuario.CorreoElectronico || '');
+      localStorage.setItem('DocumentoUsuario', this.usuario.NDocumento || '');
+      localStorage.setItem('FechaNacimiento', this.usuario.FNacimiento || '');
+      localStorage.setItem('telefono', this.usuario.Celular || '');
+      localStorage.setItem('tipodocumento', JSON.stringify(this.usuario.TipoDocumento || ''));
+
+      this.router.navigate(['/perfil']);
+    },
+    error: (error) => {
+      console.error('❌ Error al actualizar perfil:', error);
+      alert('❌ Error al actualizar el perfil');
+    }
+  });
 }
+
 }

@@ -12,6 +12,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { UsuarioService, Usuario } from '../../../services/usuario.service';
 import { HacerPublicacionComponent } from '../hacer-publicacion/hacer-publicacion.component';
 import { UserHeaderComponent } from "../component/user-header/user-header.component";
+import { EditarPerfilComponent } from '../editar-perfil/editar-perfil.component';
 
 @Component({
   selector: 'app-perfil',
@@ -45,6 +46,10 @@ ngOnInit(): void {
     Nombre: localStorage.getItem('usuarioNombre') || '',
     CorreoElectronico: localStorage.getItem('CorreoUsuario') || '',
     usuarioTipo: localStorage.getItem('usuarioTipo') || '',
+    DocumentoUsuario: localStorage.getItem('DocumentoUsuario') || '',
+    FechaNacimiento: localStorage.getItem('FechaNacimiento') || '',
+    telefono: localStorage.getItem('telefono') || '',
+    tipodocumento: localStorage.getItem('tipodocumento') || '',
 
 
   };
@@ -52,7 +57,9 @@ ngOnInit(): void {
 }
 
   Editar(): void {
-    this.router.navigate(['/editar-perfil']);
+    this.dialog.open(EditarPerfilComponent, {
+      width: '600px'
+    });
   }
 
   Publicar(): void {
