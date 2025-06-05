@@ -41,9 +41,25 @@ export class PerfilComponent implements OnInit {
 usuario: any = {};
 
 ngOnInit(): void {
+  const nombreCompleto = localStorage.getItem('usuarioNombre');
+
+// Verificar que no sea null antes de trabajar con él
+  const primerNombre = nombreCompleto
+  ? nombreCompleto.trim().split(/\s+/)[0]
+  : '';
+  const apellidoCompleto = localStorage.getItem('usuarioApellido');
+
+// Verificar que no sea null antes de trabajar con él
+  const primerApellido = apellidoCompleto
+  ? apellidoCompleto.trim().split(/\s+/)[0]
+  : '';
+
+
+console.log(primerApellido);
+
   this.usuario = {
     Nombres: localStorage.getItem('usuarioNombre') + ' ' + localStorage.getItem('usuarioApellido'),
-    Nombre: localStorage.getItem('usuarioNombre') || '',
+    Nombre: primerNombre + ' ' + primerApellido,
     CorreoElectronico: localStorage.getItem('CorreoUsuario') || '',
     usuarioTipo: localStorage.getItem('usuarioTipo') || '',
     DocumentoUsuario: localStorage.getItem('DocumentoUsuario') || '',
