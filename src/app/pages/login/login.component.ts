@@ -98,11 +98,12 @@ export class LoginComponent {
           // ✅ Guardar tipo de usuario de forma segura
           const tipoNombre = usuario.IdTipoUsuario?.Nombre || '';
           this.IdTipoUsuario = tipoNombre;
-          localStorage.setItem('usuarioTipo', JSON.stringify(tipoNombre));
+          localStorage.setItem('usuarioTipo', usuario.IdTipoUsuario.Nombre ) ;
 
           const tipodocumento = usuario.IdTipoDocumento?.Nombre || '';
           this.IdTipoDocumento = tipodocumento;
-          localStorage.setItem('tipodocumento', JSON.stringify(tipodocumento));
+          localStorage.setItem('tipodocumento', usuario.IdTipoDocumento.Nombre ) ;
+          console.log('Usuario:', usuario);
 
 
           // ✅ Redirigir al inicio
