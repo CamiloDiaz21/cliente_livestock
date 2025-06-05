@@ -24,49 +24,89 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class EditarPerfilComponent {
 usuario: any = {};
+  selectedImage: File | null = null;
+  imagenPreview: string | ArrayBuffer | null = null;
+  imagenBase64: string | null = null;
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  ngOnInit() {
-    this.usuario = {
-      Id: localStorage.getItem('usuarioId'),
-      Nombres: localStorage.getItem('usuarioNombre'),
-      Apellidos: localStorage.getItem('usuarioApellido'),
-      CorreoElectronico: localStorage.getItem('CorreoUsuario'),
-      NDocumento: localStorage.getItem('DocumentoUsuario'),
-      FNacimiento: localStorage.getItem('FechaNacimiento'),
-      Celular: localStorage.getItem('telefono'),
-      TipoDocumento: localStorage.getItem('tipodocumento')?.replace(/"/g, '')
+  onImagenSeleccionada(event: any): void {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imagenBase64 = reader.result as string; // ⚠️ Aquí está el base64
     };
+    reader.readAsDataURL(file);
+  }
   }
 
-
-
-  guardarCambios() {
+guardarCambios(): void {
   const usuarioId = localStorage.getItem('usuarioId');
   const url = `http://localhost:8087/v1/registro_usuario/${usuarioId}`;
 
-  this.http.put(url, this.usuario).subscribe({
-    next: () => {
-      alert('✅ Perfil actualizado exitosamente');
+  const reader = new FileReader();
 
-      // 🔄 Actualiza los datos en localStorage también
-      localStorage.setItem('usuarioNombre', this.usuario.Nombre || '');
-      localStorage.setItem('usuarioApellido', this.usuario.Apellido || '');
-      localStorage.setItem('CorreoUsuario', this.usuario.CorreoElectronico || '');
-      localStorage.setItem('DocumentoUsuario', this.usuario.NDocumento || '');
-      localStorage.setItem('FechaNacimiento', this.usuario.FNacimiento || '');
-      localStorage.setItem('telefono', this.usuario.Celular || '');
-      localStorage.setItem('tipodocumento', JSON.stringify(this.usuario.TipoDocumento || ''));
+  // Si hay imagen seleccionada, convertirla a base64
+  if (this.selectedImage) {
+    reader.readAsDataURL(this.selectedImage); // Lee la imagen como base64
 
-      this.router.navigate(['/perfil']);
-    },
-    error: (error) => {
-      console.error('❌ Error al actualizar perfil:', error);
-      alert('❌ Error al actualizar el perfil');
-    }
-  });
+    reader.onload = () => {
+      const imagenBase64 = reader.result as string;
+
+      const usuarioActualizado = {
+        Id: usuarioId,
+        Nombres: this.usuario.Nombre || '',
+        Apellidos: this.usuario.Apellido || '',
+        CorreoElectronico: this.usuario.CorreoElectronico || '',
+        TipoDocumento: this.usuario.TipoDocumento || '',
+        NDocumento: this.usuario.NDocumento || '',
+        Celular: this.usuario.Celular || '',
+        FNacimiento: this.usuario.FNacimiento || '',
+        FotoPerfil: imagenBase64
+      };
+
+      // Enviar el JSON al backend
+      this.http.put(url, usuarioActualizado).subscribe({
+        next: () => {
+          alert('✅ Perfil actualizado exitosamente');
+          this.router.navigate(['/perfil']);
+        },
+        error: (error) => {
+          console.error('❌ Error al actualizar perfil:', error);
+          alert('❌ Error al actualizar el perfil');
+        }
+      });
+    };
+
+    reader.onerror = (error) => {
+      console.error('❌ Error al leer la imagen:', error);
+      alert('❌ No se pudo leer la imagen');
+    };
+  } else {
+    // Si no hay imagen seleccionada, enviar sin imagen
+    const usuarioActualizado = {
+      Id: usuarioId,
+      Nombres: this.usuario.Nombre || '',
+      Apellidos: this.usuario.Apellido || '',
+      CorreoElectronico: this.usuario.CorreoElectronico || '',
+      TipoDocumento: this.usuario.TipoDocumento || '',
+      NDocumento: this.usuario.NDocumento || '',
+      Celular: this.usuario.Celular || '',
+      FNacimiento: this.usuario.FNacimiento || '',
+      FotoPerfil: '' // O mantener la imagen actual, si así lo prefieres
+    };
+
+    this.http.put(url, usuarioActualizado).subscribe({
+      next: () => {
+        alert('✅ Perfil actualizado exitosamente');
+        this.router.navigate(['/perfil']);
+      },
+      error: (error) => {
+        console.error('❌ Error al actualizar perfil:', error);
+        alert('❌ Error al actualizar el perfil');
+      }
+    });
+  }
 }
-
-
 }

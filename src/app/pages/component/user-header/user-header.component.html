@@ -1,16 +1,16 @@
-<header class="main-header" id="mainHeader">
+<header class="main-header">
   <div class="logo-contenedor">
     <div class="logo-animado">LIVESTOKWEB</div>
-
   </div>
+
   <nav class="nav-menu">
-    <a routerLink="/inicio" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
-    <a routerLink="/publicaciones" routerLinkActive="active-link">Publicaciones</a>
-    <a routerLink="/biografia" routerLinkActive="active-link">Bibliografia ganadera</a>
-    
+    <a routerLink="/inicio">Inicio</a>
+    <a routerLink="/publicaciones">Publicaciones</a>
+    <a routerLink="/biografia">Bibliografia ganadera</a>
   </nav>
- <div class="user-info" (click)="perfil()">
-  <img src="/img2.png" alt="Foto de perfil" class="profile-pic">
-  <span class="username">{{nombre}}</span>
+
+  <div class="user-info" (click)="perfil()">
+    <img src="/img2.png" alt="Foto de perfil" class="profile-pic" />
+    <span class="username">{{nombre}}</span>
   </div>
 </header>

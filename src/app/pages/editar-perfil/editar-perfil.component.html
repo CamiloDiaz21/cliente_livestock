@@ -1,6 +1,12 @@
-<div class= "fondo"><!-- editar-perfil.component.html -->
 <mat-card class="form-card">
   <h2>Editar Perfil</h2>
+
+  <!-- Imagen de perfil -->
+  <div class="image-upload-container">
+    <img [src]="imagenPreview || 'assets/default-avatar.png'" alt="Imagen de perfil" class="profile-image">
+    <button mat-raised-button color="accent" type="button" (click)="fileInput.click()">Seleccionar Imagen</button>
+    <input type="file" accept="image/*" (change)="onImagenSeleccionada($event)" hidden #fileInput>
+  </div>
 
   <form (ngSubmit)="guardarCambios()">
     <mat-form-field appearance="outline" class="full-width">
@@ -38,9 +44,6 @@
       <input matInput type="date" [(ngModel)]="usuario.FNacimiento" name="fnacimiento" />
     </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit">
-      Guardar Cambios
-    </button>
+    <button mat-raised-button color="primary" type="submit">Guardar Cambios</button>
   </form>
 </mat-card>
-</div>

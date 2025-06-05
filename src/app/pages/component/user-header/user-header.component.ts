@@ -16,10 +16,27 @@ export class UserHeaderComponent {
 
 nombre: string = '';
 
+
+
 ngOnInit() {
-  const nombre = localStorage.getItem('usuarioNombre') || '';
-  const apellido = localStorage.getItem('usuarioApellido') || '';
-  this.nombre = `${nombre} ${apellido}`.trim();
+
+    const nombreCompleto = localStorage.getItem('usuarioNombre');
+
+// Verificar que no sea null antes de trabajar con él
+  const primerNombre = nombreCompleto
+  ? nombreCompleto.trim().split(/\s+/)[0]
+  : '';
+  const apellidoCompleto = localStorage.getItem('usuarioApellido');
+
+// Verificar que no sea null antes de trabajar con él
+  const primerApellido = apellidoCompleto
+  ? apellidoCompleto.trim().split(/\s+/)[0]
+  : '';
+
+console.log(primerApellido);
+
+  const nombre = primerNombre + ' ' + primerApellido;
+  this.nombre = `${nombre}`.trim();
 }
   prevScrollPos = window.pageYOffset;
 
@@ -36,7 +53,7 @@ onWindowScroll() {
   }
 }
 
-  
+
 
   perfil() {
     this.router.navigate(['/perfil']);
