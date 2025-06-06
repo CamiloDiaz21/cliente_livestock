@@ -1,49 +1,64 @@
-<mat-card class="form-card">
-  <h2>Editar Perfil</h2>
+<div class="fondo">
+  <mat-card class="form-card">
+    <h2>Editar Perfil</h2>
 
-  <!-- Imagen de perfil -->
-  <div class="image-upload-container">
-    <img [src]="imagenPreview || 'assets/default-avatar.png'" alt="Imagen de perfil" class="profile-image">
-    <button mat-raised-button color="accent" type="button" (click)="fileInput.click()">Seleccionar Imagen</button>
-    <input type="file" accept="image/*" (change)="onImagenSeleccionada($event)" hidden #fileInput>
-  </div>
+    <div class="image-upload-container">
+      <img [src]="imagenPreview || '/perfil.jpg'" alt="Imagen de perfil" class="profile-image" />
+      <br />
+      <button mat-raised-button color="accent" type="button" (click)="fileInput.click()">Seleccionar Imagen</button>
+      <input type="file" accept="image/*" (change)="onImagenSeleccionada($event)" hidden #fileInput />
+    </div>
 
-  <form (ngSubmit)="guardarCambios()">
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Nombres</mat-label>
-      <input matInput [(ngModel)]="usuario.Nombres" name="nombre" required />
-    </mat-form-field>
+    <form (ngSubmit)="guardarCambios()" #formulario="ngForm">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nombres</mat-label>
+        <input matInput [(ngModel)]="usuario.Nombre" name="nombre" required />
+      </mat-form-field>
 
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Apellidos</mat-label>
-      <input matInput [(ngModel)]="usuario.Apellidos" name="apellido" required />
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Apellidos</mat-label>
+        <input matInput [(ngModel)]="usuario.Apellido" name="apellido" required />
+      </mat-form-field>
 
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Correo</mat-label>
-      <input matInput [(ngModel)]="usuario.CorreoElectronico" name="correo" required />
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Correo</mat-label>
+        <input matInput type="email" [(ngModel)]="usuario.CorreoElectronico" name="correo" required />
+      </mat-form-field>
 
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Tipo de documento</mat-label>
-      <input matInput [(ngModel)]="usuario.TipoDocumento" name="tipoDocumento" />
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Tipo de usuario</mat-label>
+        <mat-select [(ngModel)]="usuario.IdTipoUsuario" name="tipoUsuario" required>
+          <mat-option *ngFor="let tipo of tiposUsuario" [value]="tipo">
+            {{ tipo.Nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Número de documento</mat-label>
-      <input matInput [(ngModel)]="usuario.NDocumento" name="nDocumento" />
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Tipo de documento</mat-label>
+        <mat-select [(ngModel)]="usuario.IdTipoDocumento" name="tipoDocumento" required>
+          <mat-option *ngFor="let doc of tiposDocumento" [value]="doc">
+            {{ doc.Nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Número de documento</mat-label>
+        <input matInput [(ngModel)]="usuario.NDocumento" name="nDocumento" />
+      </mat-form-field>
 
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Celular</mat-label>
-      <input matInput [(ngModel)]="usuario.Celular" name="celular" />
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Celular</mat-label>
+        <input matInput type="tel" [(ngModel)]="usuario.Celular" name="celular" />
+      </mat-form-field>
 
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Fecha de nacimiento</mat-label>
-      <input matInput type="date" [(ngModel)]="usuario.FNacimiento" name="fnacimiento" />
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Fecha de nacimiento</mat-label>
+        <input matInput type="date" [(ngModel)]="usuario.FNacimiento" name="fnacimiento" />
+      </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit">Guardar Cambios</button>
-  </form>
-</mat-card>
+      <button mat-raised-button color="primary" type="submit">Guardar Cambios</button>
+    </form>
+  </mat-card>
+</div>

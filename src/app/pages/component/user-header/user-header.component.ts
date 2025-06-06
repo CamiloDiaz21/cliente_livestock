@@ -53,8 +53,6 @@ onWindowScroll() {
   }
 }
 
-
-
   perfil() {
     this.router.navigate(['/perfil']);
   }
