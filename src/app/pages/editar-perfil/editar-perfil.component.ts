@@ -7,7 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatOptionModule,  } from '@angular/material/core';
+import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 
 @Component({
@@ -37,55 +37,44 @@ export class EditarPerfilComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
-    const datos = localStorage.getItem('usuario');
-    if (datos) {
-      this.usuario = JSON.parse(datos);
-      this.imagenPreview = this.usuario.FotoPerfil || null;
-
-      // Aseguramos que los tipos sean objetos completos
-      if (typeof this.usuario.IdTipoDocumento === 'number') {
-        this.usuario.IdTipoDocumento = { Id: this.usuario.IdTipoDocumento };
-      }
-
-      if (typeof this.usuario.IdTipoUsuario === 'number') {
-        this.usuario.IdTipoUsuario = { Id: this.usuario.IdTipoUsuario };
-      }
-    }
-
-    this.cargarTiposDocumento();
-    this.cargarTiposUsuario();
+  const data = localStorage.getItem('usuarioId');
+  if (data) {
+    this.usuario = JSON.parse(data);
+    this.imagenPreview = this.usuario.FotoPerfil ? `data:image/png;base64,${this.usuario.FotoPerfil}` : null;
   }
 
-  cargarTiposDocumento() {
-  this.http.get<any>('http://localhost:8087/v1/tipo_documento').subscribe({
-    next: (response) => {
-      this.tiposDocumento = response["Consulta de id"];
+  this.cargarTiposDocumento();
+  this.cargarTiposUsuario();
+}
 
-      // Si el usuario ya tiene asignado un tipo de documento, seleccionarlo del arreglo
-      if (this.usuario?.IdTipoDocumento?.Id) {
-        this.usuario.IdTipoDocumento = this.tiposDocumento.find(
-          doc => doc.Id === this.usuario.IdTipoDocumento.Id
-        );
-      }
-    },
-    error: (err) => console.error('Error cargando tipos de documento:', err),
-  });
+  cargarTiposDocumento() {
+    this.http.get<any>('http://localhost:8087/v1/tipo_documento').subscribe({
+      next: (response) => {
+        this.tiposDocumento = response["Consulta de id"];
+
+        if (this.usuario?.IdTipoDocumento?.Id) {
+          this.usuario.IdTipoDocumento = this.tiposDocumento.find(
+            doc => doc.Id === this.usuario.IdTipoDocumento.Id
+          );
+        }
+      },
+      error: (err) => console.error('Error cargando tipos de documento:', err),
+    });
   }
 
   cargarTiposUsuario() {
-  this.http.get<any>('http://localhost:8087/v1/tipo_usuario').subscribe({
-    next: (response) => {
-      this.tiposUsuario = response["Consulta de id"];
+    this.http.get<any>('http://localhost:8087/v1/tipo_usuario').subscribe({
+      next: (response) => {
+        this.tiposUsuario = response["Consulta de id"];
 
-      // Seleccionar el tipo correcto si el usuario ya lo tiene asignado
-      if (this.usuario?.IdTipoUsuario?.Id) {
-        this.usuario.IdTipoUsuario = this.tiposUsuario.find(
-          tipo => tipo.Id === this.usuario.IdTipoUsuario.Id
-        );
-      }
-    },
-    error: (err) => console.error('Error cargando tipos de usuario:', err),
-  });
+        if (this.usuario?.IdTipoUsuario?.Id) {
+          this.usuario.IdTipoUsuario = this.tiposUsuario.find(
+            tipo => tipo.Id === this.usuario.IdTipoUsuario.Id
+          );
+        }
+      },
+      error: (err) => console.error('Error cargando tipos de usuario:', err),
+    });
   }
 
   onImagenSeleccionada(event: any): void {
@@ -101,45 +90,23 @@ export class EditarPerfilComponent implements OnInit {
       reader.readAsDataURL(file);
     }
   }
+guardarCambios() {
+  const payload = {
+    ...this.usuario,
+    // Asegúrate de no romper la estructura de los objetos requeridos
+    IdTipoDocumento: this.tiposDocumento.find(d => d.Id === this.usuario.IdTipoDocumento.Id),
+    IdTipoUsuario: this.tiposUsuario.find(u => u.Id === this.usuario.IdTipoUsuario.Id),
+    FModificacion: new Date().toISOString()
+  };
 
-  guardarCambios(): void {
-    const usuarioId = this.usuario.Id || localStorage.getItem('usuarioId');
-    const url = `http://localhost:8087/v1/registro_usuario/${usuarioId}`;
-
-    const usuarioActualizado = {
-      Id: usuarioId,
-      Nombre: this.usuario.Nombre || '',
-      Apellido: this.usuario.Apellido || '',
-      CorreoElectronico: this.usuario.CorreoElectronico || '',
-      FNacimiento: this.usuario.FNacimiento || '',
-      NDocumento: this.usuario.NDocumento || '',
-      Celular: this.usuario.Celular || '',
-      FotoPerfil: this.imagenBase64 || this.usuario.FotoPerfil || '',
-      IdTipoDocumento: {
-        Id: this.usuario.IdTipoDocumento?.Id
-      },
-      IdTipoUsuario: {
-        Id: this.usuario.IdTipoUsuario?.Id
-      },
-      Contrasena: {
-        Id: this.usuario.Contrasena?.Id,
-        Contrasena: this.usuario.Contrasena?.Contrasena,
-        Activo: this.usuario.Contrasena?.Activo,
-        FechaCreacion: this.usuario.Contrasena?.FechaCreacion,
-        FechaModificacion: new Date().toISOString()
-      }
-    };
-
-    this.http.put(url, usuarioActualizado).subscribe({
-      next: () => {
-        localStorage.setItem('usuario', JSON.stringify(usuarioActualizado));
-        alert('✅ Perfil actualizado exitosamente');
-        this.router.navigate(['/perfil']);
-      },
-      error: (error) => {
-        console.error('❌ Error al actualizar perfil:', error);
-        alert('❌ Error al actualizar el perfil');
-      }
-    });
+  this.http.put(`http://localhost:8087/v1/registro_usuario/${this.usuario.Id}`, payload).subscribe({
+    next: () => {
+      // Guardamos exactamente el objeto enviado para mantener consistencia
+      localStorage.setItem('usuario', JSON.stringify(payload));
+      alert('✅ Perfil actualizado correctamente');
+      this.router.navigate(['/perfil']);
+    },
+    error: () => alert('❌ Error al actualizar el perfil')
+  });
   }
 }

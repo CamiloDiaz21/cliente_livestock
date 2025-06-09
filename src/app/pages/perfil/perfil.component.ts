@@ -13,6 +13,7 @@ import { UsuarioService, Usuario } from '../../../services/usuario.service';
 import { HacerPublicacionComponent } from '../hacer-publicacion/hacer-publicacion.component';
 import { UserHeaderComponent } from "../component/user-header/user-header.component";
 import { EditarPerfilComponent } from '../editar-perfil/editar-perfil.component';
+import { HojaVidaComponent } from '../hoja-vida/hoja-vida.component';
 
 @Component({
   selector: 'app-perfil',
@@ -72,6 +73,13 @@ console.log(primerApellido);
 
 }
 
+HojaVida(): void {
+  this.dialog.open(HojaVidaComponent, {
+    width: '600px'
+  });
+}
+
+
   Editar(): void {
     this.dialog.open(EditarPerfilComponent, {
       width: '500px'
@@ -82,10 +90,5 @@ console.log(primerApellido);
     this.dialog.open(HacerPublicacionComponent, {
       width: '600px'
     });
-  }
-
-  generarImagenPerfil(id: number): string {
-    // Esto es solo un ejemplo. Si tu backend ya manda `imagen_url`, elimina esta función.
-    return `https://api.multiavatar.com/${id}.png`;
   }
 }

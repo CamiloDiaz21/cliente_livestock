@@ -1,0 +1,14 @@
+.cv-form {
+  max-width: 500px;
+  margin: auto;
+  padding: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.file-info {
+  margin-top: 0.5rem;
+  color: #555;
+}
