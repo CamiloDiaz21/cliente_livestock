@@ -1,3 +1,20 @@
+<form (ngSubmit)="onSubmit()" class="cv-form">
+  <mat-card>
+    <mat-card-title>Subir Hoja de Vida</mat-card-title>
+    <mat-card-content>
+      <div class="form-group">
+        <label for="pdf">Selecciona tu hoja de vida (PDF):</label>
+        <input type="file" id="pdf" (change)="onFileSelected($event)" accept="application/pdf" required />
+      </div>
 
-
-
+      <div *ngIf="fileName" class="file-info">
+        Archivo seleccionado: <strong>{{ fileName }}</strong>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!selectedFile">
+        Subir
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>
