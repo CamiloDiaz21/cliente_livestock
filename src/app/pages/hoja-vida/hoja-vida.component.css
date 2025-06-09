@@ -1,14 +1,61 @@
 .cv-form {
   max-width: 500px;
-  margin: auto;
-  padding: 1rem;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+input[type="file"] {
+  padding: 0.5rem;
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #ccc;
 }
 
 .file-info {
   margin-top: 0.5rem;
-  color: #555;
+  color: #444;
+  font-style: italic;
+}
+
+mat-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button[mat-raised-button] {
+  padding: 0.5rem 1.25rem;
+  font-weight: 500;
+}
+
+/* Snackbars personalizados */
+.snackbar-success {
+  background-color: #4caf50 !important; /* verde */
+  color: #fff !important;
+  font-weight: bold;
+}
+
+.snackbar-error {
+  background-color: #f44336 !important; /* rojo */
+  color: #fff !important;
+  font-weight: bold;
 }

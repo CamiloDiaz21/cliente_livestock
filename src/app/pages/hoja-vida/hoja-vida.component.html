@@ -4,7 +4,8 @@
     <mat-card-content>
       <div class="form-group">
         <label for="pdf">Selecciona tu hoja de vida (PDF):</label>
-        <input type="file" id="pdf" (change)="onFileSelected($event)" accept="application/pdf" required />
+        <input type="file" id="id" (change)="onFileSelected($event)" accept="application/pdf" required />
+        
       </div>
 
       <div *ngIf="fileName" class="file-info">
