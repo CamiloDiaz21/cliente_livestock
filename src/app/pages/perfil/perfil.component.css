@@ -165,3 +165,66 @@ button.mat-raised-button:hover {
   display: flex;
   flex-direction: column;
 }
+
+.contenedor-bibliografia {
+  max-width: 1200px;
+  margin: auto;
+  padding: 65px 200px;
+  text-align: center;
+}
+
+.filtros {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.filtros button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #8e0000;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.filtros button:hover {
+  background-color: #5f0000;
+}
+
+.grid-recursos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.tarjeta-recurso {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+
+.tarjeta-recurso:hover {
+  transform: translateY(-5px);
+}
+
+.tarjeta-recurso img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.tarjeta-recurso a {
+  color: #8e0000;
+  font-weight: bold;
+  text-decoration: none;
+}
+

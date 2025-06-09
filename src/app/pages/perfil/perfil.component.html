@@ -1,4 +1,5 @@
 <app-user-header></app-user-header>
+
 <div class="perfil-container">
   <mat-card class="perfil-lateral" *ngIf="usuario">
     <img [src]="usuario.imagen_url" alt="Foto de perfil" class="imagen-perfil" />
@@ -11,80 +12,112 @@
       <mat-icon>edit</mat-icon> Editar Perfil
     </button>
     <div class="rol-badge" [ngClass]="{ 'vendedor': usuario.usuarioTipo === 'vendedor' }">
-    {{ usuario.usuarioTipo }}
+      {{ usuario.usuarioTipo }}
     </div>
   </mat-card>
 
   <mat-card class="perfil-info">
     <mat-tab-group>
+
+      <!-- PERFIL -->
       <mat-tab label="Perfil">
-  <div class="info-grid-2col">
+        <div class="info-grid-2col">
+          <div class="info-pair">
+            <div class="info-item">
+              <strong>Nombre:</strong>
+              <span>{{ usuario?.Nombres }}</span>
+            </div>
+            <div class="info-item">
+              <strong>Tipo de documento:</strong>
+              <span>{{ usuario?.tipodocumento || 'No definido' }}</span>
+            </div>
+          </div>
 
-    <div class="info-pair">
-      <div class="info-item">
-        <strong>Nombre:</strong>
-        <span>{{ usuario?.Nombres }}</span>
-      </div>
-      <div class="info-item">
-        <strong>Tipo de documento:</strong>
-        <span>{{ usuario?.tipodocumento || 'No definido' }}</span>
-      </div>
-    </div>
+          <div class="info-pair">
+            <div class="info-item">
+              <strong>Correo:</strong>
+              <span>{{ usuario?.CorreoElectronico }}</span>
+            </div>
+            <div class="info-item">
+              <strong>Número de documento:</strong>
+              <span>{{ usuario?.DocumentoUsuario || 'No definido' }}</span>
+            </div>
+          </div>
 
-    <div class="info-pair">
-      <div class="info-item">
-        <strong>Correo:</strong>
-        <span>{{ usuario?.CorreoElectronico }}</span>
-      </div>
-      <div class="info-item">
-        <strong>Número de documento:</strong>
-        <span>{{ usuario?.DocumentoUsuario || 'No definido' }}</span>
-      </div>
-    </div>
+          <div class="info-pair">
+            <div class="info-item">
+              <strong>Tipo de usuario:</strong>
+              <span>{{ usuario?.usuarioTipo }}</span>
+            </div>
+            <div class="info-item">
+              <strong>Celular:</strong>
+              <span>{{ usuario?.telefono || 'No definido' }}</span>
+            </div>
+          </div>
 
-    <div class="info-pair">
-      <div class="info-item">
-        <strong>Tipo de usuario:</strong>
-        <span>{{ usuario?.usuarioTipo }}</span>
-      </div>
-      <div class="info-item">
-        <strong>Celular:</strong>
-        <span>{{ usuario?.telefono || usuario?.telefono }}</span>
-      </div>
-    </div>
+          <div class="info-pair">
+            <div class="info-item"></div> <!-- Espacio para equilibrar -->
+            <div class="info-item">
+              <strong>Fecha de nacimiento:</strong>
+              <span>{{ usuario?.FechaNacimiento || 'No definida' }}</span>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
 
-    <div class="info-pair">
-      <div class="info-item"></div> <!-- vacío para equilibrio -->
-      <div class="info-item">
-        <strong>Fecha de nacimiento:</strong>
-        <span>{{ usuario?.FechaNacimiento || 'No definida' }}</span>
-      </div>
-    </div>
-
-  </div>
-</mat-tab>
-
-
-
+      <!-- HOJA DE VIDA -->
       <mat-tab label="Hoja de Vida">
         <div class="info-grid">
           <h2>Hoja de vida</h2>
-          <button mat-raised-button color="accent" (click)="HojaVida()">
+          <button mat-raised-button color="accent" (click)="HojaVida()" class="btn-cv">
             <mat-icon>upload</mat-icon> Publicar Hoja de vida
           </button>
-          <!-- CV data aquí -->
+          <!-- Aquí puedes agregar una lista o archivo del CV si lo deseas -->
         </div>
       </mat-tab>
 
+      <!-- PUBLICACIONES -->
       <mat-tab label="Publicaciones">
         <div class="info-grid">
           <h2>Publicaciones</h2>
-          <button mat-raised-button color="accent" (click)="Publicar()">
+
+          <!-- Botón para nueva publicación -->
+          <button mat-raised-button color="accent" (click)="Publicar()" class="btn-publicar">
             <mat-icon>post_add</mat-icon> Hacer Publicación
           </button>
-          <!-- Publicaciones aquí -->
+
+          <!-- Filtro de tipo -->
+          <div class="filtro-container">
+            <label for="filtroTipo">Filtrar por tipo:</label>
+            <select id="filtroTipo" [(ngModel)]="filtroSeleccionado">
+              <option value="todos">Todos</option>
+              <option value="ganado">Ganado</option>
+              <option value="hacienda">Hacienda</option>
+              <!-- Agrega más si es necesario -->
+            </select>
+          </div>
+
+          <!-- Lista de publicaciones -->
+          <div class="tarjetas-container">
+            <mat-card *ngFor="let recurso of recursosFiltrados" class="tarjeta-recurso">
+              <div *ngFor="let publicacion of publicaciones">
+                <h3>{{ publicacion.Descripcion }}</h3>
+
+            <div *ngFor="let img of publicacion.imagenes">
+              <img [src]="img" alt="Imagen" width="200" />
+            </div>
+          </div>
+              <mat-card-content>
+                <p>{{ recurso.Descripcion }}</p>
+                <p><strong>Usuario:</strong> {{ recurso.Usuario }}</p>
+                <p><strong>Fecha:</strong> {{ recurso.FCreacion }}</p>
+                <a [href]="recurso.enlace" class="enlace" target="_blank">Ver recurso</a>
+              </mat-card-content>
+            </mat-card>
+          </div>
         </div>
       </mat-tab>
+
     </mat-tab-group>
   </mat-card>
 </div>
