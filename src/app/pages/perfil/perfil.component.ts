@@ -74,7 +74,7 @@ console.log(primerApellido);
 
   Editar(): void {
     this.dialog.open(EditarPerfilComponent, {
-      width: '600px'
+      width: '500px'
     });
   }
 

@@ -2,7 +2,7 @@
   background-color: #f5f1f1;
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 96.9vw;
   height: 70px;
   display: flex;
   align-items: center;
@@ -89,13 +89,11 @@
 
 /* Usuario */
 .user-info {
-  flex: 1;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 10px;
-  max-width: 100%;
+  gap: 1px;
   cursor: pointer;
+  margin-left: auto;
 }
 
 .profile-pic {
@@ -111,10 +109,10 @@
   font-size: 16px;
   color: #692828;
   font-weight: 500;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 220px;
+  white-space: normal;     /* permite saltos de línea */
+  overflow: visible;       /* deja que se muestre completo */
+  text-overflow: unset;    /* quita los puntos suspensivos */
+  word-break: break-word
 }
 
 /* Header al hacer scroll */
@@ -160,5 +158,37 @@
 @media screen and (max-width: 500px) {
   .username {
     display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    align-items: stretch; /* cambia esto para que se acomode verticalmente */
+    height: auto;
+    padding: 15px 20px;
+  }
+
+  .nav-menu {
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .user-info {
+    justify-content: flex-start;
+    margin-top: 10px;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .username {
+    max-width: 100%;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
