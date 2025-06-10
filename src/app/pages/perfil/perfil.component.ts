@@ -25,6 +25,7 @@ import { HojaVidaComponent } from '../hoja-vida/hoja-vida.component';
     MatCardModule,
     CommonModule,
     FormsModule,
+
     UserHeaderComponent
   ],
   templateUrl: './perfil.component.html',

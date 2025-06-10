@@ -1,25 +1,169 @@
 <app-user-header></app-user-header>
 
-<div class="contenedor-bibliografia">
-  <h1>Bibliografía Ganadera</h1>
-  <p>Explora libros, artículos, y recursos útiles para el sector ganadero.</p>
+<div class="biografia-container">
+  <mat-tab-group>
+    <mat-tab label="Introducción">
+      <mat-card class="intro-card">
+        <mat-card-title>Biografía Ganadera en Sudamérica</mat-card-title>
+        <mat-card-content>
+          <p>
+            La ganadería ha sido una parte esencial del desarrollo económico, social y cultural en los países sudamericanos.
+            Gracias a la diversidad de climas y geografías, cada país ha adaptado razas específicas para carne, leche o doble propósito.
+            A continuación, presentamos un recorrido detallado por las razas más representativas de Colombia, Brasil, Perú y Ecuador.
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
 
-  <div class="filtros">
-    <button (click)="seleccionarFiltro('todos')">Todos</button>
-    <button (click)="seleccionarFiltro('libro')">Libros</button>
-    <button (click)="seleccionarFiltro('articulo')">Artículos</button>
-    <button (click)="seleccionarFiltro('video')">Videos</button>
-  </div>
+  <mat-tab label="Colombia">
+  <mat-card class="raza-card">
+    <img src="Romosinuano.jpg" alt="Romosinuano" class="raza-img" />
+    <mat-card-title>Romosinuano</mat-card-title>
+    <mat-card-content>
+      <p><strong>Origen:</strong> Valle del Sinú, Córdoba.</p>
+      <p><strong>Características:</strong> Ganado sin cuernos (mocho), de temperamento dócil, excelente adaptabilidad al trópico bajo.</p>
+      <p><strong>Uso:</strong> Principalmente carne.</p>
+      <p>Esta raza es un patrimonio genético colombiano muy valorado en programas de mejoramiento genético, especialmente en zonas de calor extremo.</p>
+    </mat-card-content>
+  </mat-card>
 
-  <div class="grid-recursos">
-    <div class="tarjeta-recurso" *ngFor="let recurso of recursosFiltrados">
-      <img [src]="recurso.imagen" alt="Recurso" />
-      <h3>{{ recurso.titulo }}</h3>
-      <p><strong>Autor:</strong> {{ recurso.autor }}</p>
-      <p><strong>Año:</strong> {{ recurso.anio }}</p>
-      <a [href]="recurso.enlace" target="_blank">Ver recurso</a>
-    </div>
-  </div>
+  <mat-card class="raza-card">
+    <img src="/BlancoONegro.jpg" alt="Blanco Orejinegro" class="raza-img" />
+    <mat-card-title>Blanco Orejinegro (BON)</mat-card-title>
+    <mat-card-content>
+      <p><strong>Origen:</strong> Antioquia.</p>
+      <p><strong>Características:</strong> Tolerante a enfermedades, excelente para zonas montañosas, buena capacidad materna.</p>
+      <p><strong>Uso:</strong> Doble propósito (carne y leche).</p>
+      <p>Raza criolla estratégica para sistemas sostenibles del trópico alto. Destaca por su longevidad y fertilidad.</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="raza-card">
+    <img src="assets/images/costeno.jpg" alt="Costeño con Cuernos" class="raza-img" />
+    <mat-card-title>Costeño con Cuernos</mat-card-title>
+    <mat-card-content>
+      <p><strong>Origen:</strong> Región Caribe colombiana.</p>
+      <p><strong>Características:</strong> Buena adaptación al trópico seco, rusticidad, cuernos prominentes.</p>
+      <p><strong>Uso:</strong> Carne.</p>
+      <p>Es una de las razas criollas más antiguas del país, con alto valor genético para cruzamientos por su resistencia natural.</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="raza-card">
+    <img src="assets/images/sanmartinero.jpg" alt="Sanmartinero" class="raza-img" />
+    <mat-card-title>Sanmartinero</mat-card-title>
+    <mat-card-content>
+      <p><strong>Origen:</strong> Llanos Orientales, departamento del Meta.</p>
+      <p><strong>Características:</strong> Adaptación al trópico húmedo, buena fertilidad y longevidad.</p>
+      <p><strong>Uso:</strong> Carne.</p>
+      <p>Utilizada en sistemas extensivos. Su rusticidad la hace ideal para mejorar hato comercial en zonas de sabana natural.</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="raza-card">
+    <img src="assets/images/harton.jpg" alt="Hartón del Valle" class="raza-img" />
+    <mat-card-title>Hartón del Valle</mat-card-title>
+    <mat-card-content>
+      <p><strong>Origen:</strong> Valle del Cauca.</p>
+      <p><strong>Características:</strong> Tolerancia a enfermedades, buen rendimiento lechero en climas cálidos.</p>
+      <p><strong>Uso:</strong> Leche.</p>
+      <p>Es una de las pocas razas criollas especializadas en leche, siendo muy valorada por ganaderos de trópico medio.</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="raza-card">
+    <img src="assets/images/lucerna.jpg" alt="Lucerna" class="raza-img" />
+    <mat-card-title>Lucerna</mat-card-title>
+    <mat-card-content>
+      <p><strong>Origen:</strong> Cruce entre Shorthorn y ganado criollo colombiano.</p>
+      <p><strong>Características:</strong> Buen rendimiento cárnico y lechero, tolerancia al trópico.</p>
+      <p><strong>Uso:</strong> Doble propósito.</p>
+      <p>Muy utilizada en el suroccidente colombiano. Combina productividad con rusticidad.</p>
+    </mat-card-content>
+  </mat-card>
+</mat-tab>
+
+
+    <mat-tab label="Brasil">
+      <mat-card class="raza-card">
+        <mat-card-title>Nelore</mat-card-title>
+        <mat-card-content>
+          <p><strong>Origen:</strong> India, pero desarrollado intensamente en Brasil.</p>
+          <p><strong>Características:</strong> Muy musculoso, joroba desarrollada, pelo blanco y piel negra, extremadamente resistente al calor y enfermedades tropicales.</p>
+          <p><strong>Uso:</strong> Producción de carne.</p>
+          <p>
+            El Nelore representa más del 80% del hato bovino brasileño. Su capacidad de sobrevivir y engordar en condiciones extremas
+            lo ha hecho la base genética de la ganadería de carne en Brasil y otros países tropicales.
+          </p>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="raza-card">
+        <mat-card-title>Girolando</mat-card-title>
+        <mat-card-content>
+          <p><strong>Origen:</strong> Cruce entre Gyr y Holstein.</p>
+          <p><strong>Características:</strong> Alta producción de leche, tolerancia al calor y resistencia a parásitos.</p>
+          <p><strong>Uso:</strong> Producción de leche.</p>
+          <p>
+            Es la raza lechera tropical más difundida en Brasil. Con porcentajes genéticos ajustables, permite equilibrar
+            rusticidad y productividad según el sistema de producción.
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+
+    <mat-tab label="Perú">
+      <mat-card class="raza-card">
+        <mat-card-title>Criollo Peruano</mat-card-title>
+        <mat-card-content>
+          <p><strong>Origen:</strong> Introducido por los españoles en la colonia.</p>
+          <p><strong>Características:</strong> Adaptado a condiciones de altura y escasa alimentación, rusticidad y resistencia.</p>
+          <p><strong>Uso:</strong> Carne, trabajo y en ocasiones leche.</p>
+          <p>
+            Aunque menos productivo que razas mejoradas, es esencial para zonas altoandinas donde razas europeas no prosperan.
+          </p>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="raza-card">
+        <mat-card-title>Brown Swiss</mat-card-title>
+        <mat-card-content>
+          <p><strong>Origen:</strong> Suiza, pero ampliamente adoptada en regiones andinas.</p>
+          <p><strong>Características:</strong> Buen rendimiento lechero en climas templados a fríos.</p>
+          <p><strong>Uso:</strong> Lechero.</p>
+          <p>
+            Apreciada por su producción de leche con altos sólidos totales y por su resistencia a terrenos montañosos y climas extremos.
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+
+    <mat-tab label="Ecuador">
+      <mat-card class="raza-card">
+        <mat-card-title>Brahman</mat-card-title>
+        <mat-card-content>
+          <p><strong>Origen:</strong> India y EE.UU.</p>
+          <p><strong>Características:</strong> Gran rusticidad, buena ganancia de peso, resistente al estrés calórico.</p>
+          <p><strong>Uso:</strong> Carne.</p>
+          <p>
+            Usado tanto en pureza como en cruzamientos con otras razas para mejorar adaptabilidad y rendimiento en el trópico bajo ecuatoriano.
+          </p>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="raza-card">
+        <mat-card-title>Holstein</mat-card-title>
+        <mat-card-content>
+          <p><strong>Origen:</strong> Europa (Países Bajos/Alemania).</p>
+          <p><strong>Características:</strong> Altísima producción lechera, pero menos tolerancia al calor.</p>
+          <p><strong>Uso:</strong> Leche.</p>
+          <p>
+            En Ecuador se adapta mejor en zonas altas o en cruzamientos con razas cebuinas para mayor resistencia en climas cálidos.
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+  </mat-tab-group>
 </div>
 
 <app-user-footer></app-user-footer>

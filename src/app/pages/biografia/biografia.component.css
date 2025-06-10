@@ -1,61 +1,77 @@
-.contenedor-bibliografia {
-  max-width: 1200px;
-  margin: auto;
-  padding: 65px 200px;
-  text-align: center;
-}
-
-.filtros {
-  margin: 20px 0;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.filtros button {
-  padding: 10px 20px;
-  border: none;
-  background-color: #8e0000;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.filtros button:hover {
-  background-color: #5f0000;
-}
-
-.grid-recursos {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 25px;
-  margin-top: 30px;
-}
-
-.tarjeta-recurso {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  padding: 20px;
-  text-align: left;
-  transition: transform 0.2s ease;
-}
-
-.tarjeta-recurso:hover {
-  transform: translateY(-5px);
-}
-
-.tarjeta-recurso img {
+app-user-header {
+  position: fixed;
+  top: 0;
   width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 15px;
+  z-index: 1000;
 }
 
-.tarjeta-recurso a {
-  color: #8e0000;
-  font-weight: bold;
-  text-decoration: none;
+/* Estilo general del contenedor */
+.biografia-container {
+  padding: 32px;
+  margin-top: 80px; /* Ajusta según la altura real del header */
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f8f9fa;
+}
+.raza-img {
+  width: 80%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+
+/* Estilo para cada tarjeta */
+mat-card.raza-card, mat-card.intro-card {
+  margin-bottom: 24px;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+}
+
+/* Título del card */
+mat-card-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #2e3a59;
+  margin-bottom: 12px;
+}
+
+/* Contenido del card */
+mat-card-content p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+/* Párrafos más espaciados */
+mat-card-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Estilo del mat-tab-group */
+mat-tab-group {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 16px;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .biografia-container {
+    padding: 16px;
+  }
+
+  mat-card-title {
+    font-size: 1.4rem;
+  }
+
+  mat-card-content p {
+    font-size: 0.95rem;
+  }
 }
